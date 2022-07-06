@@ -10,18 +10,16 @@ class Continent extends FootballApiClient
     /**
      * @throws GuzzleException
      */
-    public function all(): object
+    public function all(string|array $include = ''): object
     {
-        $response = $this->core->get('continents');
-        return $this->process($response);
+        return $this->call($this->core, 'continents', $include);
     }
 
     /**
      * @throws GuzzleException
      */
-    public function byId(int $id): object
+    public function byId(int $id, string|array $include = ''): object
     {
-        $response = $this->core->get("continents/{$id}");
-        return $this->process($response);
+        return $this->call($this->core, "continents/${id}", $include);
     }
 }

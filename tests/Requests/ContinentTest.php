@@ -12,7 +12,7 @@ class ContinentTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_retrieves_continents()
+    public function it_retrieves_all_continents()
     {
         $data = FootballApi::continents()->all();
         $this->assertNotEmpty($data->data);
