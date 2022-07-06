@@ -8,6 +8,7 @@ use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\League;
 use Sportmonks\FootballApi\Requests\Region;
 use Sportmonks\FootballApi\Requests\Season;
+use Sportmonks\FootballApi\Requests\Team;
 use Sportmonks\FootballApi\Requests\Type;
 
 class FootballApi
@@ -45,5 +46,10 @@ class FootballApi
     public static function seasons(): Season
     {
         return new Season();
+    }
+
+    public static function teams(?int $id = null): Team
+    {
+        return new Team($id);
     }
 }
