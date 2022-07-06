@@ -1,0 +1,34 @@
+{
+    "name": "fpicosm/sportmonks-football-api",
+    "description": "Laravel/Lumen wrapper for Sportmonks Football Api v3",
+    "version": "0.1.0",
+    "keywords": ["football", "soccer", "api", "statistics", "sportmonks", "live", "sports"],
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {
+            "Sportmonks\\FootballApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fernando Picos",
+            "email": "fpicosm@gmail.com",
+            "homepage": "https://github.com/fpicosm",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^9.19",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "laravel/laravel": "^9.2"
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    }
+}
