@@ -104,7 +104,7 @@ class Team extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-all-leagues-by-id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function leagues(array $params = []): object
     {
@@ -119,7 +119,7 @@ class Team extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-current-leagues-by-id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function currentLeagues(array $params = []): object
     {
@@ -134,7 +134,7 @@ class Team extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function squad(array $params = []): object
     {
@@ -151,12 +151,44 @@ class Team extends FootballApiClient
      * @param   int     $seasonId   a valid season id from seasons endpoint
      * @param   array   $params     the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function squadBySeason(int $seasonId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
 
         return $this->call("squads/seasons/{$seasonId}/teams/{$this->id}", $params);
+    }
+
+    /**
+     * Returns the fixtures you’ve requested by date range for a specific team.
+     *
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team
+     * @param   string  $start  the start date
+     * @param   string  $end    the end date
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException|InvalidArgumentException
+     */
+    public function fixturesByDateRange(string $start, string $end, array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No team ID set');
+
+        return $this->call("fixtures/between/{$start}/{$end}/{$this->id}", $params);
+    }
+
+    /**
+     * Returns the head-to-head fixtures of two teams you’ve requested.
+     *
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head
+     * @param   int     $opponentId a valid team id
+     * @param   array   $params     the query params
+     * @return  object  the response object
+     * @throws  GuzzleException|InvalidArgumentException
+     */
+    public function headToHead(int $opponentId, array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No team ID set');
+        return $this->call("fixtures/head-to-head/{$this->id}/{$opponentId}", $params);
     }
 }

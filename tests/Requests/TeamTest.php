@@ -100,4 +100,24 @@ class TeamTest extends TestCase
         $data = FootballApi::teams(self::ID)->squadBySeason(SeasonTest::ID);
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_the_fixtures_by_date_range()
+    {
+        $data = FootballApi::teams(self::ID)->fixturesByDateRange('2021-10-01', '2022-01-01');
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_the_head_to_head()
+    {
+        $data = FootballApi::teams(self::ID)->headToHead(2);
+        $this->assertNotEmpty($data->data);
+    }
 }

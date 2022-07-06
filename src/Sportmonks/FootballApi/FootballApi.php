@@ -5,6 +5,7 @@ namespace Sportmonks\FootballApi;
 use Sportmonks\FootballApi\Requests\City;
 use Sportmonks\FootballApi\Requests\Continent;
 use Sportmonks\FootballApi\Requests\Country;
+use Sportmonks\FootballApi\Requests\Fixture;
 use Sportmonks\FootballApi\Requests\League;
 use Sportmonks\FootballApi\Requests\Player;
 use Sportmonks\FootballApi\Requests\Region;
@@ -29,6 +30,11 @@ class FootballApi
     public static function countries(): Country
     {
         return new Country();
+    }
+
+    public static function fixtures(): Fixture
+    {
+        return new Fixture();
     }
 
     public static function regions(): Region
