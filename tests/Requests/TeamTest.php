@@ -80,4 +80,24 @@ class TeamTest extends TestCase
         $data = FootballApi::teams(self::ID)->currentLeagues();
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_the_current_squad()
+    {
+        $data = FootballApi::teams(self::ID)->squad();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_the_season_squad()
+    {
+        $data = FootballApi::teams(self::ID)->squadBySeason(SeasonTest::ID);
+        $this->assertNotEmpty($data->data);
+    }
 }

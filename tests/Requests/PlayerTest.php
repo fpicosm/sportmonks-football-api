@@ -51,6 +51,7 @@ class PlayerTest extends TestCase
         $this->assertNotEmpty($data->data);
     }
 
+
     /**
      * @test
      * @throws GuzzleException
