@@ -8,6 +8,8 @@ use TestCase;
 
 class ContinentTest extends TestCase
 {
+    const ID = 1;
+
     /**
      * @test
      * @throws GuzzleException
@@ -24,7 +26,7 @@ class ContinentTest extends TestCase
      */
     public function it_retrieves_a_continent()
     {
-        $data = FootballApi::continents()->byId(1);
+        $data = FootballApi::continents()->byId(self::ID);
         $this->assertNotEmpty($data->data);
     }
 }

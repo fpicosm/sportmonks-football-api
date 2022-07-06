@@ -1,0 +1,43 @@
+<?php
+
+namespace Requests;
+
+use GuzzleHttp\Exception\GuzzleException;
+use Sportmonks\FootballApi\FootballApi;
+use TestCase;
+
+class CountryTest extends TestCase
+{
+    const ID = 462;
+    const NAME = 'United Kingdom';
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_all_countries()
+    {
+        $data = FootballApi::countries()->all();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_a_country()
+    {
+        $data = FootballApi::countries()->byId(self::ID);
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_searches_a_country()
+    {
+        $data = FootballApi::countries()->search(self::NAME);
+        $this->assertNotEmpty($data->data);
+    }
+}
