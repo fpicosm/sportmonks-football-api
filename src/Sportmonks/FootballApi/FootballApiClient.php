@@ -15,7 +15,7 @@ class FootballApiClient extends SportmonksClient
         if (empty($apiToken)) throw new InvalidArgumentException('No API token set');
 
         $this->client = new Client([
-            'base_uri' => 'https://api.sportmonks.com/v3/football',
+            'base_uri' => 'https://api.sportmonks.com/v3/football/',
             'headers' => [
                 'Authorization' => $apiToken,
             ]
