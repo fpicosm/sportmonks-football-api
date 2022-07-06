@@ -13,6 +13,7 @@ use Sportmonks\FootballApi\Requests\Round;
 use Sportmonks\FootballApi\Requests\Season;
 use Sportmonks\FootballApi\Requests\Stage;
 use Sportmonks\FootballApi\Requests\Team;
+use Sportmonks\FootballApi\Requests\TeamSquad;
 use Sportmonks\FootballApi\Requests\Type;
 
 class FootballApi
@@ -75,5 +76,10 @@ class FootballApi
     public static function rounds(): Round
     {
         return new Round();
+    }
+
+    public static function teamSquads(): TeamSquad
+    {
+        return new TeamSquad();
     }
 }

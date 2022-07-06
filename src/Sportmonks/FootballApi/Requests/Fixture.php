@@ -86,6 +86,39 @@ class Fixture extends FootballApiClient
     }
 
     /**
+     * Returns the fixtures you’ve requested by date range for a specific team.
+     *
+     * @see     Team::fixturesByDateRange()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team
+     * @param   int     $teamId a valid team id from teams endpoint
+     * @param   string  $start  the start date
+     * @param   string  $end    the end date
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function byDateRangeForTeam(int $teamId, string $start, string $end, array $params = []): object
+    {
+        return (new Team($teamId))->fixturesByDateRange($start, $end, $params);
+    }
+
+    /**
+     * Returns the head-to-head fixtures of two teams you’ve requested.
+     *
+     * @see     Team::headToHead()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head
+     * @param   int     $firstTeamId    a valid team id from teams endpoint
+     * @param   int     $secondTeamId   a valid team id from teams endpoint
+     * @param   array   $params         the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function byHeadToHead(int $firstTeamId, int $secondTeamId, array $params = []): object
+    {
+        return (new Team($firstTeamId))->headToHead($secondTeamId, $params);
+    }
+
+    /**
      * Returns you all the games that have received updates within 2 hours.
 
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-last-updated-fixtures
