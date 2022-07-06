@@ -7,50 +7,36 @@ use Sportmonks\FootballApi\CoreApiClient;
 use Sportmonks\FootballApi\FootballApiClient;
 
 /**
- * Gather an overview of all the regions available within your subscription via the regions' endpoint.
+ * Gather an overview of all the types available via the types' endpoints.
  *
- * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions
+ * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/types
  */
-class Region extends CoreApiClient
+class Type extends CoreApiClient
 {
     /**
-     * Returns all the regions available within your subscription.
+     * Returns all types available within your subscription.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-all-regions
-     * @param   array   $params the query params
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/types/get-all-types
+     * @param   array $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
     public function all(array $params = []): object
     {
-        return $this->call('regions', $params);
+        return $this->call('types', $params);
     }
 
     /**
-     * Returns information from your requested region ID.
+     * Returns all types available within your subscription.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-id
-     * @param   int     $id the region id
-     * @param   array   $params the query params
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/types/get-type-by-id
+     * @param   int $id the type id
+     * @param   array $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("regions/${id}", $params);
-    }
-
-    /**
-     * Returns region information that matches your search query.
-     *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-search
-     * @param   string  $search the region name to search
-     * @param   array   $params the query params
-     * @return  object  the response object
-     * @throws  GuzzleException
-     */
-    public function search(string $search, array $params = []): object
-    {
-        return $this->call("regions/search/${search}", $params);
+        return $this->call("types/${id}", $params);
     }
 }

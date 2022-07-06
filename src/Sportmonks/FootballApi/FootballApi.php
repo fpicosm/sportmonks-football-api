@@ -6,6 +6,7 @@ use Sportmonks\FootballApi\Requests\City;
 use Sportmonks\FootballApi\Requests\Continent;
 use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\Region;
+use Sportmonks\FootballApi\Requests\Type;
 
 class FootballApi
 {
@@ -27,5 +28,10 @@ class FootballApi
     public static function regions(): Region
     {
         return new Region();
+    }
+
+    public static function types(): Type
+    {
+        return new Type();
     }
 }
