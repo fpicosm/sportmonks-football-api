@@ -6,6 +6,7 @@ use Sportmonks\FootballApi\Requests\City;
 use Sportmonks\FootballApi\Requests\Continent;
 use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\League;
+use Sportmonks\FootballApi\Requests\Player;
 use Sportmonks\FootballApi\Requests\Region;
 use Sportmonks\FootballApi\Requests\Season;
 use Sportmonks\FootballApi\Requests\Team;
@@ -51,5 +52,10 @@ class FootballApi
     public static function teams(?int $id = null): Team
     {
         return new Team($id);
+    }
+
+    public static function players(): Player
+    {
+        return new Player();
     }
 }
