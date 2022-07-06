@@ -8,6 +8,7 @@ use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\League;
 use Sportmonks\FootballApi\Requests\Player;
 use Sportmonks\FootballApi\Requests\Region;
+use Sportmonks\FootballApi\Requests\Round;
 use Sportmonks\FootballApi\Requests\Season;
 use Sportmonks\FootballApi\Requests\Stage;
 use Sportmonks\FootballApi\Requests\Team;
@@ -63,5 +64,10 @@ class FootballApi
     public static function stages(): Stage
     {
         return new Stage();
+    }
+
+    public static function rounds(): Round
+    {
+        return new Round();
     }
 }
