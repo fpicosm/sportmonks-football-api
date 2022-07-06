@@ -2,12 +2,18 @@
 
 namespace Sportmonks\FootballApi;
 
+use Sportmonks\FootballApi\Requests\City;
 use Sportmonks\FootballApi\Requests\Continent;
 use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\Region;
 
 class FootballApi
 {
+    public static function cities(): City
+    {
+        return new City();
+    }
+
     public static function continents(): Continent
     {
         return new Continent();
