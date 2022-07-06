@@ -9,6 +9,7 @@ use Sportmonks\FootballApi\Requests\League;
 use Sportmonks\FootballApi\Requests\Player;
 use Sportmonks\FootballApi\Requests\Region;
 use Sportmonks\FootballApi\Requests\Season;
+use Sportmonks\FootballApi\Requests\Stage;
 use Sportmonks\FootballApi\Requests\Team;
 use Sportmonks\FootballApi\Requests\Type;
 
@@ -57,5 +58,10 @@ class FootballApi
     public static function players(): Player
     {
         return new Player();
+    }
+
+    public static function stages(): Stage
+    {
+        return new Stage();
     }
 }
