@@ -192,7 +192,8 @@ The queries return an object containing the next fields:
 
 ### Continents
 
-Include options: **[`countries`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+Include options: 
+    - **[`countries`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
 
 #### Get all continents [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-all-continents)
 
@@ -208,7 +209,10 @@ FootballApi::continents()->byId(1);
 
 ### Countries
 
-Include options: **[`continent`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#continents) [`leagues`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues) [`regions`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
+Include options: 
+    - **[`continent`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#continents)**
+    - **[`leagues`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+    - **[`regions`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
 
 #### Get all countries [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-all-countries)
 
@@ -357,7 +361,7 @@ FootballApi::transfers()->byLeague($id);
 
 ### Seasons
 
-Include options: **`sport` [`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+Include options: `sport` **[`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
 
 #### Get all seasons [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-all-seasons)
 
@@ -449,8 +453,7 @@ FootballApi::topScorers()->aggregatedBySeason($id);
 
 ### Teams
 
-@todo
-Include options: **`sport` [`country`]() [`seasons`]() [``]() [``]() [``]() [``]() [``]() [``]()**
+Include options: `sport` **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries) [`seasons`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season) [`venue`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#venues) [`coaches`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#coaches) [`players`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#players)** `rivals`
 
 #### Get all teams [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-all-teams)
 
@@ -547,8 +550,6 @@ FootballApi::rivals()->byTeam($id);
 
 ### Rivals
 
-@todo includes
-
 #### Get all rivals [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-all-rivals)
 
 ```php
@@ -564,7 +565,7 @@ FootballApi::teams($id)->rivals();
 
 ### Coaches
 
-@todo includes
+Include options: `sport` **[`teams`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams) [`fixtures`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)** 
 
 #### Get all coaches [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-all-coaches)
 
@@ -599,7 +600,7 @@ FootballApi::coaches()->lastUpdated();
 
 ### Venues
 
-@todo includes
+Include options: **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries) [`city`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#cities) [`fixtures`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
 
 #### Get all venues [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-all-venues)
 
@@ -628,7 +629,7 @@ FootballApi::venues()->search($name);
 
 ### Players
 
-@todo includes
+Include options: `sport` **[`country`]() [`nationality`]() [`city`]() [`position`]() [`detailed_position`]() [``]() [``]() [``]() [``]() [``]() [``]() [``]() [``]() [``]() [``]() [``]()**
 
 #### Get all players [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-all-players)
 
@@ -987,7 +988,7 @@ FootballApi::livescores()->all();
 
 #### Get all live* fixtures [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/livescores/get-inplay-livescores)
 
-<small>* fixtures will be available 15 minutes before the match has started and 15 mins after it has ended</small>
+<sup><sub>* fixtures will be available 15 minutes before the match has started and 15 mins after it has ended</sub></sup>
 
 ```php
 FootballApi::livescores()->inplay();
@@ -1027,7 +1028,7 @@ FootballApi::fixtures($id)->highlights();
 
 #### Get all* the probabilities [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities)
 
-<small>* All probabilities are available 21 days before the match starts</small>
+<sup><sub>* All probabilities are available 21 days before the match starts</sub></sup>
 
 ```php
 FootballApi::predictions()->probabilities();
