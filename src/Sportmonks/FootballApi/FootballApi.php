@@ -3,6 +3,7 @@
 namespace Sportmonks\FootballApi;
 
 use Sportmonks\FootballApi\Requests\City;
+use Sportmonks\FootballApi\Requests\Coach;
 use Sportmonks\FootballApi\Requests\Continent;
 use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\Fixture;
@@ -87,5 +88,10 @@ class FootballApi
     public static function venues(): Venue
     {
         return new Venue();
+    }
+
+    public static function coaches(): Coach
+    {
+        return new Coach();
     }
 }
