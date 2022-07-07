@@ -9,6 +9,7 @@ use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\Fixture;
 use Sportmonks\FootballApi\Requests\League;
 use Sportmonks\FootballApi\Requests\Player;
+use Sportmonks\FootballApi\Requests\Referee;
 use Sportmonks\FootballApi\Requests\Region;
 use Sportmonks\FootballApi\Requests\Round;
 use Sportmonks\FootballApi\Requests\Season;
@@ -93,5 +94,10 @@ class FootballApi
     public static function coaches(): Coach
     {
         return new Coach();
+    }
+
+    public static function referees(): Referee
+    {
+        return new Referee();
     }
 }

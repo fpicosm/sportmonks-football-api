@@ -80,4 +80,14 @@ class CountryTest extends TestCase
         $data = FootballApi::countries(CountryTest::ID)->coaches();
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_referees_by_country()
+    {
+        $data = FootballApi::countries(CountryTest::ID)->referees();
+        $this->assertNotEmpty($data->data);
+    }
 }

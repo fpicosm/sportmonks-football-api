@@ -118,4 +118,18 @@ class Country extends CoreApiClient
         if (!$this->id) throw new InvalidArgumentException('No country ID set');
         return (new Coach())->byCountry($this->id, $params);
     }
+
+    /**
+     * Returns referee information from your requested country ID.
+     *
+     * @see     Referee::byCountry()
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function referees(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No country ID set');
+        return (new Referee())->byCountry($this->id, $params);
+    }
 }
