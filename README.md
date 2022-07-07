@@ -7,7 +7,7 @@ Add the dependency into your `composer.json` file:
 ```json
 {
     "require": {
-        "fpicosm/sportmonks-football-api": "^0.1"
+        "fpicosm/sportmonks-football-api": "dev-main"
     }
 }
 ```
@@ -47,19 +47,13 @@ The `SPORTMONKS_TIMEZONE` is optional. If not included, the api get the value fr
 1. Register the ServiceProvider in `config/app.php`, in the `providers` section:
 
 ```php
-\Sportmonks\FootballApi\FootballApiServiceProvider::class,
+Sportmonks\FootballApi\FootballApiServiceProvider::class,
 ```
 
-2. Add the Facade alias in `config/app.php`, in the `aliases` section:
-
-```php
-'FootballApi' => Sportmonks\FootballApi\Facades\FootballApi::class,
-```
-
-3. Publish the config file
+2. Publish the config file
 
 ```bash
-php artisan vendor:publish --provider="Sportmonks\FootballApi\Providers\ServiceProvider"
+php artisan vendor:publish --provider="Sportmonks\FootballApi\FootballApiServiceProvider"
 ```
 
 ### Using Lumen
@@ -106,7 +100,7 @@ $app->configure('football-api');
 5. Add the ServiceProvider in `bootstrap/app.php` in the `Register Service Providers` section:
 
 ```php
-$app->register(\Sportmonks\FootballApi\FootballApiServiceProvider::class),
+$app->register(Sportmonks\FootballApi\FootballApiServiceProvider::class);
 ```
 
 6. Uncomment the line `$app->withFacades();` in `bootstrap/app.php`
@@ -141,12 +135,12 @@ or array of strings:
 FootballApi::leagues()->select(['name', 'type', 'active'])->all();
 ```
 
-See the documentation [here](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/request-options)
-to get detailed information.
+See the [documentation](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/request-options)
+for more info.
 
 ### Include option
 
-To include relations, use the `include` method:
+To include relations in response, use the `include` method:
 
 ```php
 FootballApi::continents()->include('countries')->all();
@@ -159,7 +153,7 @@ FootballApi::seasons()->include('fixtures;league')->all();
 FootballApi::seasons()->include(['fixtures', 'league'])->all();
 ```
 
-If you want nested includes, for example `?include=league;fixtures.stage;fixtures.partcipants` you can only pass single dimension array:
+If you want nested includes, for example `?include=league;fixtures.stage;fixtures.participants` you can only pass single dimension array:
 
 ```php
 FootballApi::seasons()->include(['league', 'fixtures.stage', 'fixtures.participants'])->all();
@@ -185,14 +179,187 @@ To set the page size, use the `perPage` method:
 FootballApi::players()->perPage(50)->all();
 ```
 
+### Response object
+
+The queries return an object containing the next fields:
+
+- `data`: An _array_ or an _object_ containing the results
+- `pagination`: Information about pagination, like current page, total pages, items per page, results count...
+- `subscription`: Information about your plan
+- `rate_limit`: Information about your rate limit. See the [documentation](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/rate-limit) for more info.
+
 ## Endpoints
 
 ### Continents
 
-##### Get all continents - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-all-continents)
+**Include options**: `countries`
 
-Returns all the continents available within your subscription:
+#### Get all continents - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-all-continents)
 
 ```php
 FootballApi::continents()->all();
+```
+
+#### Get continent by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-continent-by-id)
+
+```php
+FootballApi::continents()->byId(1);
+```
+
+### Countries
+
+#### Get all countries - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-all-countries)
+
+```php
+FootballApi::countries()->all();
+```
+
+#### Get country by id - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
+```
+
+####  - [Docs]()
+
+```php
 ```
