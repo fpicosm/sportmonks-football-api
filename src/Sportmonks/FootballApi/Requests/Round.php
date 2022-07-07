@@ -3,6 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\FootballApiClient;
 
 /**
@@ -15,6 +16,14 @@ use Sportmonks\FootballApi\FootballApiClient;
  */
 class Round extends FootballApiClient
 {
+    protected ?int $id;
+
+    public function __construct(?int $id = null)
+    {
+        parent::__construct();
+        $this->id = $id;
+    }
+
     /**
      * Returns all rounds available within your subscription
      *
@@ -53,5 +62,20 @@ class Round extends FootballApiClient
     public function bySeason(int $seasonId, array $params = []): object
     {
         return (new Season($seasonId))->rounds($params);
+    }
+
+    /**
+     * Returns the full league standing table from your requested round ID.
+     *
+     * @see     Standing::byRound()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-round-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function standings(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No round ID set');
+        return $this->call("standings/rounds/{$this->id}", $params);
     }
 }

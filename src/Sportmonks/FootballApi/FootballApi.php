@@ -14,6 +14,7 @@ use Sportmonks\FootballApi\Requests\Region;
 use Sportmonks\FootballApi\Requests\Round;
 use Sportmonks\FootballApi\Requests\Season;
 use Sportmonks\FootballApi\Requests\Stage;
+use Sportmonks\FootballApi\Requests\Standing;
 use Sportmonks\FootballApi\Requests\Team;
 use Sportmonks\FootballApi\Requests\TeamSquad;
 use Sportmonks\FootballApi\Requests\Transfer;
@@ -77,9 +78,9 @@ class FootballApi
         return new Stage();
     }
 
-    public static function rounds(): Round
+    public static function rounds(?int $id = null): Round
     {
-        return new Round();
+        return new Round($id);
     }
 
     public static function teamSquads(): TeamSquad
@@ -105,5 +106,10 @@ class FootballApi
     public static function transfers(): Transfer
     {
         return new Transfer();
+    }
+
+    public static function standings(): Standing
+    {
+        return new Standing();
     }
 }

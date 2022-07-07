@@ -79,4 +79,24 @@ class SeasonTest extends TestCase
         $data = FootballApi::seasons(self::ID)->venues();
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_standings()
+    {
+        $data = FootballApi::seasons(self::ID)->standings();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_standing_corrections()
+    {
+        $data = FootballApi::seasons(self::ID)->standingCorrections();
+        $this->assertNotEmpty($data->data);
+    }
 }

@@ -70,7 +70,7 @@ class Season extends FootballApiClient
      *
      * @see     Stage::bySeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id
-     * @param   array   $params     the query params
+     * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
@@ -120,14 +120,43 @@ class Season extends FootballApiClient
      *
      * @see     Venue::bySeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venues-by-season-id
-     * @param   array   $params     the query params
+     * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException|InvalidArgumentException
      */
     public function venues(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-
         return $this->call("venues/seasons/{$this->id}", $params);
+    }
+
+    /**
+     * Returns the full league standing table from your requested season ID.
+     *
+     * @see     Standing::bySeason()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-season-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function standings(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+        return $this->call("standings/seasons/{$this->id}", $params);
+    }
+
+    /**
+     * Returns the standing corrections from your requested season ID.
+     *
+     * @see     Standing::seasonCorrections()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standing-correction-by-season-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function standingCorrections(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+        return $this->call("standings/corrections/seasons/{$this->id}", $params);
     }
 }

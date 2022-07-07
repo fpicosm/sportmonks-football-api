@@ -8,7 +8,7 @@ use TestCase;
 
 class RoundTest extends TestCase
 {
-    const ID = 274668;
+    const ID = 201963;
 
     /**
      * @test
@@ -27,6 +27,16 @@ class RoundTest extends TestCase
     public function it_retrieves_a_round()
     {
         $data = FootballApi::rounds()->byId(self::ID);
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_standings()
+    {
+        $data = FootballApi::rounds(self::ID)->standings();
         $this->assertNotEmpty($data->data);
     }
 }

@@ -102,6 +102,6 @@ class Transfer   extends FootballApiClient
      */
     public function byLeague(int $leagueId, array $params = []): object
     {
-        return $this->call("transfers/leagues/{$leagueId}", $params);
+        return (new League($leagueId))->transfers($params);
     }
 }
