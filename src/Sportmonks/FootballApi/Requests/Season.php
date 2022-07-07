@@ -61,7 +61,6 @@ class Season extends FootballApiClient
     public function rounds(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-
         return $this->call("rounds/seasons/$this->id", $params);
     }
 
@@ -72,12 +71,11 @@ class Season extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function stages(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-
         return $this->call("stages/seasons/$this->id", $params);
     }
 
@@ -88,12 +86,11 @@ class Season extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-season-id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function teams(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-
         return $this->call("teams/seasons/$this->id", $params);
     }
 
@@ -137,7 +134,7 @@ class Season extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-season-id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function standings(array $params = []): object
     {
@@ -152,7 +149,7 @@ class Season extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standing-correction-by-season-id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function standingCorrections(array $params = []): object
     {
@@ -167,7 +164,7 @@ class Season extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function schedules(array $params = []): object
     {
@@ -183,7 +180,7 @@ class Season extends FootballApiClient
      * @param   int     $teamId the team id
      * @param   array   $params the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function teamSchedule(int $teamId, array $params = []): object
     {
@@ -198,7 +195,7 @@ class Season extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-topscorers-by-season-id
      * @param   array   $params     the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function topScorers(array $params = []): object
     {
@@ -213,7 +210,7 @@ class Season extends FootballApiClient
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-aggregated-topscorers-by-season-id
      * @param   array   $params     the query params
      * @return  object  the response object
-     * @throws  GuzzleException
+     * @throws  GuzzleException|InvalidArgumentException
      */
     public function topScorersAggregated(array $params = []): object
     {

@@ -41,9 +41,9 @@ class FootballApi
         return new Country($id);
     }
 
-    public static function fixtures(): Fixture
+    public static function fixtures(?int $id = null): Fixture
     {
-        return new Fixture();
+        return new Fixture($id);
     }
 
     public static function regions(): Region
