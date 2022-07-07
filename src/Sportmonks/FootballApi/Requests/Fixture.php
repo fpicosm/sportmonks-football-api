@@ -152,4 +152,19 @@ class Fixture extends FootballApiClient
         if (!$this->id) throw new InvalidArgumentException('No fixture ID set');
         return $this->call("tv-stations/fixtures/$this->id", $params);
     }
+
+    /**
+     * Returns a textual representation from the requested fixture ID.
+     *
+     * @see     Commentary::byFixture()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/commentaries/get-commentaries-by-fixture-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException|InvalidArgumentException
+     */
+    public function commentaries(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No fixture ID set');
+        return $this->call("commentaries/fixtures/$this->id", $params);
+    }
 }

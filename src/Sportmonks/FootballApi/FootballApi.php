@@ -4,6 +4,7 @@ namespace Sportmonks\FootballApi;
 
 use Sportmonks\FootballApi\Requests\City;
 use Sportmonks\FootballApi\Requests\Coach;
+use Sportmonks\FootballApi\Requests\Commentary;
 use Sportmonks\FootballApi\Requests\Continent;
 use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\Fixture;
@@ -21,6 +22,7 @@ use Sportmonks\FootballApi\Requests\State;
 use Sportmonks\FootballApi\Requests\Team;
 use Sportmonks\FootballApi\Requests\TeamSquad;
 use Sportmonks\FootballApi\Requests\Transfer;
+use Sportmonks\FootballApi\Requests\TvStation;
 use Sportmonks\FootballApi\Requests\Type;
 use Sportmonks\FootballApi\Requests\Venue;
 
@@ -129,5 +131,15 @@ class FootballApi
     public static function rivals(): Rival
     {
         return new Rival();
+    }
+
+    public static function tvStations(): TvStation
+    {
+        return new TvStation();
+    }
+
+    public static function commentaries(): Commentary
+    {
+        return new Commentary();
     }
 }

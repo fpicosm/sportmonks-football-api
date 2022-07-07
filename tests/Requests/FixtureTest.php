@@ -85,4 +85,14 @@ class FixtureTest extends TestCase
         $data = FootballApi::fixtures(self::ID)->tvStations();
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_commentaries()
+    {
+        $data = FootballApi::fixtures(self::ID)->commentaries();
+        $this->assertIsArray($data->data);
+    }
 }
