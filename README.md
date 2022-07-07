@@ -192,7 +192,7 @@ The queries return an object containing the next fields:
 
 ### Continents
 
-##### Include options: `countries`
+Include options: **`countries`**
 
 #### Get all continents - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-all-continents)
 
