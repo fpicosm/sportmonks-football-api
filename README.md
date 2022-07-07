@@ -210,9 +210,9 @@ FootballApi::continents()->byId(1);
 ### Countries
 
 Include options: 
-    - **[`continent`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#continents)**
-    - **[`leagues`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
-    - **[`regions`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
+  - **[`continent`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#continents)**
+  - **[`leagues`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`regions`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
 
 #### Get all countries [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-all-countries)
 
