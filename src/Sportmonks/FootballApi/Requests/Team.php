@@ -192,4 +192,19 @@ class Team extends FootballApiClient
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
         return $this->call("fixtures/head-to-head/{$this->id}/{$opponentId}", $params);
     }
+
+    /**
+     * Returns the transfers from your requested team ID.
+     *
+     * @see     Transfer::byTeam()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-team-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function transfers(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No team ID set');
+        return $this->call("transfers/teams/{$this->id}", $params);
+    }
 }

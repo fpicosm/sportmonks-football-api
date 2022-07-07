@@ -41,7 +41,6 @@ class PlayerTest extends TestCase
         $this->assertNotEmpty($data->data);
     }
 
-
     /**
      * @test
      * @throws GuzzleException
@@ -49,6 +48,16 @@ class PlayerTest extends TestCase
     public function it_retrieves_the_last_updated_players()
     {
         $data = FootballApi::players()->lastUpdated();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_the_transfers()
+    {
+        $data = FootballApi::players(self::ID)->transfers();
         $this->assertNotEmpty($data->data);
     }
 }

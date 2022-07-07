@@ -3,6 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\FootballApiClient;
 
 /**
@@ -13,6 +14,17 @@ use Sportmonks\FootballApi\FootballApiClient;
  */
 class League extends FootballApiClient
 {
+    protected ?int $id;
+
+    /**
+     * @param int|null $id  the team id
+     */
+    public function __construct(?int $id = null)
+    {
+        parent::__construct();
+        $this->id = $id;
+    }
+
     /**
      * Returns all the leagues available within your subscription
      *
@@ -94,5 +106,20 @@ class League extends FootballApiClient
     public function search(string $name, array $params = []): object
     {
         return $this->call("leagues/search/{$name}", $params);
+    }
+
+    /**
+     * Returns the transfers from your requested league ID.
+     *
+     * @see     Transfer::byLeague()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-seasons-by-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function transfers(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No league ID set');
+        return $this->call("transfers/leagues/{$this->id}", $params);
     }
 }

@@ -16,6 +16,7 @@ use Sportmonks\FootballApi\Requests\Season;
 use Sportmonks\FootballApi\Requests\Stage;
 use Sportmonks\FootballApi\Requests\Team;
 use Sportmonks\FootballApi\Requests\TeamSquad;
+use Sportmonks\FootballApi\Requests\Transfer;
 use Sportmonks\FootballApi\Requests\Type;
 use Sportmonks\FootballApi\Requests\Venue;
 
@@ -51,9 +52,9 @@ class FootballApi
         return new Type();
     }
 
-    public static function leagues(): League
+    public static function leagues(?int $id = null): League
     {
-        return new League();
+        return new League($id);
     }
 
     public static function seasons(?int $id = null): Season
@@ -66,9 +67,9 @@ class FootballApi
         return new Team($id);
     }
 
-    public static function players(): Player
+    public static function players(?int $id = null): Player
     {
-        return new Player();
+        return new Player($id);
     }
 
     public static function stages(): Stage
@@ -99,5 +100,10 @@ class FootballApi
     public static function referees(): Referee
     {
         return new Referee();
+    }
+
+    public static function transfers(): Transfer
+    {
+        return new Transfer();
     }
 }
