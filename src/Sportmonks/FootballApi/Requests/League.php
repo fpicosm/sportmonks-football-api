@@ -70,7 +70,7 @@ class League extends FootballApiClient
     /**
      * Returns all the leagues from your requested country ID.
      *
-     * @see     Country
+     * @see     Country::leagues()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-country-id
      * @param   int     $countryId  a valid id from countries endpoint
      * @param   array   $params     the query params

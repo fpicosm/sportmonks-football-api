@@ -86,6 +86,8 @@ class Fixture extends FootballApiClient
     }
 
     /**
+     * Returns the fixtures you’ve requested by date range for a specific team.
+     *
      * @see     Team::fixturesByDateRange()
      * @param   int     $teamId a valid id from teams endpoint
      * @param   string  $start  the start date
@@ -100,6 +102,8 @@ class Fixture extends FootballApiClient
     }
 
     /**
+     * Returns the head-to-head fixtures of two teams you’ve requested.
+     *
      * @see     Team::headToHead()
      * @param   int     $firstTeamId    a valid id from teams endpoint
      * @param   int     $secondTeamId   a valid id from teams endpoint
@@ -107,7 +111,7 @@ class Fixture extends FootballApiClient
      * @return  object  the response object
      * @throws  GuzzleException
      */
-    public function byHeadToHead(int $firstTeamId, int $secondTeamId, array $params = []): object
+    public function headToHead(int $firstTeamId, int $secondTeamId, array $params = []): object
     {
         return (new Team($firstTeamId))->headToHead($secondTeamId, $params);
     }

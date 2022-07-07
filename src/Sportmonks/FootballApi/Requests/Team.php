@@ -21,7 +21,7 @@ class Team extends FootballApiClient
     /**
      * @param int|null $id  the team id
      */
-    public function __construct(?int $id)
+    public function __construct(?int $id = null)
     {
         parent::__construct();
         $this->id = $id;
@@ -57,7 +57,7 @@ class Team extends FootballApiClient
     /**
      * Returns the teams from your requested country id.
      *
-     * @see     Country
+     * @see     Country::teams()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-id
      * @param   int     $countryId  a valid country id from countries endpoint
      * @param   array   $params the query params
@@ -130,6 +130,7 @@ class Team extends FootballApiClient
     /**
      * Returns the current domestic squad from your requested team ID.
      *
+     * @see     TeamSquad::byTeam()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -143,6 +144,8 @@ class Team extends FootballApiClient
     }
 
     /**
+     * Returns (historical) squads from your requested season ID.
+     *
      * @see     Season::teamSquad()
      * @param   int     $seasonId   a valid season id from seasons endpoint
      * @param   array   $params     the query params
@@ -159,6 +162,7 @@ class Team extends FootballApiClient
     /**
      * Returns the fixtures you’ve requested by date range for a specific team.
      *
+     * @see     Fixture::byDateRangeForTeam()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team
      * @param   string  $start  the start date
      * @param   string  $end    the end date
@@ -176,6 +180,7 @@ class Team extends FootballApiClient
     /**
      * Returns the head-to-head fixtures of two teams you’ve requested.
      *
+     * @see     Fixture::headToHead()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head
      * @param   int     $opponentId a valid team id
      * @param   array   $params     the query params

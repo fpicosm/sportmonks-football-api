@@ -3,6 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\CoreApiClient;
 
 /**
@@ -13,6 +14,14 @@ use Sportmonks\FootballApi\CoreApiClient;
  */
 class Country extends CoreApiClient
 {
+    protected ?int $id;
+
+    public function __construct(?int $id = null)
+    {
+        parent::__construct();
+        $this->id = $id;
+    }
+
     /**
      * Returns all the countries available within your subscription.
      *
@@ -52,5 +61,47 @@ class Country extends CoreApiClient
     public function search(string $search, array $params = []): object
     {
         return $this->call("countries/search/${search}", $params);
+    }
+
+    /**
+     * Returns all the leagues from your requested country ID.
+     *
+     * @see     League::byCountry()
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function leagues(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No country ID set');
+        return (new League())->byCountry($this->id, $params);
+    }
+
+    /**
+     * This endpoint returns player information from your requested country ID.
+     *
+     * @see     Player::byCountry()
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function players(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No country ID set');
+        return (new Player())->byCountry($this->id, $params);
+    }
+
+    /**
+     * Returns the teams from your requested country id.
+     *
+     * @see     Team::byCountry()
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function teams(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No country ID set');
+        return (new Team())->byCountry($this->id, $params);
     }
 }

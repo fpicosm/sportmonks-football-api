@@ -30,7 +30,7 @@ class Region extends CoreApiClient
      * Returns information from your requested region ID.
      *
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-id
-     * @param   int     $id the region id
+     * @param   int     $id     the region id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException

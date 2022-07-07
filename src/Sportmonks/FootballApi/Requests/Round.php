@@ -43,6 +43,8 @@ class Round extends FootballApiClient
     }
 
     /**
+     * Returns round information from your requested season ID.
+     *
      * @see     Season::rounds()
      * @param   int     $seasonId   a valid id from seasons endpoint
      * @param   array   $params     the query params

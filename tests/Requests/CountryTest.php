@@ -40,4 +40,34 @@ class CountryTest extends TestCase
         $data = FootballApi::countries()->search(self::NAME);
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_leagues_by_country()
+    {
+        $data = FootballApi::countries(CountryTest::ID)->leagues();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_players_by_country()
+    {
+        $data = FootballApi::countries(CountryTest::ID)->players();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_teams_by_country()
+    {
+        $data = FootballApi::countries(CountryTest::ID)->teams();
+        $this->assertNotEmpty($data->data);
+    }
 }

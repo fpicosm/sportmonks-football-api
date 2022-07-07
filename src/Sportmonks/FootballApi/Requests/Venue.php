@@ -43,6 +43,8 @@ class Venue extends FootballApiClient
     }
 
     /**
+     * Returns venue information from your requested season ID.
+     *
      * @see     Season::venues()
      * @param   int     $seasonId   a valid id from seasons endpoint
      * @param   array   $params     the query params

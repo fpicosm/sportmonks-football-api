@@ -54,7 +54,7 @@ class SeasonTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_retrieves_the_teams_by_season()
+    public function it_retrieves_teams_by_season()
     {
         $data = FootballApi::seasons(SeasonTest::ID)->teams();
         $this->assertNotEmpty($data->data);

@@ -43,6 +43,8 @@ class Stage extends FootballApiClient
     }
 
     /**
+     * Returns stage information from your requested season ID.
+     *
      * @see     Season::stages()
      * @param   int     $seasonId   a valid id from seasons endpoint
      * @param   array   $params     the query params

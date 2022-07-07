@@ -52,6 +52,7 @@ class Season extends FootballApiClient
     /**
      * Returns round information from your requested season ID.
      *
+     * @see     Round::bySeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-season-id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -67,6 +68,7 @@ class Season extends FootballApiClient
     /**
      * Returns stage information from your requested season ID.
      *
+     * @see     Stage::bySeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id
      * @param   array   $params     the query params
      * @return  object  the response object
@@ -82,7 +84,7 @@ class Season extends FootballApiClient
     /**
      * Returns the teams from your requested season id.
      *
-     * @see     Season
+     * @see     Team::bySeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-season-id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -98,6 +100,8 @@ class Season extends FootballApiClient
     /**
      * Returns (historical) squads from your requested season ID.
      *
+     * @see     Team::squadBySeason()
+     * @see     TeamSquad::byTeamAndSeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
      * @param   int     $teamId a valid team id from teams endpoint
      * @param   array   $params the query params
@@ -114,6 +118,7 @@ class Season extends FootballApiClient
     /**
      * Returns venue information from your requested season ID.
      *
+     * @see     Venue::bySeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venues-by-season-id
      * @param   array   $params     the query params
      * @return  object  the response object

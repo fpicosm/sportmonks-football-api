@@ -35,16 +35,6 @@ class TeamTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_retrieves_teams_by_country()
-    {
-        $data = FootballApi::teams()->byCountry(CountryTest::ID);
-        $this->assertNotEmpty($data->data);
-    }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
     public function it_retrieves_the_teams_by_search()
     {
         $data = FootballApi::teams()->search(self::NAME);

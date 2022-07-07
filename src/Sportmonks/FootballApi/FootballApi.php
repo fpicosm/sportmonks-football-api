@@ -29,9 +29,9 @@ class FootballApi
         return new Continent();
     }
 
-    public static function countries(): Country
+    public static function countries(?int $id = null): Country
     {
-        return new Country();
+        return new Country($id);
     }
 
     public static function fixtures(): Fixture

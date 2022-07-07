@@ -31,6 +31,8 @@ class TeamSquad extends FootballApiClient
     }
 
     /**
+     * Returns (historical) squads from your requested season ID.
+     *
      * @see     Season::teamSquad()
      * @param   int     $teamId     a valid team id from the teams endpoint
      * @param   int     $seasonId   a valid season id from the seasons endpoint
