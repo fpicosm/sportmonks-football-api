@@ -119,4 +119,24 @@ class SeasonTest extends TestCase
         $data = FootballApi::seasons(self::ID)->teamSchedule(TeamTest::ID);
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_top_scorers()
+    {
+        $data = FootballApi::seasons(self::ID)->topScorers();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_top_scorers_aggregated()
+    {
+        $data = FootballApi::seasons(self::ID)->topScorersAggregated();
+        $this->assertNotEmpty($data->data);
+    }
 }

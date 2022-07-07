@@ -190,4 +190,34 @@ class Season extends FootballApiClient
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
         return $this->call("schedules/seasons/$this->id/teams/$teamId", $params);
     }
+
+    /**
+     * This endpoint returns all the topscorers per stage of the requested season.
+     *
+     * @see     TopScorer::bySeason()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-topscorers-by-season-id
+     * @param   array   $params     the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function topScorers(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+        return $this->call("topscorers/seasons/$this->id", $params);
+    }
+
+    /**
+     * This endpoint returns all the aggregated topscorers of the requested season.
+     *
+     * @see     TopScorer::aggregatedBySeason()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-aggregated-topscorers-by-season-id
+     * @param   array   $params     the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function topScorersAggregated(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+        return $this->call("topscorers/seasons/$this->id/aggregated", $params);
+    }
 }
