@@ -46,7 +46,7 @@ class Season extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("seasons/{$id}", $params);
+        return $this->call("seasons/$id", $params);
     }
 
     /**
@@ -62,7 +62,7 @@ class Season extends FootballApiClient
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
 
-        return $this->call("rounds/seasons/{$this->id}", $params);
+        return $this->call("rounds/seasons/$this->id", $params);
     }
 
     /**
@@ -78,7 +78,7 @@ class Season extends FootballApiClient
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
 
-        return $this->call("stages/seasons/{$this->id}", $params);
+        return $this->call("stages/seasons/$this->id", $params);
     }
 
     /**
@@ -94,7 +94,7 @@ class Season extends FootballApiClient
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
 
-        return $this->call("teams/seasons/{$this->id}", $params);
+        return $this->call("teams/seasons/$this->id", $params);
     }
 
     /**
@@ -112,7 +112,7 @@ class Season extends FootballApiClient
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
 
-        return $this->call("squads/seasons/{$this->id}/teams/{$teamId}", $params);
+        return $this->call("squads/seasons/$this->id/teams/$teamId", $params);
     }
 
     /**
@@ -127,7 +127,7 @@ class Season extends FootballApiClient
     public function venues(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-        return $this->call("venues/seasons/{$this->id}", $params);
+        return $this->call("venues/seasons/$this->id", $params);
     }
 
     /**
@@ -142,7 +142,7 @@ class Season extends FootballApiClient
     public function standings(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-        return $this->call("standings/seasons/{$this->id}", $params);
+        return $this->call("standings/seasons/$this->id", $params);
     }
 
     /**
@@ -157,7 +157,7 @@ class Season extends FootballApiClient
     public function standingCorrections(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-        return $this->call("standings/corrections/seasons/{$this->id}", $params);
+        return $this->call("standings/corrections/seasons/$this->id", $params);
     }
 
     /**
@@ -172,7 +172,7 @@ class Season extends FootballApiClient
     public function schedules(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-        return $this->call("schedules/seasons/{$this->id}", $params);
+        return $this->call("schedules/seasons/$this->id", $params);
     }
 
     /**
@@ -188,6 +188,6 @@ class Season extends FootballApiClient
     public function teamSchedule(int $teamId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
-        return $this->call("schedules/seasons/{$this->id}/teams/{$teamId}", $params);
+        return $this->call("schedules/seasons/$this->id/teams/$teamId", $params);
     }
 }

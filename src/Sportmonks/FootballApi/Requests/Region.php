@@ -37,7 +37,7 @@ class Region extends CoreApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("regions/${id}", $params);
+        return $this->call("regions/$id", $params);
     }
 
     /**
@@ -51,6 +51,6 @@ class Region extends CoreApiClient
      */
     public function search(string $search, array $params = []): object
     {
-        return $this->call("regions/search/${search}", $params);
+        return $this->call("regions/search/$search", $params);
     }
 }

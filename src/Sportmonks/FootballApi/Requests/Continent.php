@@ -37,6 +37,6 @@ class Continent extends CoreApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("continents/${id}", $params);
+        return $this->call("continents/$id", $params);
     }
 }

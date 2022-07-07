@@ -38,7 +38,7 @@ class Fixture extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("fixtures/{$id}", $params);
+        return $this->call("fixtures/$id", $params);
     }
 
     /**
@@ -53,7 +53,7 @@ class Fixture extends FootballApiClient
     public function byIds(string|array $ids, array $params = []): object
     {
         if (is_array($ids)) $ids = join(',', $ids);
-        return $this->call("fixtures/multi/{$ids}", $params);
+        return $this->call("fixtures/multi/$ids", $params);
     }
 
     /**
@@ -68,7 +68,7 @@ class Fixture extends FootballApiClient
      */
     public function byDateRange(string $start, string $end, array $params = []): object
     {
-        return $this->call("fixtures/between/{$start}/{$end}", $params);
+        return $this->call("fixtures/between/$start/$end", $params);
     }
 
     /**
@@ -82,7 +82,7 @@ class Fixture extends FootballApiClient
      */
     public function byDate(string $date, array $params = []): object
     {
-        return $this->call("fixtures/date/{$date}", $params);
+        return $this->call("fixtures/date/$date", $params);
     }
 
     /**

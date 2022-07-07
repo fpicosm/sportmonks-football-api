@@ -48,7 +48,7 @@ class Round extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("rounds/{$id}", $params);
+        return $this->call("rounds/$id", $params);
     }
 
     /**
@@ -76,6 +76,6 @@ class Round extends FootballApiClient
     public function standings(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No round ID set');
-        return $this->call("standings/rounds/{$this->id}", $params);
+        return $this->call("standings/rounds/$this->id", $params);
     }
 }

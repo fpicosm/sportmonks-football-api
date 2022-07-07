@@ -60,7 +60,7 @@ class Country extends CoreApiClient
      */
     public function search(string $search, array $params = []): object
     {
-        return $this->call("countries/search/${search}", $params);
+        return $this->call("countries/search/$search", $params);
     }
 
     /**

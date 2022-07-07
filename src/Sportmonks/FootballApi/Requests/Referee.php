@@ -38,7 +38,7 @@ class Referee extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("referees/{$id}", $params);
+        return $this->call("referees/$id", $params);
     }
 
     /**
@@ -53,7 +53,7 @@ class Referee extends FootballApiClient
      */
     public function byCountry(int $countryId, array $params = []): object
     {
-        return $this->call("referees/countries/{$countryId}", $params);
+        return $this->call("referees/countries/$countryId", $params);
     }
 
     /**
@@ -67,7 +67,7 @@ class Referee extends FootballApiClient
      */
     public function search(string $name, array $params = []): object
     {
-        return $this->call("referees/search/{$name}", $params);
+        return $this->call("referees/search/$name", $params);
     }
 
     /**

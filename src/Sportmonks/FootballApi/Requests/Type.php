@@ -37,6 +37,6 @@ class Type extends CoreApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("types/${id}", $params);
+        return $this->call("types/$id", $params);
     }
 }

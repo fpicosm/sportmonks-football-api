@@ -49,7 +49,7 @@ class League extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("leagues/{$id}", $params);
+        return $this->call("leagues/$id", $params);
     }
 
     /**
@@ -62,7 +62,7 @@ class League extends FootballApiClient
      */
     public function live(array $params = []): object
     {
-        return $this->call("leagues/live", $params);
+        return $this->call('leagues/live', $params);
     }
 
     /**
@@ -76,7 +76,7 @@ class League extends FootballApiClient
      */
     public function byDate(string $date, array $params = []): object
     {
-        return $this->call("leagues/fixtures/date/{$date}", $params);
+        return $this->call("leagues/fixtures/date/$date", $params);
     }
 
     /**
@@ -91,7 +91,7 @@ class League extends FootballApiClient
      */
     public function byCountry(int $countryId, array $params = []): object
     {
-        return $this->call("leagues/countries/{$countryId}", $params);
+        return $this->call("leagues/countries/$countryId", $params);
     }
 
     /**
@@ -105,7 +105,7 @@ class League extends FootballApiClient
      */
     public function search(string $name, array $params = []): object
     {
-        return $this->call("leagues/search/{$name}", $params);
+        return $this->call("leagues/search/$name", $params);
     }
 
     /**
@@ -120,6 +120,6 @@ class League extends FootballApiClient
     public function transfers(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No league ID set');
-        return $this->call("transfers/leagues/{$this->id}", $params);
+        return $this->call("transfers/leagues/$this->id", $params);
     }
 }

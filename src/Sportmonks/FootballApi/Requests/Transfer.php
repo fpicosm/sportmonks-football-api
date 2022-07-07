@@ -47,7 +47,7 @@ class Transfer   extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("transfers/{$id}", $params);
+        return $this->call("transfers/$id", $params);
     }
 
     /**
@@ -60,7 +60,7 @@ class Transfer   extends FootballApiClient
      */
     public function latest(array $params = []): object
     {
-        return $this->call("transfers/latest", $params);
+        return $this->call('transfers/latest', $params);
     }
 
     /**

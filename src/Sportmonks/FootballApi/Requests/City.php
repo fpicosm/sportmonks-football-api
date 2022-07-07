@@ -36,7 +36,7 @@ class City extends CoreApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call( "cities/${id}", $params);
+        return $this->call( "cities/$id", $params);
     }
 
     /**
@@ -50,6 +50,6 @@ class City extends CoreApiClient
      */
     public function search(string $search, array $params = []): object
     {
-        return $this->call( "cities/search/${search}", $params);
+        return $this->call( "cities/search/$search", $params);
     }
 }

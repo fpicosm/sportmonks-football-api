@@ -51,7 +51,7 @@ class Team extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("teams/{$id}", $params);
+        return $this->call("teams/$id", $params);
     }
 
     /**
@@ -66,7 +66,7 @@ class Team extends FootballApiClient
      */
     public function byCountry(int $countryId, array $params = []): object
     {
-        return $this->call("teams/countries/{$countryId}", $params);
+        return $this->call("teams/countries/$countryId", $params);
     }
 
     /**
@@ -94,7 +94,7 @@ class Team extends FootballApiClient
      */
     public function search(string $name, array $params = []): object
     {
-        return $this->call("teams/search/{$name}", $params);
+        return $this->call("teams/search/$name", $params);
     }
 
     /**
@@ -109,7 +109,7 @@ class Team extends FootballApiClient
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
 
-        return $this->call("teams/{$this->id}/leagues", $params);
+        return $this->call("teams/$this->id/leagues", $params);
     }
 
     /**
@@ -124,7 +124,7 @@ class Team extends FootballApiClient
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
 
-        return $this->call("teams/{$this->id}/leagues/current", $params);
+        return $this->call("teams/$this->id/leagues/current", $params);
     }
 
     /**
@@ -140,7 +140,7 @@ class Team extends FootballApiClient
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
 
-        return $this->call("squads/teams/{$this->id}", $params);
+        return $this->call("squads/teams/$this->id", $params);
     }
 
     /**
@@ -173,8 +173,7 @@ class Team extends FootballApiClient
     public function fixturesByDateRange(string $start, string $end, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-
-        return $this->call("fixtures/between/{$start}/{$end}/{$this->id}", $params);
+        return $this->call("fixtures/between/$start/$end/$this->id", $params);
     }
 
     /**
@@ -190,7 +189,7 @@ class Team extends FootballApiClient
     public function headToHead(int $opponentId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return $this->call("fixtures/head-to-head/{$this->id}/{$opponentId}", $params);
+        return $this->call("fixtures/head-to-head/$this->id/$opponentId", $params);
     }
 
     /**
@@ -205,7 +204,7 @@ class Team extends FootballApiClient
     public function transfers(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return $this->call("transfers/teams/{$this->id}", $params);
+        return $this->call("transfers/teams/$this->id", $params);
     }
 
     /**

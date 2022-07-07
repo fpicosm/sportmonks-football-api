@@ -39,7 +39,7 @@ class Venue extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("venues/{$id}", $params);
+        return $this->call("venues/$id", $params);
     }
 
     /**

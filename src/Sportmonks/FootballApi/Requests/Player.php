@@ -50,7 +50,7 @@ class Player extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("players/{$id}", $params);
+        return $this->call("players/$id", $params);
     }
 
     /**
@@ -65,7 +65,7 @@ class Player extends FootballApiClient
      */
     public function byCountry(int $countryId, array $params = []): object
     {
-        return $this->call("players/countries/{$countryId}", $params);
+        return $this->call("players/countries/$countryId", $params);
     }
 
     /**
@@ -79,7 +79,7 @@ class Player extends FootballApiClient
      */
     public function search(string $name, array $params = []): object
     {
-        return $this->call("players/search/{$name}", $params);
+        return $this->call("players/search/$name", $params);
     }
 
     /**
@@ -107,6 +107,6 @@ class Player extends FootballApiClient
     public function transfers(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No player ID set');
-        return $this->call("transfers/players/{$this->id}", $params);
+        return $this->call("transfers/players/$this->id", $params);
     }
 }

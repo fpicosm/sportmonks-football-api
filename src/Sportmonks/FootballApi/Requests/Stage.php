@@ -39,7 +39,7 @@ class Stage extends FootballApiClient
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call("stages/{$id}", $params);
+        return $this->call("stages/$id", $params);
     }
 
     /**
