@@ -182,4 +182,19 @@ class Fixture extends FootballApiClient
         if (!$this->id) throw new InvalidArgumentException('No fixture ID set');
         return $this->call("highlights/fixtures/$this->id", $params);
     }
+
+    /**
+     * This endpoint returns all the predictions available for your requested fixture ID.
+     *
+     * @see     Prediction::byFixture()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities-by-fixture-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function predictions(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No fixture ID set');
+        return $this->call("predictions/probabilities/fixtures/$this->id", $params);
+    }
 }

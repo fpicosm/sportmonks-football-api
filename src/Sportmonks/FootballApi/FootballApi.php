@@ -12,6 +12,7 @@ use Sportmonks\FootballApi\Requests\Highlight;
 use Sportmonks\FootballApi\Requests\League;
 use Sportmonks\FootballApi\Requests\LiveScore;
 use Sportmonks\FootballApi\Requests\Player;
+use Sportmonks\FootballApi\Requests\Prediction;
 use Sportmonks\FootballApi\Requests\Referee;
 use Sportmonks\FootballApi\Requests\Region;
 use Sportmonks\FootballApi\Requests\Rival;
@@ -153,5 +154,10 @@ class FootballApi
     public static function livescores(): LiveScore
     {
         return new LiveScore();
+    }
+
+    public static function predictions(): Prediction
+    {
+        return new Prediction();
     }
 }
