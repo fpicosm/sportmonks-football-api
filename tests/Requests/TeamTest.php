@@ -100,4 +100,14 @@ class TeamTest extends TestCase
         $data = FootballApi::teams(self::ID)->transfers();
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_the_rivals()
+    {
+        $data = FootballApi::teams(self::ID)->rivals();
+        $this->assertNotEmpty($data->data);
+    }
 }

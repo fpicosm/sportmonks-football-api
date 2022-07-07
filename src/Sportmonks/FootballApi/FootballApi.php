@@ -11,6 +11,7 @@ use Sportmonks\FootballApi\Requests\League;
 use Sportmonks\FootballApi\Requests\Player;
 use Sportmonks\FootballApi\Requests\Referee;
 use Sportmonks\FootballApi\Requests\Region;
+use Sportmonks\FootballApi\Requests\Rival;
 use Sportmonks\FootballApi\Requests\Round;
 use Sportmonks\FootballApi\Requests\Schedule;
 use Sportmonks\FootballApi\Requests\Season;
@@ -123,5 +124,10 @@ class FootballApi
     public static function states(): State
     {
         return new State();
+    }
+
+    public static function rivals(): Rival
+    {
+        return new Rival();
     }
 }

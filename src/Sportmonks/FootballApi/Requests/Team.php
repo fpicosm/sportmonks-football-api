@@ -222,4 +222,19 @@ class Team extends FootballApiClient
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
         return (new Season($seasonId))->teamSchedule($this->id, $params);
     }
+
+    /**
+     * This endpoint returns the rivals of your requested team ID (if available).
+     *
+     * @see     Rival::byTeam()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-rivals-by-team-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function rivals(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No team ID set');
+        return $this->call("teams/rivals/$this->id", $params);
+    }
 }
