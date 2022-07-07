@@ -17,11 +17,17 @@ class SportmonksClient
     {
         $query = [];
 
+        $include = [];
         if (array_key_exists('include', $options)) {
             $include = $options['include'];
-            if (!empty($include)) {
-                $query['include'] = is_string($include) ? $include : join(';', $include);
-            }
+        }
+
+        if (array_key_exists('includes', $options)) {
+            $include = $options['includes'];
+        }
+
+        if (!empty($include)) {
+            $query['include'] = is_array($include) ? join(';', $include) : $include;
         }
 
         if (array_key_exists('page', $options)) {
@@ -29,7 +35,10 @@ class SportmonksClient
         }
 
         if (array_key_exists('select', $options)) {
-            $query['select'] = $options['select'];
+            $select = $options['select'];
+            if (!empty($select)) {
+                $query['select'] = is_array($select) ? join(',', $select) : $select;
+            }
         }
 
         $response = $this->client->get($url, ['query' => $query]);

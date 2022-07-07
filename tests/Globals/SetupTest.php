@@ -1,7 +1,11 @@
 <?php
 
-use Sportmonks\FootballApi\FootballApiClient;
+namespace Globals;
+
 use Illuminate\Support\Facades\Config;
+use InvalidArgumentException;
+use Sportmonks\FootballApi\FootballApiClient;
+use TestCase;
 
 class SetupTest extends TestCase
 {

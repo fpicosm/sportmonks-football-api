@@ -18,7 +18,25 @@ class CityTest extends TestCase
     public function it_retrieves_all_cities()
     {
         $data = FootballApi::cities()->all();
+        $this->assertObjectHasAttribute('data', $data);
+        $this->assertIsArray($data->data);
         $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_with_includes_option()
+    {
+        $includes = ['region'];
+        collect($includes)->each(function (string $include) {
+            $data = FootballApi::cities()->all(['include' => $include]);
+            $this->assertObjectHasAttribute('data', $data);
+            $this->assertIsArray($data->data);
+            $city = $data->data[0];
+            $this->assertObjectHasAttribute($include, $city);
+        });
     }
 
     /**
