@@ -3,6 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\FootballApiClient;
 
 /**
@@ -13,6 +14,14 @@ use Sportmonks\FootballApi\FootballApiClient;
  */
 class Season extends FootballApiClient
 {
+    protected ?int $id;
+
+    public function __construct(?int $id = null)
+    {
+        parent::__construct();
+        $this->id = $id;
+    }
+
     /**
      * Returns all the seasons available within your subscription
      *
@@ -38,5 +47,82 @@ class Season extends FootballApiClient
     public function byId(int $id, array $params = []): object
     {
         return $this->call("seasons/{$id}", $params);
+    }
+
+    /**
+     * Returns round information from your requested season ID.
+     *
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-season-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException|InvalidArgumentException
+     */
+    public function rounds(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+
+        return $this->call("rounds/seasons/{$this->id}", $params);
+    }
+
+    /**
+     * Returns stage information from your requested season ID.
+     *
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id
+     * @param   array   $params     the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function stages(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+
+        return $this->call("stages/seasons/{$this->id}", $params);
+    }
+
+    /**
+     * Returns the teams from your requested season id.
+     *
+     * @see     Season
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-season-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function teams(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+
+        return $this->call("teams/seasons/{$this->id}", $params);
+    }
+
+    /**
+     * Returns (historical) squads from your requested season ID.
+     *
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
+     * @param   int     $teamId a valid team id from teams endpoint
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException|InvalidArgumentException
+     */
+    public function teamSquad(int $teamId, array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+
+        return $this->call("squads/seasons/{$this->id}/teams/{$teamId}", $params);
+    }
+
+    /**
+     * Returns venue information from your requested season ID.
+     *
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venues-by-season-id
+     * @param   array   $params     the query params
+     * @return  object  the response object
+     * @throws  GuzzleException|InvalidArgumentException
+     */
+    public function venues(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+
+        return $this->call("venues/seasons/{$this->id}", $params);
     }
 }

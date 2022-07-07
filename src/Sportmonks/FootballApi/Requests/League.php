@@ -72,7 +72,7 @@ class League extends FootballApiClient
      *
      * @see     Country
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-country-id
-     * @param   int     $countryId  a valid country id from countries endpoint
+     * @param   int     $countryId  a valid id from countries endpoint
      * @param   array   $params     the query params
      * @return  object  the response object
      * @throws  GuzzleException

@@ -35,7 +35,7 @@ class PlayerTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_retrieves_the_players_from_a_country()
+    public function it_retrieves_players_by_country()
     {
         $data = FootballApi::players()->byCountry(CountryTest::ID);
         $this->assertNotEmpty($data->data);

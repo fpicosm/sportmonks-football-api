@@ -43,10 +43,10 @@ class Player extends FootballApiClient
 
     /**
      * This endpoint returns player information from your requested country ID.
-     *
+
      * @see     Country
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-country-id
-     * @param   int     $countryId  a valid country id from countries endpoint
+     * @param   int     $countryId  a valid id from countries endpoint
      * @param   array   $params     the query params
      * @return  object  the response object
      * @throws  GuzzleException

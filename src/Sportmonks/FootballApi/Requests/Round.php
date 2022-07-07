@@ -43,17 +43,13 @@ class Round extends FootballApiClient
     }
 
     /**
-     * Returns round information from your requested season ID.
-     *
-     * @see     Season
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-season-id
+     * @see     Season::rounds()
      * @param   int     $seasonId   a valid id from seasons endpoint
      * @param   array   $params     the query params
-     * @return  object  the response object
      * @throws  GuzzleException
      */
     public function bySeason(int $seasonId, array $params = []): object
     {
-        return $this->call("rounds/seasons/{$seasonId}", $params);
+        return (new Season($seasonId))->rounds($params);
     }
 }

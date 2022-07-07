@@ -35,19 +35,9 @@ class TeamTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_retrieves_the_teams_from_a_country()
+    public function it_retrieves_teams_by_country()
     {
         $data = FootballApi::teams()->byCountry(CountryTest::ID);
-        $this->assertNotEmpty($data->data);
-    }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
-    public function it_retrieves_the_teams_from_a_season()
-    {
-        $data = FootballApi::teams()->bySeason(SeasonTest::ID);
         $this->assertNotEmpty($data->data);
     }
 
@@ -88,16 +78,6 @@ class TeamTest extends TestCase
     public function it_retrieves_the_current_squad()
     {
         $data = FootballApi::teams(self::ID)->squad();
-        $this->assertNotEmpty($data->data);
-    }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
-    public function it_retrieves_the_season_squad()
-    {
-        $data = FootballApi::teams(self::ID)->squadBySeason(SeasonTest::ID);
         $this->assertNotEmpty($data->data);
     }
 

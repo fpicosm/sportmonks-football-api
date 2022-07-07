@@ -60,7 +60,7 @@ class Team extends FootballApiClient
      * @see     Country
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-id
      * @param   int     $countryId  a valid country id from countries endpoint
-     * @param   array   $params     the query params
+     * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
@@ -72,8 +72,7 @@ class Team extends FootballApiClient
     /**
      * Returns the teams from your requested season id.
      *
-     * @see     Season
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-season-id
+     * @see     Season::teams()
      * @param   int     $seasonId   a valid season id from seasons endpoint
      * @param   array   $params     the query params
      * @return  object  the response object
@@ -81,7 +80,7 @@ class Team extends FootballApiClient
      */
     public function bySeason(int $seasonId, array $params = []): object
     {
-        return $this->call("teams/seasons/{$seasonId}", $params);
+        return (new Season($seasonId))->teams($params);
     }
 
     /**
@@ -144,10 +143,7 @@ class Team extends FootballApiClient
     }
 
     /**
-     * Returns the current domestic squad from your requested team ID.
-     *
-     * @see     Season
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
+     * @see     Season::teamSquad()
      * @param   int     $seasonId   a valid season id from seasons endpoint
      * @param   array   $params     the query params
      * @return  object  the response object
@@ -157,7 +153,7 @@ class Team extends FootballApiClient
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
 
-        return $this->call("squads/seasons/{$seasonId}/teams/{$this->id}", $params);
+        return (new Season($seasonId))->teamSquad($this->id, $params);
     }
 
     /**

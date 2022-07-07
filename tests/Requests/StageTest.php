@@ -29,14 +29,4 @@ class StageTest extends TestCase
         $data = FootballApi::stages()->byId(self::ID);
         $this->assertNotEmpty($data->data);
     }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
-    public function it_retrieves_the_stages_from_a_season()
-    {
-        $data = FootballApi::stages()->bySeason(SeasonTest::ID);
-        $this->assertNotEmpty($data->data);
-    }
 }

@@ -43,10 +43,7 @@ class Stage extends FootballApiClient
     }
 
     /**
-     * Returns stage information from your requested season ID.
-     *
-     * @see     Season
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id
+     * @see     Season::stages()
      * @param   int     $seasonId   a valid id from seasons endpoint
      * @param   array   $params     the query params
      * @return  object  the response object
@@ -54,6 +51,6 @@ class Stage extends FootballApiClient
      */
     public function bySeason(int $seasonId, array $params = []): object
     {
-        return $this->call("stages/seasons/{$seasonId}", $params);
+        return (new Season($seasonId))->stages($params);
     }
 }

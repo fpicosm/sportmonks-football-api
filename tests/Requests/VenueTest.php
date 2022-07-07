@@ -6,17 +6,17 @@ use GuzzleHttp\Exception\GuzzleException;
 use Sportmonks\FootballApi\FootballApi;
 use TestCase;
 
-class RoundTest extends TestCase
+class VenueTest extends TestCase
 {
-    const ID = 274668;
+    const ID = 206;
 
     /**
      * @test
      * @throws GuzzleException
      */
-    public function it_retrieves_all_rounds()
+    public function it_retrieves_all_venues()
     {
-        $data = FootballApi::rounds()->all();
+        $data = FootballApi::venues()->all();
         $this->assertNotEmpty($data->data);
     }
 
@@ -24,9 +24,9 @@ class RoundTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_retrieves_a_round()
+    public function it_retrieves_a_venue()
     {
-        $data = FootballApi::rounds()->byId(self::ID);
+        $data = FootballApi::venues()->byId(self::ID);
         $this->assertNotEmpty($data->data);
     }
 }

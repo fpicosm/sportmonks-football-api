@@ -86,11 +86,8 @@ class Fixture extends FootballApiClient
     }
 
     /**
-     * Returns the fixtures you’ve requested by date range for a specific team.
-     *
      * @see     Team::fixturesByDateRange()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team
-     * @param   int     $teamId a valid team id from teams endpoint
+     * @param   int     $teamId a valid id from teams endpoint
      * @param   string  $start  the start date
      * @param   string  $end    the end date
      * @param   array   $params the query params
@@ -103,12 +100,9 @@ class Fixture extends FootballApiClient
     }
 
     /**
-     * Returns the head-to-head fixtures of two teams you’ve requested.
-     *
      * @see     Team::headToHead()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head
-     * @param   int     $firstTeamId    a valid team id from teams endpoint
-     * @param   int     $secondTeamId   a valid team id from teams endpoint
+     * @param   int     $firstTeamId    a valid id from teams endpoint
+     * @param   int     $secondTeamId   a valid id from teams endpoint
      * @param   array   $params         the query params
      * @return  object  the response object
      * @throws  GuzzleException

@@ -29,4 +29,54 @@ class SeasonTest extends TestCase
         $data = FootballApi::seasons()->byId(self::ID);
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_rounds_by_season()
+    {
+        $data = FootballApi::seasons(self::ID)->rounds();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_stages_by_season()
+    {
+        $data = FootballApi::seasons(self::ID)->stages();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_the_teams_by_season()
+    {
+        $data = FootballApi::seasons(SeasonTest::ID)->teams();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_a_team_squad()
+    {
+        $data = FootballApi::seasons(self::ID)->teamSquad(TeamTest::ID);
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_venues_by_season()
+    {
+        $data = FootballApi::seasons(self::ID)->venues();
+        $this->assertNotEmpty($data->data);
+    }
 }

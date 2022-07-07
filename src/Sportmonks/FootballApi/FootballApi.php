@@ -15,6 +15,7 @@ use Sportmonks\FootballApi\Requests\Stage;
 use Sportmonks\FootballApi\Requests\Team;
 use Sportmonks\FootballApi\Requests\TeamSquad;
 use Sportmonks\FootballApi\Requests\Type;
+use Sportmonks\FootballApi\Requests\Venue;
 
 class FootballApi
 {
@@ -53,9 +54,9 @@ class FootballApi
         return new League();
     }
 
-    public static function seasons(): Season
+    public static function seasons(?int $id = null): Season
     {
-        return new Season();
+        return new Season($id);
     }
 
     public static function teams(?int $id = null): Team
@@ -81,5 +82,10 @@ class FootballApi
     public static function teamSquads(): TeamSquad
     {
         return new TeamSquad();
+    }
+
+    public static function venues(): Venue
+    {
+        return new Venue();
     }
 }
