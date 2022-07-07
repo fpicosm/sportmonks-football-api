@@ -65,7 +65,7 @@ class LeagueTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_retrieves_the_transfers()
+    public function it_retrieves_transfers()
     {
         $data = FootballApi::leagues(self::ID)->transfers();
         $this->assertNotEmpty($data->data);

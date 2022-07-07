@@ -99,4 +99,24 @@ class SeasonTest extends TestCase
         $data = FootballApi::seasons(self::ID)->standingCorrections();
         $this->assertNotEmpty($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_schedules()
+    {
+        $data = FootballApi::seasons(self::ID)->schedules();
+        $this->assertNotEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_team_schedules()
+    {
+        $data = FootballApi::seasons(self::ID)->teamSchedule(TeamTest::ID);
+        $this->assertNotEmpty($data->data);
+    }
 }

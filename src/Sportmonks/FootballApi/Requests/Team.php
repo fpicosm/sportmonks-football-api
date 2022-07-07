@@ -207,4 +207,20 @@ class Team extends FootballApiClient
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
         return $this->call("transfers/teams/{$this->id}", $params);
     }
+
+    /**
+     * Returns the complete season schedule for one specific team from your requested season ID.
+     *
+     * @see     Season::teamSchedule()
+     * @see     Schedule::bySeasonAndTeam()
+     * @param   int     $seasonId   the season id
+     * @param   array   $params     the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function seasonSchedule(int $seasonId, array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No team ID set');
+        return (new Season($seasonId))->teamSchedule($this->id, $params);
+    }
 }

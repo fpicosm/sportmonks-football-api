@@ -12,6 +12,7 @@ use Sportmonks\FootballApi\Requests\Player;
 use Sportmonks\FootballApi\Requests\Referee;
 use Sportmonks\FootballApi\Requests\Region;
 use Sportmonks\FootballApi\Requests\Round;
+use Sportmonks\FootballApi\Requests\Schedule;
 use Sportmonks\FootballApi\Requests\Season;
 use Sportmonks\FootballApi\Requests\Stage;
 use Sportmonks\FootballApi\Requests\Standing;
@@ -111,5 +112,10 @@ class FootballApi
     public static function standings(): Standing
     {
         return new Standing();
+    }
+
+    public static function schedules(): Schedule
+    {
+        return new Schedule();
     }
 }

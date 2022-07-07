@@ -159,4 +159,35 @@ class Season extends FootballApiClient
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
         return $this->call("standings/corrections/seasons/{$this->id}", $params);
     }
+
+    /**
+     * Returns the complete season schedule from your requested season ID.
+     *
+     * @see     Schedule::bySeason()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function schedules(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+        return $this->call("schedules/seasons/{$this->id}", $params);
+    }
+
+    /**
+     * Returns the complete season schedule for one specific team from your requested season ID.
+     *
+     * @see     Schedule::bySeasonAndTeam()
+     * @see     Team::seasonSchedule()
+     * @param   int     $teamId the team id
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function teamSchedule(int $teamId, array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season ID set');
+        return $this->call("schedules/seasons/{$this->id}/teams/{$teamId}", $params);
+    }
 }
