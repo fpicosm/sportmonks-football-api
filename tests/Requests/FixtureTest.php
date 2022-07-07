@@ -95,4 +95,14 @@ class FixtureTest extends TestCase
         $data = FootballApi::fixtures(self::ID)->commentaries();
         $this->assertIsArray($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_highlights()
+    {
+        $data = FootballApi::fixtures(self::ID)->highlights();
+        $this->assertIsArray($data->data);
+    }
 }

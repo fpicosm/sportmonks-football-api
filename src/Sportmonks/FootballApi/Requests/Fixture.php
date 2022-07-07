@@ -167,4 +167,19 @@ class Fixture extends FootballApiClient
         if (!$this->id) throw new InvalidArgumentException('No fixture ID set');
         return $this->call("commentaries/fixtures/$this->id", $params);
     }
+
+    /**
+     * Returns video highlights, goals, events etc.
+     *
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/video-highlights/get-video-highlights-by-fixture-id
+     * @see     Highlight::byFixture()
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException|InvalidArgumentException
+     */
+    public function highlights(array $params = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No fixture ID set');
+        return $this->call("highlights/fixtures/$this->id", $params);
+    }
 }

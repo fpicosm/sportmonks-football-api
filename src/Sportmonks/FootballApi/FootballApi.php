@@ -8,6 +8,7 @@ use Sportmonks\FootballApi\Requests\Commentary;
 use Sportmonks\FootballApi\Requests\Continent;
 use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\Fixture;
+use Sportmonks\FootballApi\Requests\Highlight;
 use Sportmonks\FootballApi\Requests\League;
 use Sportmonks\FootballApi\Requests\Player;
 use Sportmonks\FootballApi\Requests\Referee;
@@ -141,5 +142,10 @@ class FootballApi
     public static function commentaries(): Commentary
     {
         return new Commentary();
+    }
+
+    public static function highlights(): Highlight
+    {
+        return new Highlight();
     }
 }
