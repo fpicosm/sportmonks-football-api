@@ -1,11 +1,10 @@
 <?php
 
-namespace Sportmonks\FootballApi\Providers;
+namespace Sportmonks\FootballApi;
 
-use Illuminate\Support\ServiceProvider as ServiceProviderAlias;
-use Sportmonks\FootballApi\FootballApi;
+use Illuminate\Support\ServiceProvider;
 
-class ServiceProvider extends ServiceProviderAlias
+class FootballApiServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application's service providers.

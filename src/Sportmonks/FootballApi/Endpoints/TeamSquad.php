@@ -1,6 +1,6 @@
 <?php
 
-namespace Sportmonks\FootballApi\Requests;
+namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
 use Sportmonks\FootballApi\Clients\FootballApiClient;

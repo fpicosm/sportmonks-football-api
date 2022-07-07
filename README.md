@@ -47,7 +47,7 @@ The `SPORTMONKS_TIMEZONE` is optional. If not included, the api get the value fr
 1. Register the ServiceProvider in `config/app.php`, in the `providers` section:
 
 ```php
-Sportmonks\FootballApi\Providers\ServiceProvider::class,
+\Sportmonks\FootballApi\FootballApiServiceProvider::class,
 ```
 
 2. Add the Facade alias in `config/app.php`, in the `aliases` section:
@@ -106,7 +106,7 @@ $app->configure('football-api');
 5. Add the ServiceProvider in `bootstrap/app.php` in the `Register Service Providers` section:
 
 ```php
-$app->register(\Sportmonks\FootballApi\Providers\ServiceProvider::class),
+$app->register(\Sportmonks\FootballApi\FootballApiServiceProvider::class),
 ```
 
 6. Uncomment the line `$app->withFacades();` in `bootstrap/app.php`
