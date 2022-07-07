@@ -36,14 +36,14 @@ class TopScorer extends FootballApiClient
     /**
      * This endpoint returns all the aggregated topscorers of the requested season.
      *
-     * @see     Season::topScorersAggregated()
-     * @param   int     $seasonId   the season id
+     * @see     Season::aggregatedTopScorers()
+     * @param   int $seasonId the season id
      * @param   array   $params     the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
     public function aggregatedBySeason(int $seasonId, array $params = []): object
     {
-        return (new Season($seasonId))->topScorersAggregated($params);
+        return (new Season($seasonId))->aggregatedTopScorers($params);
     }
 }

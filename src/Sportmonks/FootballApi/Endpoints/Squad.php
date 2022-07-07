@@ -13,7 +13,7 @@ use Sportmonks\FootballApi\Clients\FootballApiClient;
  *
  * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads
  */
-class TeamSquad extends FootballApiClient
+class Squad extends FootballApiClient
 {
     /**
      * Returns the current domestic squad from your requested team ID

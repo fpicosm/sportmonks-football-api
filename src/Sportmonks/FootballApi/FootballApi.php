@@ -23,7 +23,7 @@ use Sportmonks\FootballApi\Endpoints\Stage;
 use Sportmonks\FootballApi\Endpoints\Standing;
 use Sportmonks\FootballApi\Endpoints\State;
 use Sportmonks\FootballApi\Endpoints\Team;
-use Sportmonks\FootballApi\Endpoints\TeamSquad;
+use Sportmonks\FootballApi\Endpoints\Squad;
 use Sportmonks\FootballApi\Endpoints\Transfer;
 use Sportmonks\FootballApi\Endpoints\TvStation;
 use Sportmonks\FootballApi\Endpoints\Type;
@@ -91,9 +91,9 @@ class FootballApi
         return new Round($id);
     }
 
-    public static function teamSquads(): TeamSquad
+    public static function squads(): Squad
     {
-        return new TeamSquad();
+        return new Squad();
     }
 
     public static function venues(): Venue

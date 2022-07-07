@@ -68,7 +68,7 @@ class Standing extends FootballApiClient
      * @return  object  the response object
      * @throws  GuzzleException
      */
-    public function seasonCorrections(int $seasonId, array $params = []): object
+    public function correctionsBySeason(int $seasonId, array $params = []): object
     {
         return (new Season($seasonId))->standingCorrections($params);
     }

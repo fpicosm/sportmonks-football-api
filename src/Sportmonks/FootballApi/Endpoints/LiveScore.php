@@ -32,7 +32,7 @@ class LiveScore extends FootballApiClient
      * Returns all the live fixtures.
      * Please be aware that in the livescores endpoint, the fixtures will be available 15 minutes before the match has started and 15 minutes after it has ended.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/livescores/get-all-livescores
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/livescores/get-inplay-livescores
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException

@@ -116,7 +116,7 @@ class SeasonTest extends TestCase
      */
     public function it_retrieves_team_schedules()
     {
-        $data = FootballApi::seasons(self::ID)->teamSchedule(TeamTest::ID);
+        $data = FootballApi::seasons(self::ID)->teamSchedules(TeamTest::ID);
         $this->assertNotEmpty($data->data);
     }
 
@@ -137,7 +137,7 @@ class SeasonTest extends TestCase
      */
     public function it_retrieves_top_scorers_aggregated()
     {
-        $data = FootballApi::seasons(self::ID)->topScorersAggregated();
+        $data = FootballApi::seasons(self::ID)->aggregatedTopScorers();
         $this->assertObjectHasAttribute('data', $data);
         $this->assertIsArray($data->data);
     }

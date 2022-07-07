@@ -32,7 +32,8 @@ class Schedule extends FootballApiClient
     /**
      * Returns the complete season schedule for one specific team from your requested season ID.
      *
-     * @see     Season::schedules()
+     * @see     Season::teamSchedules()
+     * @see     Team::seasonSchedules()
      * @param   int     $seasonId   the season id
      * @param   int     $teamId     the team id
      * @param   array   $params     the query params
@@ -41,6 +42,6 @@ class Schedule extends FootballApiClient
      */
     public function bySeasonAndTeam(int $seasonId, int $teamId, array $params = []): object
     {
-        return (new Season($seasonId))->teamSchedule($teamId, $params);
+        return (new Season($seasonId))->teamSchedules($teamId, $params);
     }
 }

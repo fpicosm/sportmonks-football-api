@@ -55,4 +55,17 @@ class Venue extends FootballApiClient
     {
         return (new Season($seasonId))->venues($params);
     }
+
+    /**
+     * This endpoint returns all the venues that match your search query.
+     *
+     * @param   string  $name   the venue name to search
+     * @param   array   $params the query params
+     * @return  object  the response object
+     * @throws  GuzzleException
+     */
+    public function search(string $name, array $params = []): object
+    {
+        return $this->call("venues/search/$name", $params);
+    }
 }

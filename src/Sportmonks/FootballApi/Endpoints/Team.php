@@ -108,7 +108,6 @@ class Team extends FootballApiClient
     public function leagues(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-
         return $this->call("teams/$this->id/leagues", $params);
     }
 
@@ -123,14 +122,13 @@ class Team extends FootballApiClient
     public function currentLeagues(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-
         return $this->call("teams/$this->id/leagues/current", $params);
     }
 
     /**
      * Returns the current domestic squad from your requested team ID.
      *
-     * @see     TeamSquad::byTeam()
+     * @see     Squad::byTeam()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -139,7 +137,6 @@ class Team extends FootballApiClient
     public function squad(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-
         return $this->call("squads/teams/$this->id", $params);
     }
 
@@ -152,10 +149,9 @@ class Team extends FootballApiClient
      * @return  object  the response object
      * @throws  GuzzleException|InvalidArgumentException
      */
-    public function squadBySeason(int $seasonId, array $params = []): object
+    public function seasonSquad(int $seasonId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-
         return (new Season($seasonId))->teamSquad($this->id, $params);
     }
 
@@ -210,17 +206,17 @@ class Team extends FootballApiClient
     /**
      * Returns the complete season schedule for one specific team from your requested season ID.
      *
-     * @see     Season::teamSchedule()
+     * @see     Season::teamSchedules()
      * @see     Schedule::bySeasonAndTeam()
      * @param   int     $seasonId   the season id
      * @param   array   $params     the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
-    public function seasonSchedule(int $seasonId, array $params = []): object
+    public function seasonSchedules(int $seasonId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return (new Season($seasonId))->teamSchedule($this->id, $params);
+        return (new Season($seasonId))->teamSchedules($this->id, $params);
     }
 
     /**

@@ -97,8 +97,8 @@ class Season extends FootballApiClient
     /**
      * Returns (historical) squads from your requested season ID.
      *
-     * @see     Team::squadBySeason()
-     * @see     TeamSquad::byTeamAndSeason()
+     * @see     Team::seasonSquad()
+     * @see     Squad::byTeamAndSeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
      * @param   int     $teamId a valid team id from teams endpoint
      * @param   array   $params the query params
@@ -145,7 +145,7 @@ class Season extends FootballApiClient
     /**
      * Returns the standing corrections from your requested season ID.
      *
-     * @see     Standing::seasonCorrections()
+     * @see     Standing::correctionsBySeason()
      * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standing-correction-by-season-id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -176,13 +176,14 @@ class Season extends FootballApiClient
      * Returns the complete season schedule for one specific team from your requested season ID.
      *
      * @see     Schedule::bySeasonAndTeam()
-     * @see     Team::seasonSchedule()
+     * @see     Team::seasonSchedules()
+     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id-and-team-id
      * @param   int     $teamId the team id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException|InvalidArgumentException
      */
-    public function teamSchedule(int $teamId, array $params = []): object
+    public function teamSchedules(int $teamId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
         return $this->call("schedules/seasons/$this->id/teams/$teamId", $params);
@@ -212,7 +213,7 @@ class Season extends FootballApiClient
      * @return  object  the response object
      * @throws  GuzzleException|InvalidArgumentException
      */
-    public function topScorersAggregated(array $params = []): object
+    public function aggregatedTopScorers(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No season ID set');
         return $this->call("topscorers/seasons/$this->id/aggregated", $params);
