@@ -3,7 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
  * Add a textual representation of the actions that take place in a fixture with the commentaries' endpoint.

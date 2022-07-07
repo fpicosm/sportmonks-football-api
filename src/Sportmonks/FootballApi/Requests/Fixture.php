@@ -4,7 +4,7 @@ namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
 use InvalidArgumentException;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
  * There are multiple options to retrieve the fixtures within your subscription.

@@ -3,8 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
-use InvalidArgumentException;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
  * Retrieve detailed transfers information via one of our 6 transfers' endpoints.

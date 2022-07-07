@@ -3,7 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
  * Retrieve accurate information about the goals, assist and card topscorers.

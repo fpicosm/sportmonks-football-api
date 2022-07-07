@@ -1,11 +1,11 @@
 <?php
 
-namespace Sportmonks\FootballApi;
+namespace Sportmonks\FootballApi\Clients;
 
 use GuzzleHttp\Client;
 use InvalidArgumentException;
 
-class CoreApiClient extends SportmonksClient
+class FootballApiClient extends SportmonksClient
 {
     protected Client $client;
 
@@ -15,10 +15,10 @@ class CoreApiClient extends SportmonksClient
         if (empty($apiToken)) throw new InvalidArgumentException('No API token set');
 
         $this->client = new Client([
-            'base_uri' => 'https://api.sportmonks.com/v3/core/',
+            'base_uri' => 'https://api.sportmonks.com/v3/football/',
             'headers' => [
                 'Authorization' => $apiToken,
-            ],
+            ]
         ]);
     }
 }

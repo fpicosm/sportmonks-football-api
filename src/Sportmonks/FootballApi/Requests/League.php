@@ -4,7 +4,7 @@ namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
 use InvalidArgumentException;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
  * Gather an overview of all the leagues available within your subscription via the leagues' endpoint.

@@ -4,7 +4,7 @@ namespace Globals;
 
 use Illuminate\Support\Facades\Config;
 use InvalidArgumentException;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballApiClient;
 use TestCase;
 
 class SetupTest extends TestCase

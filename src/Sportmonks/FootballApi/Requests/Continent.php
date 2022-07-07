@@ -3,7 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Sportmonks\FootballApi\CoreApiClient;
+use Sportmonks\FootballApi\Clients\CoreApiClient;
 
 /**
  * Gather an overview of all the continents available within your subscription via the continents' endpoint.

@@ -4,7 +4,7 @@ namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
 use InvalidArgumentException;
-use Sportmonks\FootballApi\CoreApiClient;
+use Sportmonks\FootballApi\Clients\CoreApiClient;
 
 /**
  * Gather an overview of all the countries available within your subscription via the countries' endpoint.

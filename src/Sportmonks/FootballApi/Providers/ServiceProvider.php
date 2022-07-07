@@ -1,10 +1,11 @@
 <?php
 
-namespace Sportmonks\FootballApi;
+namespace Sportmonks\FootballApi\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as ServiceProviderAlias;
+use Sportmonks\FootballApi\FootballApi;
 
-class FootballApiServiceProvider extends ServiceProvider
+class ServiceProvider extends ServiceProviderAlias
 {
     /**
      * Boot the application's service providers.
@@ -13,7 +14,7 @@ class FootballApiServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $configPath = __DIR__ . '/../../config';
+        $configPath = __DIR__ . '/../../../config';
 
         $this->mergeConfigFrom($configPath . '/football-api.php', 'football-api');
 

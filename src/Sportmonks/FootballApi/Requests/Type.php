@@ -3,8 +3,7 @@
 namespace Sportmonks\FootballApi\Requests;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Sportmonks\FootballApi\CoreApiClient;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\CoreApiClient;
 
 /**
  * Gather an overview of all the types available via the types' endpoints.
