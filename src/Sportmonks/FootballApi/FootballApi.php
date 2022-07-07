@@ -16,6 +16,7 @@ use Sportmonks\FootballApi\Requests\Schedule;
 use Sportmonks\FootballApi\Requests\Season;
 use Sportmonks\FootballApi\Requests\Stage;
 use Sportmonks\FootballApi\Requests\Standing;
+use Sportmonks\FootballApi\Requests\State;
 use Sportmonks\FootballApi\Requests\Team;
 use Sportmonks\FootballApi\Requests\TeamSquad;
 use Sportmonks\FootballApi\Requests\Transfer;
@@ -117,5 +118,10 @@ class FootballApi
     public static function schedules(): Schedule
     {
         return new Schedule();
+    }
+
+    public static function states(): State
+    {
+        return new State();
     }
 }
