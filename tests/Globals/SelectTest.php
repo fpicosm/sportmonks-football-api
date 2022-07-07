@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\ServerException;
 use Sportmonks\FootballApi\FootballApi;
 use TestCase;
 
-class SelectQueryTest extends TestCase
+class SelectTest extends TestCase
 {
     /**
      * @test
@@ -20,15 +20,15 @@ class SelectQueryTest extends TestCase
         $city = $data->data[0];
         $this->assertObjectHasAttribute('latitude', $city);
 
-        $data = FootballApi::cities()->all(['select' => 'name']);
+        $data = FootballApi::cities()->select('name')->all();
         $city = $data->data[0];
         $this->assertObjectNotHasAttribute('latitude', $city);
 
-        $data = FootballApi::cities()->all(['select' => 'name,latitude']);
+        $data = FootballApi::cities()->select('name,latitude')->all();
         $city = $data->data[0];
         $this->assertObjectHasAttribute('latitude', $city);
 
-        $data = FootballApi::cities()->all(['select' => ['name', 'latitude']]);
+        $data = FootballApi::cities()->select(['name', 'latitude'])->all();
         $city = $data->data[0];
         $this->assertObjectHasAttribute('latitude', $city);
     }
@@ -40,6 +40,6 @@ class SelectQueryTest extends TestCase
     public function it_throws_an_exception_if_non_comma_separated()
     {
         $this->expectException(ServerException::class);
-        FootballApi::cities()->all(['select' => 'name;latitude']);
+        FootballApi::cities()->select('name;latitude')->all();
     }
 }

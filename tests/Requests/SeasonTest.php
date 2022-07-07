@@ -127,7 +127,8 @@ class SeasonTest extends TestCase
     public function it_retrieves_top_scorers()
     {
         $data = FootballApi::seasons(self::ID)->topScorers();
-        $this->assertNotEmpty($data->data);
+        $this->assertObjectHasAttribute('data', $data);
+        $this->assertIsArray($data->data);
     }
 
     /**
@@ -137,6 +138,7 @@ class SeasonTest extends TestCase
     public function it_retrieves_top_scorers_aggregated()
     {
         $data = FootballApi::seasons(self::ID)->topScorersAggregated();
-        $this->assertNotEmpty($data->data);
+        $this->assertObjectHasAttribute('data', $data);
+        $this->assertIsArray($data->data);
     }
 }

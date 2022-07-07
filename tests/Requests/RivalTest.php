@@ -15,6 +15,7 @@ class RivalTest extends TestCase
     public function it_retrieves_the_rivals()
     {
         $data = FootballApi::rivals()->all();
-        $this->assertNotEmpty($data->data);
+        $this->assertObjectHasAttribute('data', $data);
+        $this->assertIsArray($data->data);
     }
 }

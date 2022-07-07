@@ -5,7 +5,7 @@ namespace Sportmonks\FootballApi\Clients;
 use GuzzleHttp\Client;
 use InvalidArgumentException;
 
-class CoreApiClient extends SportmonksClient
+class CoreApiClient extends BaseClient
 {
     protected Client $client;
 

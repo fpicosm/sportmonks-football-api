@@ -17,14 +17,25 @@ class PaginationTest extends TestCase
         $data = FootballApi::cities()->all();
         $this->assertObjectHasAttribute('pagination', $data);
 
-        $data = FootballApi::cities()->all(['page' => $data->pagination->total_pages]);
+        $data = FootballApi::cities()->page($data->pagination->total_pages)->all();
         $this->assertObjectHasAttribute('data', $data);
         $this->assertIsArray($data->data);
         $this->assertNotEmpty($data->data);
 
-        $data = FootballApi::cities()->all(['page' => $data->pagination->total_pages + 1]);
+        $data = FootballApi::cities()->page($data->pagination->total_pages + 1)->all();
         $this->assertObjectHasAttribute('data', $data);
         $this->assertIsArray($data->data);
         $this->assertEmpty($data->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_retrieves_by_page_size()
+    {
+        $data = FootballApi::players()->perPage(50)->all();
+        $this->assertIsArray($data->data);
+        $this->assertCount(50, $data->data);
     }
 }

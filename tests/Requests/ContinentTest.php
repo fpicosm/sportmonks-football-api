@@ -24,6 +24,21 @@ class ContinentTest extends TestCase
      * @test
      * @throws GuzzleException
      */
+    public function it_retrieves_all_continents_with_countries()
+    {
+        $data = FootballApi::continents()->include('countries')->all();
+        $this->assertNotEmpty($data->data);
+
+        collect($data->data)->each(function (object $data) {
+            $this->assertObjectHasAttribute('countries', $data);
+            $this->assertIsArray($data->countries);
+        });
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
     public function it_retrieves_a_continent()
     {
         $data = FootballApi::continents()->byId(self::ID);

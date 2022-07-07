@@ -73,7 +73,8 @@ class FixtureTest extends TestCase
     public function it_retrieves_last_updated_fixtures()
     {
         $data = FootballApi::fixtures()->lastUpdated();
-        $this->assertNotEmpty($data->data);
+        $this->assertObjectHasAttribute('data', $data);
+        $this->assertIsArray($data->data);
     }
 
     /**
@@ -83,7 +84,8 @@ class FixtureTest extends TestCase
     public function it_retrieves_tv_stations()
     {
         $data = FootballApi::fixtures(self::ID)->tvStations();
-        $this->assertNotEmpty($data->data);
+        $this->assertObjectHasAttribute('data', $data);
+        $this->assertIsArray($data->data);
     }
 
     /**

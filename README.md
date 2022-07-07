@@ -106,18 +106,90 @@ $app->configure('football-api');
 5. Add the ServiceProvider in `bootstrap/app.php` in the `Register Service Providers` section:
 
 ```php
-$app->register(Sportmonks\FootballApi\Providers\ServiceProvider::class),
+$app->register(\Sportmonks\FootballApi\Providers\ServiceProvider::class),
 ```
 
 6. Uncomment the line `$app->withFacades();` in `bootstrap/app.php`
 
 ## Usage
 
-You can call to `FootballApi::endpoint()->method()`:
+When needed, add the dependency:
+
+```php
+use Sportmonks\FootballApi\FootballApi;
+```
+
+Then, you can call to `FootballApi::endpoint()->method($params)`:
+
+### Select option
+
+To select specific fields on the base entity, use the `select` method:
+
+```php
+FootballApi::continents()->select('name')->all();
+```
+
+You can pass string (comma separated)
+
+```php
+FootballApi::leagues()->select('name,type,active')->all();
+```
+
+or array of strings:
+
+```php
+FootballApi::leagues()->select(['name', 'type', 'active'])->all();
+```
+
+See the documentation [here](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/request-options)
+to get detailed information.
+
+### Include option
+
+To include relations, use the `include` method:
+
+```php
+FootballApi::continents()->include('countries')->all();
+```
+
+You can pass string or array. The next both examples return the same:
+
+```php
+FootballApi::seasons()->include('fixtures;league')->all();
+FootballApi::seasons()->include(['fixtures', 'league'])->all();
+```
+
+If you want nested includes, for example `?include=league;fixtures.stage;fixtures.partcipants` you can only pass single dimension array:
+
+```php
+FootballApi::seasons()->include(['league', 'fixtures.stage', 'fixtures.participants'])->all();
+```
+
+You can combine both options `select` and `include`:
+
+```php
+FootballApi::players()->select('name')->include('country')->all();
+```
+
+### Pagination
+
+To set the page number, use the `page` method:
+
+```php
+FootballApi::players()->page(2)->all();
+```
+
+To set the page size, use the `perPage` method:
+
+```php
+FootballApi::players()->perPage(50)->all();
+```
+
+## Endpoints
 
 ### Continents
 
-#### Get all continents
+##### Get all continents - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-all-continents)
 
 Returns all the continents available within your subscription:
 

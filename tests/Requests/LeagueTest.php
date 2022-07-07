@@ -68,6 +68,7 @@ class LeagueTest extends TestCase
     public function it_retrieves_transfers()
     {
         $data = FootballApi::leagues(self::ID)->transfers();
-        $this->assertNotEmpty($data->data);
+        $this->assertObjectHasAttribute('data', $data);
+        $this->assertIsArray($data->data);
     }
 }
