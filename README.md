@@ -194,13 +194,13 @@ The queries return an object containing the next fields:
 
 Include options: **[`countries`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
 
-#### Get all continents - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-all-continents)
+#### Get all continents [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-all-continents)
 
 ```php
 FootballApi::continents()->all();
 ```
 
-#### Get continent by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-continent-by-id)
+#### Get continent by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/continents/get-continent-by-id)
 
 ```php
 FootballApi::continents()->byId(1);
@@ -210,53 +210,53 @@ FootballApi::continents()->byId(1);
 
 Include options: **[`continent`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#continents) [`leagues`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues) [`regions`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
 
-#### Get all countries - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-all-countries)
+#### Get all countries [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-all-countries)
 
 ```php
 FootballApi::countries()->all();
 ```
 
-#### Get country by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-country-by-id)
+#### Get country by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-country-by-id)
 
 ```php
 FootballApi::countries()->byId($id);
 ```
 
-#### Search countries by name - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-country-by-search)
+#### Search countries by name [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-country-by-search)
 
 ```php
 FootballApi::countries()->search($name);
 ```
 
-#### Get the country leagues - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-country-id)
+#### Get the country leagues [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-country-id)
 
 ```php
 FootballApi::countries($id)->leagues();
 FootballApi::leagues()->byCountry($id);
 ```
 
-#### Get the country players - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-country-id)
+#### Get the country players [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-country-id)
 
 ```php
 FootballApi::countries($id)->players();
 FootballApi::players()->byCountry($id);
 ```
 
-#### Get the country teams - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-country-id)
+#### Get the country teams [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-country-id)
 
 ```php
 FootballApi::countries($id)->teams();
 FootballApi::teams()->byCountry($id);
 ```
 
-#### Get the country coaches - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-coaches-by-country-id)
+#### Get the country coaches [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-coaches-by-country-id)
 
 ```php
 FootballApi::countries($id)->coaches();
 FootballApi::coaches()->byCountry($id);
 ```
 
-#### Get the country referees - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-referees-by-country-id)
+#### Get the country referees [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-referees-by-country-id)
 
 ```php
 FootballApi::countries($id)->referees();
@@ -267,19 +267,19 @@ FootballApi::referees()->byCountry($id);
 
 Include options: **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries) [`cities`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#cities)** 
 
-#### Get all regions - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-all-regions)
+#### Get all regions [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-all-regions)
 
 ```php
 FootballApi::regions()->all();
 ```
 
-#### Get region by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-id)
+#### Get region by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-id)
 
 ```php
 FootballApi::regions()->byId($id);
 ```
 
-#### Search regions by name - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-search)
+#### Search regions by name [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-search)
 
 ```php
 FootballApi::regions()->search($name);
@@ -289,19 +289,19 @@ FootballApi::regions()->search($name);
 
 Include options: **[`region`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
 
-#### Get all cities - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-all-cities)
+#### Get all cities [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-all-cities)
 
 ```php
 FootballApi::cities()->all();
 ```
 
-#### Get city by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-cities-by-id)
+#### Get city by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-cities-by-id)
 
 ```php
 FootballApi::cities()->byId($id);
 ```
 
-#### Search city by name - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-cities-by-search)
+#### Search city by name [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-cities-by-search)
 
 ```php
 FootballApi::cities()->search($name);
@@ -311,44 +311,44 @@ FootballApi::cities()->search($name);
 
 Include options: **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries) [`seasons`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
 
-#### Get all leagues - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-all-leagues)
+#### Get all leagues [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-all-leagues)
 
 ```php
 FootballApi::leagues()->all();
 ```
 
-#### Get league by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-league-by-id)
+#### Get league by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-league-by-id)
 
 ```php
 FootballApi::leagues()->byId($id);
 ```
 
-#### Get live leagues - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-live)
+#### Get live leagues [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-live)
 
 ```php
 FootballApi::leagues()->live();
 ```
 
-#### Get leagues by date - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-fixture-date)
+#### Get leagues by date [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-fixture-date)
 
 ```php
 FootballApi::leagues()->byDate($date);
 ```
 
-#### Get leagues by country - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-country-id)
+#### Get leagues by country [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-by-country-id)
 
 ```php
 FootballApi::leagues()->byCountry($id);
 FootballApi::countries($id)->leagues();
 ```
 
-#### Search leagues by name - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-search-by-name)
+#### Search leagues by name [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-leagues-search-by-name)
 
 ```php
 FootballApi::leagues()->search($name);
 ```
 
-#### Get the league transfers - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-seasons-by-id)
+#### Get the league transfers [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-seasons-by-id)
 
 ```php
 FootballApi::leagues($id)->transfers();
@@ -359,88 +359,88 @@ FootballApi::transfers()->byLeague($id);
 
 Include options: **`sport` [`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
 
-#### Get all seasons - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-all-seasons)
+#### Get all seasons [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-all-seasons)
 
 ```php
 FootballApi::seasons()->all();
 ```
 
-#### Get season by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-seasons-by-id)
+#### Get season by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-seasons-by-id)
 
 ```php
 FootballApi::seasons()->byId($id);
 ```
 
-#### Get the season rounds - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-season-id)
+#### Get the season rounds [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-season-id)
 
 ```php
 FootballApi::seasons($id)->rounds();
 FootballApi::rounds()->bySeason($id);
 ```
 
-#### Get the season stages - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id)
+#### Get the season stages [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id)
 
 ```php
 FootballApi::seasons($id)->stages();
 FootballApi::stages()->bySeason($id);
 ```
 
-#### Get the season teams - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-season-id)
+#### Get the season teams [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-season-id)
 
 ```php
 FootballApi::seasons($id)->teams();
 FootballApi::teams()->bySeason($id);
 ```
 
-#### Get the team squad in one season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
+#### Get the team squad in one season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
 
 ```php
 FootballApi::seasons($id)->teamSquad($teamId);
 FootballApi::teamSquads()->byTeamAndSeason($teamId, $seasonId)
 ```
 
-#### Get the season venues - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venues-by-season-id)
+#### Get the season venues [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venues-by-season-id)
 
 ```php
 FootballApi::seasons($id)->venues();
 ```
 
-#### Get the season standings - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-season-id)
+#### Get the season standings [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-season-id)
 
 ```php
 FootballApi::seasons($id)->standings();
 FootballApi::standings()->bySeason($id);
 ```
 
-#### Get the season standings corrections - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standing-correction-by-season-id)
+#### Get the season standings corrections [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standing-correction-by-season-id)
 
 ```php
 FootballApi::seasons($id)->standingCorrections();
 FootballApi::standings()->correctionsBySeason($id);
 ```
 
-#### Get the season schedules - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id)
+#### Get the season schedules [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id)
 
 ```php
 FootballApi::seasons($id)->schedules();
 FootballApi::schedules()->bySeason($id);
 ```
 
-#### Get the team schedules in one season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id-and-team-id)
+#### Get the team schedules in one season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id-and-team-id)
 
 ```php
 FootballApi::seasons($id)->teamSchedules($teamId);
 FootballApi::schedules()->bySeasonAndTeam($seasonId, $teamId);
 ```
 
-#### Get the season top scorers - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-topscorers-by-season-id)
+#### Get the season top scorers [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-topscorers-by-season-id)
 
 ```php
 FootballApi::seasons($id)->topScorers();
 FootballApi::topScorers()->bySeason($id);
 ```
 
-#### Get the season aggregated top scorers - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-aggregated-topscorers-by-season-id)
+#### Get the season aggregated top scorers [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-aggregated-topscorers-by-season-id)
 
 ```php
 FootballApi::seasons($id)->aggregatedTopScorers();
@@ -452,93 +452,93 @@ FootballApi::topScorers()->aggregatedBySeason($id);
 @todo
 Include options: **`sport` [`country`]() [`seasons`]() [``]() [``]() [``]() [``]() [``]() [``]()**
 
-#### Get all teams - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-all-teams)
+#### Get all teams [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-all-teams)
 
 ```php
 FootballApi::teams()->all();
 ```
 
-#### Get team by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-id)
+#### Get team by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-id)
 
 ```php
 FootballApi::teams()->byId($id);
 ```
 
-#### Get teams by country - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-id)
+#### Get teams by country [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-id)
 
 ```php
 FootballApi::teams()->byCountry($id);
 FootballApi::countries($id)->teams();
 ```
 
-#### Get teams by season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-season-id)
+#### Get teams by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-season-id)
 
 ```php
 FootballApi::teams()->bySeason($id);
 FootballApi::seasons($id)->teams();
 ```
 
-#### Search teams by name - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/search-team-by-name)
+#### Search teams by name [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/search-team-by-name)
 
 ```php
 FootballApi::teams()->search($name);
 ```
 
-#### Get all the historical leagues for a team - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-all-leagues-by-id)
+#### Get all the historical leagues for a team [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-all-leagues-by-id)
 
 ```php
 FootballApi::teams($id)->leagues();
 ```
 
-#### Get the current leagues for a team - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-current-leagues-by-id)
+#### Get the current leagues for a team [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-current-leagues-by-id)
 
 ```php
 FootballApi::teams($id)->currentLeagues();
 ```
 
-#### Get the current team squad - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
+#### Get the current team squad [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
 
 ```php
 FootballApi::teams($id)->squad();
 FootballApi::teamSquads()->byTeam($id);
 ```
 
-#### Get the team squad for a season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
+#### Get the team squad for a season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
 
 ```php
 FootballApi::teams($id)->squadBySeason($seasonId);
 FootballApi::teamSquads()->byTeamAndSeason($teamId, $seasonId);
 ```
 
-#### Get the team fixtures between a date range - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team)
+#### Get the team fixtures between a date range [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team)
 
 ```php
 FootballApi::teams($id)->fixturesByDateRange($start, $end);
 FootballApi::fixtures()->byDateRangeForTeam($teamId, $start, $end);
 ```
 
-#### Get the team fixtures against another team - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head)
+#### Get the team fixtures against another team [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head)
 
 ```php
 FootballApi::teams($id)->headToHead($rivalId);
 FootballApi::fixtures()->headToHead($firstTeamId, $secondTeamId);
 ```
 
-#### Get the team transfers - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-team-id)
+#### Get the team transfers [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-team-id)
 
 ```php
 FootballApi::teams($id)->transfers();
 FootballApi::transfers()->byTeam($id);
 ```
 
-#### Get the team schedules for a season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id-and-team-id)
+#### Get the team schedules for a season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id-and-team-id)
 
 ```php
 FootballApi::teams($id)->seasonSchedule($seasonId);
 FootballApi::schedules()->bySeasonAndTeam($seasonId, $teamId);
 ```
 
-#### Get the team rivals - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-rivals-by-team-id)
+#### Get the team rivals [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-rivals-by-team-id)
 
 ```php
 FootballApi::teams($id)->rivals();
@@ -549,13 +549,13 @@ FootballApi::rivals()->byTeam($id);
 
 @todo includes
 
-#### Get all rivals - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-all-rivals)
+#### Get all rivals [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-all-rivals)
 
 ```php
 FootballApi::rivals()->all();
 ```
 
-#### Get rivals by team - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-rivals-by-team-id)
+#### Get rivals by team [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-rivals-by-team-id)
 
 ```php
 FootballApi::rivals()->byTeam($id);
@@ -566,32 +566,32 @@ FootballApi::teams($id)->rivals();
 
 @todo includes
 
-#### Get all coaches - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-all-coaches)
+#### Get all coaches [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-all-coaches)
 
 ```php
 FootballApi::coaches()->all();
 ```
 
-#### Get coach by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-coaches-by-id)
+#### Get coach by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-coaches-by-id)
 
 ```php
 FootballApi::coaches()->byId($id);
 ```
 
-#### Get coaches by country - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-coaches-by-country-id)
+#### Get coaches by country [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-coaches-by-country-id)
 
 ```php
 FootballApi::coaches()->byCountry($id);
 FootballApi::countries($id)->coaches();
 ```
 
-#### Search coaches by name - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-coaches-by-search-by-name)
+#### Search coaches by name [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-coaches-by-search-by-name)
 
 ```php
 FootballApi::coaches()->search($name);
 ```
 
-#### Get last updated coaches - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-last-updated-coaches)
+#### Get last updated coaches [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-last-updated-coaches)
 
 ```php
 FootballApi::coaches()->lastUpdated();
@@ -601,26 +601,26 @@ FootballApi::coaches()->lastUpdated();
 
 @todo includes
 
-#### Get all venues - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-all-venues)
+#### Get all venues [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-all-venues)
 
 ```php
 FootballApi::venues()->all();
 ```
 
-#### Get venue by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venue-by-id)
+#### Get venue by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venue-by-id)
 
 ```php
 FootballApi::venues()->byId($id);
 ```
 
-#### Get venues by season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venues-by-season-id)
+#### Get venues by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-venues-by-season-id)
 
 ```php
 FootballApi::venues()->bySeason($id);
 FootballApi::seasons($id)->venues();
 ```
 
-#### Search venues by name - [Docs]()
+#### Search venues by name [Docs]()
 
 ```php
 FootballApi::venues()->search($name);
@@ -630,38 +630,38 @@ FootballApi::venues()->search($name);
 
 @todo includes
 
-#### Get all players - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-all-players)
+#### Get all players [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-all-players)
 
 ```php
 FootballApi::players()->all();
 ```
 
-#### Get player by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-id)
+#### Get player by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-id)
 
 ```php
 FootballApi::players()->byId($id);
 ```
 
-#### Get players by country - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-country-id)
+#### Get players by country [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-country-id)
 
 ```php
 FootballApi::players()->byCountry($id);
 FootballApi::countries($id)->players();
 ```
 
-#### Search players by name - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-search-by-name)
+#### Search players by name [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-search-by-name)
 
 ```php
 FootballApi::players()->search($name);
 ```
 
-#### Get last updated players - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-last-updated-players)
+#### Get last updated players [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-last-updated-players)
 
 ```php
 FootballApi::players()->lastUpdated();
 ```
 
-#### Get the player transfers - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-player-id)
+#### Get the player transfers [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-player-id)
 
 ```php
 FootballApi::players($id)->transfers();
@@ -672,39 +672,39 @@ FootballApi::transfers()->byPlayer($id);
 
 @todo includes
 
-#### Get all transfers - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-all-transfers)
+#### Get all transfers [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-all-transfers)
 
 ```php
 FootballApi::transfers()->all();
 ```
 
-#### Get transfer by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-id)
+#### Get transfer by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-id)
 
 ```php
 FootballApi::transfers()->byId($id);
 ```
 
-#### Get the latest transfers - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-latest-transfers)
+#### Get the latest transfers [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-latest-transfers)
 
 ```php
 FootballApi::transfers()->latest();
 ```
 
-#### Get transfers by team - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-team-id)
+#### Get transfers by team [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-team-id)
 
 ```php
 FootballApi::transfers()->byTeam($id);
 FootballApi::teams($id)->transfers();
 ```
 
-#### Get transfers by player - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-player-id)
+#### Get transfers by player [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-player-id)
 
 ```php
 FootballApi::transfers()->byPlayer($id);
 FootballApi::players($id)->transfers();
 ```
 
-#### Get transfers by league - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-league-id)
+#### Get transfers by league [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-league-id)
 
 ```php
 FootballApi::transfers()->byLeague($id);
@@ -715,14 +715,14 @@ FootballApi::leagues($id)->transfers();
 
 @todo includes
 
-#### Get current squad by team - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
+#### Get current squad by team [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
 
 ```php
 FootballApi::squads()->byTeam($id);
 FootballApi::teams($id)->squad();
 ```
 
-#### Get historical squad by team and season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
+#### Get historical squad by team and season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
 
 ```php
 FootballApi::squads()->byTeamAndSeason($teamId, $seasonId);
@@ -734,14 +734,14 @@ FootballApi::teams($id)->seasonSquad($seasonId);
 
 @todo includes
 
-#### Get top scorers by season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-topscorers-by-season-id)
+#### Get top scorers by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-topscorers-by-season-id)
 
 ```php
 FootballApi::topScorers()->bySeason($id);
 FootballApi::seasons($id)->topScorers();
 ```
 
-#### Get aggregated top scorers by season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-aggregated-topscorers-by-season-id)
+#### Get aggregated top scorers by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/topscorers/get-aggregated-topscorers-by-season-id)
 
 ```php
 FootballApi::topScorers()->aggregatedBySeason($id);
@@ -750,19 +750,19 @@ FootballApi::seasons($id)->aggregatedTopScorers();
 
 ### Stages
 
-#### Get all stages - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-all-stages)
+#### Get all stages [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-all-stages)
 
 ```php
 FootballApi::stages()->all();
 ```
 
-#### Get stage by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-id)
+#### Get stage by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-id)
 
 ```php
 FootballApi::stages()->byId($id);
 ```
 
-#### Get stages by season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id)
+#### Get stages by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-stages-by-season-id)
 
 ```php
 FootballApi::stages()->bySeason($id);
@@ -773,26 +773,26 @@ FootballApi::seasons($id)->stages();
 
 @todo includes
 
-#### Get all rounds - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-all-rounds)
+#### Get all rounds [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-all-rounds)
 
 ```php
 FootballApi::rounds()->all();
 ```
 
-#### Get round by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-id)
+#### Get round by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-id)
 
 ```php
 FootballApi::rounds()->by();
 ```
 
-#### Get rounds by seasons - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-season-id)
+#### Get rounds by seasons [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-season-id)
 
 ```php
 FootballApi::rounds()->bySeason($id);
 FootballApi::seasons($id)->rounds();
 ```
 
-#### Get the round standings - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-round-id)
+#### Get the round standings [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-round-id)
 
 ```php
 FootballApi::rounds($id)->standings();
@@ -803,78 +803,78 @@ FootballApi::standings()->byRound($id);
 
 @todo includes
 
-#### Get all fixtures - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-all-fixtures)
+#### Get all fixtures [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-all-fixtures)
 
 ```php
 FootballApi::fixtures()->all();
 ```
 
-#### Get fixture by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-id)
+#### Get fixture by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-id)
 
 ```php
 FootballApi::fixtures()->byId($id);
 ```
 
-#### Get multiple fixtures by ids - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixtures-by-multiple-ids)
+#### Get multiple fixtures by ids [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixtures-by-multiple-ids)
 
 ```php
 FootballApi::fixtures()->byIds($ids);
 ```
 
-#### Get the fixtures between two dates - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range)
+#### Get the fixtures between two dates [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range)
 
 ```php
 FootballApi::fixtures()->byDateRange($start, $end);
 ```
 
-#### Get the fixtures by date - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixtures-by-date)
+#### Get the fixtures by date [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixtures-by-date)
 
 ```php
 FootballApi::fixtures()->byDate($date);
 ```
 
-#### Get the fixtures for a team between two dates - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team)
+#### Get the fixtures for a team between two dates [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team)
 
 ```php
 FootballApi::fixtures()->byDateRangeForTeam($teamId, $start, $end);
 FootballApi::teams($id)->fixturesByDateRange($start, $end);
 ```
 
-#### Get all fixtures between two teams - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head)
+#### Get all fixtures between two teams [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head)
 
 ```php
 FootballApi::fixtures()->headToHead($firstTeamId, $secondTeamId);
 FootballApi::teams($id)->headToHead($rivalId);
 ```
 
-#### Get the last updated fixtures - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-last-updated-fixtures)
+#### Get the last updated fixtures [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-last-updated-fixtures)
 
 ```php
 FootballApi::fixtures()->lastUpdated();
 ```
 
-#### Get the fixture TV stations - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/tv-stations/get-tv-station-by-fixture-id)
+#### Get the fixture TV stations [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/tv-stations/get-tv-station-by-fixture-id)
 
 ```php
 FootballApi::fixtures($id)->tvStations();
 FootballApi::tvStations()->byFixture($id);
 ```
 
-#### Get the fixture commentaries - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/commentaries/get-commentaries-by-fixture-id)
+#### Get the fixture commentaries [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/commentaries/get-commentaries-by-fixture-id)
 
 ```php
 FootballApi::fixtures($id)->commentaries();
 FootballApi::commentaries()->byFixture($id);
 ```
 
-#### Get the fixture highlights - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/video-highlights/get-video-highlights-by-fixture-id)
+#### Get the fixture highlights [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/video-highlights/get-video-highlights-by-fixture-id)
 
 ```php
 FootballApi::fixtures($id)->highlights();
 FootballApi::highlights()->byFixture($id);
 ```
 
-#### Get the fixture predictions - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities-by-fixture-id)
+#### Get the fixture predictions [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities-by-fixture-id)
 
 ```php
 FootballApi::fixtures($id)->predictions();
@@ -885,32 +885,32 @@ FootballApi::predictions()->byFixture($id);
 
 @todo include
 
-#### Get all referees - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-all-referees)
+#### Get all referees [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-all-referees)
 
 ```php
 FootballApi::referees()->all();
 ```
 
-#### Get referee by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-referees-by-id)
+#### Get referee by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-referees-by-id)
 
 ```php
 FootballApi::referees()->byId($id);
 ```
 
-#### Get referees by country - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-referees-by-country-id)
+#### Get referees by country [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-referees-by-country-id)
 
 ```php
 FootballApi::referees()->byCountry($id);
 FootballApi::countries($id)->referees();
 ```
 
-#### Search referees by name - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-referees-by-search-by-name)
+#### Search referees by name [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-referees-by-search-by-name)
 
 ```php
 FootballApi::referees()->search($name);
 ```
 
-#### Get last updated referees - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-last-updated-referees)
+#### Get last updated referees [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-last-updated-referees)
 
 ```php
 FootballApi::referees()->lastUpdated();
@@ -918,27 +918,27 @@ FootballApi::referees()->lastUpdated();
 
 ### Standings
 
-#### Get all standings - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-all-standings)
+#### Get all standings [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-all-standings)
 
 ```php
 FootballApi::standings()->all();
 ```
 
-#### Get standings by season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-season-id)
+#### Get standings by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-season-id)
 
 ```php
 FootballApi::standings()->bySeason($id);
 FootballApi::seasons($id)->standings();
 ```
 
-#### Get standings by round - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-round-id)
+#### Get standings by round [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-round-id)
 
 ```php
 FootballApi::standings()->byRound($id);
 FootballApi::rounds($id)->standings();
 ```
 
-#### Get standings corrections by season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standing-correction-by-season-id)
+#### Get standings corrections by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standing-correction-by-season-id)
 
 ```php
 FootballApi::standings()->correctionsBySeason($id);
@@ -949,14 +949,14 @@ FootballApi::seasons($id)->standingCorrections();
 
 @todo includes 
 
-#### Get schedules by season - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id)
+#### Get schedules by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id)
 
 ```php
 FootballApi::schedules()->bySeason($id);
 FootballApi::seasons($id)->schedules();
 ```
 
-#### Get schedules by season and team - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id-and-team-id)
+#### Get schedules by season and team [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id-and-team-id)
 
 ```php
 FootballApi::schedules()->bySeasonAndTeam($seasonId, $teamId);
@@ -968,7 +968,7 @@ FootballApi::teams($id)->seasonSchedules($seasonId);
 
 @todo includes
 
-#### Get tv stations by fixture - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/tv-stations/get-tv-station-by-fixture-id)
+#### Get tv stations by fixture [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/tv-stations/get-tv-station-by-fixture-id)
 
 ```php
 FootballApi::tvStations()->byFixture($id);
@@ -979,13 +979,13 @@ FootballApi::fixtures($id)->tvStations();
 
 @todo includes
 
-#### Get all the fixtures of today - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/livescores/get-all-livescores)
+#### Get all the fixtures of today [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/livescores/get-all-livescores)
 
 ```php
 FootballApi::livescores()->all();
 ```
 
-#### Get all live* fixtures - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/livescores/get-inplay-livescores)
+#### Get all live* fixtures [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/livescores/get-inplay-livescores)
 
 <small>* fixtures will be available 15 minutes before the match has started and 15 mins after it has ended</small>
 
@@ -997,13 +997,13 @@ FootballApi::livescores()->inplay();
 
 @todo includes
 
-#### Get all commentaries - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/commentaries/get-all-commentaries)
+#### Get all commentaries [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/commentaries/get-all-commentaries)
 
 ```php
 FootballApi::commentaries()->all();
 ```
 
-#### Get commentaries by fixture - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/commentaries/get-commentaries-by-fixture-id)
+#### Get commentaries by fixture [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/commentaries/get-commentaries-by-fixture-id)
 
 ```php
 FootballApi::commentaries()->byFixture($id);
@@ -1014,7 +1014,7 @@ FootballApi::fixtures($id)->commentaries();
 
 @todo includes
 
-#### Get highlights by fixture - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/video-highlights/get-video-highlights-by-fixture-id)
+#### Get highlights by fixture [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/video-highlights/get-video-highlights-by-fixture-id)
 
 ```php
 FootballApi::highlights()->byFixture($id);
@@ -1025,7 +1025,7 @@ FootballApi::fixtures($id)->highlights();
 
 @todo includes
 
-#### Get all* the probabilities - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities)
+#### Get all* the probabilities [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities)
 
 <small>* All probabilities are available 21 days before the match starts</small>
 
@@ -1033,7 +1033,7 @@ FootballApi::fixtures($id)->highlights();
 FootballApi::predictions()->probabilities();
 ```
 
-#### Get predictions by fixture - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities-by-fixture-id)
+#### Get predictions by fixture [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities-by-fixture-id)
 
 ```php
 FootballApi::predictions()->byFixture($id);
@@ -1044,13 +1044,13 @@ FootballApi::fixtures($id)->predictions();
 
 @todo includes
 
-#### Get all states - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/states/get-all-states)
+#### Get all states [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/states/get-all-states)
 
 ```php
 FootballApi::states()->all();
 ```
 
-#### Get state by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/states/get-state-by-id)
+#### Get state by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/states/get-state-by-id)
 
 ```php
 FootballApi::states()->byId($id);
@@ -1060,13 +1060,13 @@ FootballApi::states()->byId($id);
 
 @todo includes
 
-#### Get all types - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/types/get-all-types)
+#### Get all types [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/types/get-all-types)
 
 ```php
 FootballApi::types()->all();
 ```
 
-#### Get type by id - [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/types/get-type-by-id)
+#### Get type by id [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/types/get-type-by-id)
 
 ```php
 FootballApi::types()->byId($id);
