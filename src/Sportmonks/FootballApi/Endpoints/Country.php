@@ -7,9 +7,6 @@ use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\CoreApiClient;
 
 /**
- * Gather an overview of all the countries available within your subscription via the countries' endpoint.
- * The countries' endpoint helps you with assigning leagues to the country they belong to.
- *
  * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries
  */
 class Country extends CoreApiClient
@@ -25,7 +22,6 @@ class Country extends CoreApiClient
     /**
      * Returns all the countries available within your subscription.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-all-countries
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -38,21 +34,19 @@ class Country extends CoreApiClient
     /**
      * Returns information from your requested country ID.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-country-by-id
-     * @param   int     $id the country id
+     * @param   int     $id     the country id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
     public function byId(int $id, array $params = []): object
     {
-        return $this->call( "countries/${id}", $params);
+        return $this->call( "countries/$id", $params);
     }
 
     /**
      * Returns country information that match your search query.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-country-by-search
      * @param   string  $search the country name to search
      * @param   array   $params the query params
      * @return  object  the response object
@@ -66,6 +60,7 @@ class Country extends CoreApiClient
     /**
      * Returns all the leagues from your requested country ID.
      *
+     * @alias
      * @see     League::byCountry()
      * @param   array   $params the query params
      * @return  object  the response object
@@ -78,8 +73,9 @@ class Country extends CoreApiClient
     }
 
     /**
-     * This endpoint returns player information from your requested country ID.
+     * Returns player information from your requested country ID.
      *
+     * @alias
      * @see     Player::byCountry()
      * @param   array   $params the query params
      * @return  object  the response object
@@ -94,6 +90,7 @@ class Country extends CoreApiClient
     /**
      * Returns the teams from your requested country id.
      *
+     * @alias
      * @see     Team::byCountry()
      * @param   array   $params the query params
      * @return  object  the response object
@@ -108,6 +105,7 @@ class Country extends CoreApiClient
     /**
      * Returns coach information from your requested country ID.
      *
+     * @alias
      * @see     Coach::byCountry()
      * @param   array   $params the query params
      * @return  object  the response object
@@ -122,6 +120,7 @@ class Country extends CoreApiClient
     /**
      * Returns referee information from your requested country ID.
      *
+     * @alias
      * @see     Referee::byCountry()
      * @param   array   $params the query params
      * @return  object  the response object

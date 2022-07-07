@@ -6,11 +6,6 @@ use GuzzleHttp\Exception\GuzzleException;
 use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
- * Retrieve historical squads via our Teams Squad endpoint.
- * You can retrieve historical squads from 2005 and onwards.
- * The endpoint also includes player performances in the requested season.*
- * You can find the details on the Team Squads endpoint, including base URL, parameters, includes, and more.
- *
  * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads
  */
 class Squad extends FootballApiClient
@@ -18,30 +13,27 @@ class Squad extends FootballApiClient
     /**
      * Returns the current domestic squad from your requested team ID
      *
-     * @see     Team::squad()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
-     * @param   int     $teamId a valid team id from the teams endpoint
+     * @param   int     $teamId the team id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
     public function byTeam(int $teamId, array $params = []): object
     {
-        return (new Team($teamId))->squad($params);
+        return $this->call("squads/teams/$teamId", $params);
     }
 
     /**
      * Returns (historical) squads from your requested season ID.
      *
-     * @see     Season::teamSquad()
-     * @param   int     $teamId     a valid team id from the teams endpoint
-     * @param   int     $seasonId   a valid season id from the seasons endpoint
+     * @param   int     $teamId     the team id
+     * @param   int     $seasonId   the season id
      * @param   array   $params     the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
     public function byTeamAndSeason(int $teamId, int $seasonId, array $params = []): object
     {
-        return (new Season($seasonId))->teamSquad($teamId, $params);
+        return $this->call("squads/seasons/$seasonId/teams/$teamId", $params);
     }
 }

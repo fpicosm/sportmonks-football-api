@@ -7,11 +7,6 @@ use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
- * Retrieve detailed team information via one of our team endpoints.
- * With the team endpoints, you can retrieve basic information like logos, names etc.
- * You can retrieve more detailed information by using the correct includes.
- * Per endpoint, you can find the details including base URL, parameters, includes and more.
- *
  * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams
  */
 class Team extends FootballApiClient
@@ -28,9 +23,8 @@ class Team extends FootballApiClient
     }
 
     /**
-     * Returns all the teams available within your subscription
+     * Returns all the teams available within your subscription.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-all-teams
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -43,7 +37,6 @@ class Team extends FootballApiClient
     /**
      * Returns information from your requested team ID.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-id
      * @param   int     $id     the team id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -57,10 +50,8 @@ class Team extends FootballApiClient
     /**
      * Returns the teams from your requested country id.
      *
-     * @see     Country::teams()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-by-id
-     * @param   int     $countryId  a valid country id from countries endpoint
-     * @param   array   $params the query params
+     * @param   int     $countryId  the country id
+     * @param   array   $params     the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
@@ -72,21 +63,19 @@ class Team extends FootballApiClient
     /**
      * Returns the teams from your requested season id.
      *
-     * @see     Season::teams()
-     * @param   int     $seasonId   a valid season id from seasons endpoint
+     * @param   int     $seasonId   the season id
      * @param   array   $params     the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
     public function bySeason(int $seasonId, array $params = []): object
     {
-        return (new Season($seasonId))->teams($params);
+        return $this->call("teams/seasons/$seasonId", $params);
     }
 
     /**
      * Returns all the teams that match your search query.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/search-team-by-name
      * @param   string  $name   the team name to search
      * @param   array   $params the query params
      * @return  object  the response object
@@ -100,7 +89,6 @@ class Team extends FootballApiClient
     /**
      * Returns all the current and historical leagues from your requested team id.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-all-leagues-by-id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException|InvalidArgumentException
@@ -114,7 +102,6 @@ class Team extends FootballApiClient
     /**
      * Returns all the current leagues of your requested team id.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-team-current-leagues-by-id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException|InvalidArgumentException
@@ -128,8 +115,8 @@ class Team extends FootballApiClient
     /**
      * Returns the current domestic squad from your requested team ID.
      *
+     * @alias
      * @see     Squad::byTeam()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException|InvalidArgumentException
@@ -137,14 +124,15 @@ class Team extends FootballApiClient
     public function squad(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return $this->call("squads/teams/$this->id", $params);
+        return (new Squad())->byTeam($this->id, $params);
     }
 
     /**
      * Returns (historical) squads from your requested season ID.
      *
-     * @see     Season::teamSquad()
-     * @param   int     $seasonId   a valid season id from seasons endpoint
+     * @alias
+     * @see     Squad::byTeamAndSeason()
+     * @param   int     $seasonId   the season id
      * @param   array   $params     the query params
      * @return  object  the response object
      * @throws  GuzzleException|InvalidArgumentException
@@ -152,14 +140,14 @@ class Team extends FootballApiClient
     public function seasonSquad(int $seasonId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return (new Season($seasonId))->teamSquad($this->id, $params);
+        return (new Squad())->byTeamAndSeason($this->id, $seasonId);
     }
 
     /**
      * Returns the fixtures you’ve requested by date range for a specific team.
      *
+     * @alias
      * @see     Fixture::byDateRangeForTeam()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-date-range-for-team
      * @param   string  $start  the start date
      * @param   string  $end    the end date
      * @param   array   $params the query params
@@ -169,14 +157,14 @@ class Team extends FootballApiClient
     public function fixturesByDateRange(string $start, string $end, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return $this->call("fixtures/between/$start/$end/$this->id", $params);
+        return (new Fixture())->byDateRangeForTeam($this->id, $start, $end, $params);
     }
 
     /**
      * Returns the head-to-head fixtures of two teams you’ve requested.
      *
+     * @alias
      * @see     Fixture::headToHead()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-fixture-by-head-to-head
      * @param   int     $opponentId a valid team id
      * @param   array   $params     the query params
      * @return  object  the response object
@@ -185,14 +173,14 @@ class Team extends FootballApiClient
     public function headToHead(int $opponentId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return $this->call("fixtures/head-to-head/$this->id/$opponentId", $params);
+        return (new Fixture())->headToHead($this->id, $opponentId, $params);
     }
 
     /**
      * Returns the transfers from your requested team ID.
      *
+     * @alias
      * @see     Transfer::byTeam()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-team-id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -200,13 +188,13 @@ class Team extends FootballApiClient
     public function transfers(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return $this->call("transfers/teams/$this->id", $params);
+        return (new Transfer())->byTeam($this->id, $params);
     }
 
     /**
      * Returns the complete season schedule for one specific team from your requested season ID.
      *
-     * @see     Season::teamSchedules()
+     * @alias
      * @see     Schedule::bySeasonAndTeam()
      * @param   int     $seasonId   the season id
      * @param   array   $params     the query params
@@ -216,14 +204,14 @@ class Team extends FootballApiClient
     public function seasonSchedules(int $seasonId, array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return (new Season($seasonId))->teamSchedules($this->id, $params);
+        return (new Schedule())->bySeasonAndTeam($seasonId, $this->id, $params);
     }
 
     /**
-     * This endpoint returns the rivals of your requested team ID (if available).
+     * Returns the rivals of your requested team ID (if available).
      *
+     * @alias
      * @see     Rival::byTeam()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rivals/get-rivals-by-team-id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -231,6 +219,6 @@ class Team extends FootballApiClient
     public function rivals(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team ID set');
-        return $this->call("teams/rivals/$this->id", $params);
+        return (new Rival())->byTeam($this->id, $params);
     }
 }

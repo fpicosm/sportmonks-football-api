@@ -39,11 +39,6 @@ class FixtureTest extends TestCase
         $ids = [self::ID, (self::ID + 1)];
         $data = FootballApi::fixtures()->byIds($ids);
         $this->assertNotEmpty($data->data);
-
-        $firstId = self::ID;
-        $secondId = self::ID + 1;
-        $data = FootballApi::fixtures()->byIds("{$firstId},{$secondId}");
-        $this->assertNotEmpty($data->data);
     }
 
     /**

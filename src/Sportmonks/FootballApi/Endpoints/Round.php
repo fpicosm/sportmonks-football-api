@@ -7,11 +7,6 @@ use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
- * Most leagues have rounds related to the season. A round represents a week a fixture is played in.
- * With the rounds' endpoint we give you the ability to request data for a single round or for a whole season.
- * Use one of our 3 rounds endpoints.
- * Per endpoint, you can find the details, including base URL, parameters, includes and more.
- *
  * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds
  */
 class Round extends FootballApiClient
@@ -27,7 +22,6 @@ class Round extends FootballApiClient
     /**
      * Returns all rounds available within your subscription
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-all-rounds
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -40,7 +34,6 @@ class Round extends FootballApiClient
     /**
      * Returns round information from your requested round ID.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-rounds-by-id
      * @param   int     $id     the round id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -54,21 +47,20 @@ class Round extends FootballApiClient
     /**
      * Returns round information from your requested season ID.
      *
-     * @see     Season::rounds()
-     * @param   int     $seasonId   a valid id from seasons endpoint
+     * @param   int     $seasonId   the season id
      * @param   array   $params     the query params
      * @throws  GuzzleException
      */
     public function bySeason(int $seasonId, array $params = []): object
     {
-        return (new Season($seasonId))->rounds($params);
+        return $this->call("rounds/seasons/$seasonId", $params);
     }
 
     /**
      * Returns the full league standing table from your requested round ID.
      *
+     * @alias
      * @see     Standing::byRound()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-standings-by-round-id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -76,6 +68,6 @@ class Round extends FootballApiClient
     public function standings(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No round ID set');
-        return $this->call("standings/rounds/$this->id", $params);
+        return (new Standing())->byRound($this->id, $params);
     }
 }

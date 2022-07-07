@@ -7,10 +7,6 @@ use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 /**
- * Retrieve detailed player information via one of our player endpoints.
- * You can retrieve more detailed information by using the correct includes.
- * Per endpoint, you can find the details including base URL, parameters, includes and more.
- *
  * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players
  */
 class Player extends FootballApiClient
@@ -27,9 +23,8 @@ class Player extends FootballApiClient
     }
 
     /**
-     * Returns all the players available within your subscription
+     * Returns all the players available within your subscription.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-all-players
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -40,9 +35,8 @@ class Player extends FootballApiClient
     }
 
     /**
-     * This endpoint returns player information from your requested player ID.
+     * Returns player information from your requested player ID.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-id
      * @param   int     $id     the player id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -54,10 +48,8 @@ class Player extends FootballApiClient
     }
 
     /**
-     * This endpoint returns player information from your requested country ID.
+     * Returns player information from your requested country ID.
      *
-     * @see     Country::players()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-country-id
      * @param   int     $countryId  a valid id from countries endpoint
      * @param   array   $params     the query params
      * @return  object  the response object
@@ -69,9 +61,8 @@ class Player extends FootballApiClient
     }
 
     /**
-     * This endpoint returns all the players that match your search query.
+     * Returns all the players that match your search query.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-players-by-search-by-name
      * @param   string  $name   the player name to search
      * @param   array   $params the query params
      * @return  object  the response object
@@ -83,9 +74,8 @@ class Player extends FootballApiClient
     }
 
     /**
-     * This endpoint returns all the players that have received updates in the past two hours.
+     * Returns all the players that have received updates in the past two hours.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-last-updated-players
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -98,15 +88,15 @@ class Player extends FootballApiClient
     /**
      * Returns the transfers from your requested player ID.
      *
+     * @alias
      * @see     Transfer::byPlayer()
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-transfers-by-player-id
-     * @param   array   $params     the query params
+     * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
      */
     public function transfers(array $params = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No player ID set');
-        return $this->call("transfers/players/$this->id", $params);
+        return (new Transfer())->byPlayer($this->id, $params);
     }
 }

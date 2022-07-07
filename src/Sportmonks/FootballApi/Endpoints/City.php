@@ -6,8 +6,6 @@ use GuzzleHttp\Exception\GuzzleException;
 use Sportmonks\FootballApi\Clients\CoreApiClient;
 
 /**
- * Gather an overview of all the cities available within your subscription via the cities' endpoint.
- *
  * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities
  */
 class City extends CoreApiClient
@@ -15,7 +13,6 @@ class City extends CoreApiClient
     /**
      * Returns all cities available within your subscription.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-all-cities
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -28,8 +25,7 @@ class City extends CoreApiClient
     /**
      * Returns information from your requested city ID.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-cities-by-id
-     * @param   int     $id the city id
+     * @param   int     $id     the city id
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -42,7 +38,6 @@ class City extends CoreApiClient
     /**
      * Returns cities information that matches your search query.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-cities-by-search
      * @param   string  $search the city name to search
      * @param   array   $params the query params
      * @return  object  the response object

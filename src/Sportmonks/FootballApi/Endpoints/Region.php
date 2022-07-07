@@ -6,8 +6,6 @@ use GuzzleHttp\Exception\GuzzleException;
 use Sportmonks\FootballApi\Clients\CoreApiClient;
 
 /**
- * Gather an overview of all the regions available within your subscription via the regions' endpoint.
- *
  * @link https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions
  */
 class Region extends CoreApiClient
@@ -15,7 +13,6 @@ class Region extends CoreApiClient
     /**
      * Returns all the regions available within your subscription.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-all-regions
      * @param   array   $params the query params
      * @return  object  the response object
      * @throws  GuzzleException
@@ -28,7 +25,6 @@ class Region extends CoreApiClient
     /**
      * Returns information from your requested region ID.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-id
      * @param   int     $id     the region id
      * @param   array   $params the query params
      * @return  object  the response object
@@ -42,7 +38,6 @@ class Region extends CoreApiClient
     /**
      * Returns region information that matches your search query.
      *
-     * @link    https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-region-by-search
      * @param   string  $search the region name to search
      * @param   array   $params the query params
      * @return  object  the response object
