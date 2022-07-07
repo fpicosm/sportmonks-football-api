@@ -13,7 +13,7 @@ class FootballApiServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $configPath = __DIR__ . '/../../../config';
+        $configPath = __DIR__ . '/../../config';
 
         $this->mergeConfigFrom($configPath . '/football-api.php', 'football-api');
 
