@@ -10,6 +10,7 @@ use Sportmonks\FootballApi\Requests\Country;
 use Sportmonks\FootballApi\Requests\Fixture;
 use Sportmonks\FootballApi\Requests\Highlight;
 use Sportmonks\FootballApi\Requests\League;
+use Sportmonks\FootballApi\Requests\LiveScore;
 use Sportmonks\FootballApi\Requests\Player;
 use Sportmonks\FootballApi\Requests\Referee;
 use Sportmonks\FootballApi\Requests\Region;
@@ -147,5 +148,10 @@ class FootballApi
     public static function highlights(): Highlight
     {
         return new Highlight();
+    }
+
+    public static function livescores(): LiveScore
+    {
+        return new LiveScore();
     }
 }
