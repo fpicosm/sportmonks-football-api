@@ -112,4 +112,14 @@ class FixtureTest extends TestCase
         $data = FootballApi::fixtures(self::ID)->predictions();
         $this->assertIsArray($data->data);
     }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_filter_by_league()
+    {
+        $data = FootballApi::fixtures()->all(['leagues' => '8']);
+        $this->assertIsArray($data->data);
+    }
 }
