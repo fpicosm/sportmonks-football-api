@@ -23,7 +23,7 @@
   - [Players](#players)
   - [Transfers](#transfers)
   - [Squads](#squads)
-  - [Top Scorers](#topscorers)
+  - [TopScorers](#topscorers)
   - [Stages](#stages)
   - [Rounds](#rounds)
   - [Fixtures](#fixtures)
