@@ -209,11 +209,7 @@ FootballApi::continents()->byId(1);
 ### Countries
 
 Include options: **[`continent`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#continents)** **[`regions`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)** **[`leagues`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
-  - `teams` @todo @wip
-  - `coaches` @todo @wip
-  - `venues` @todo @wip
-  - `players` @todo @wip
-  - `referees` @todo @wip
+- @todo @wip: `teams` `coaches` `venues` `players` `referees` 
 
 #### Get all countries [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-all-countries)
 
@@ -270,9 +266,7 @@ FootballApi::referees()->byCountry($id);
 
 ### Regions
 
-Include options: 
-  - **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
-  - **[`cities`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#cities)**
+Include options: **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)** **[`cities`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#cities)**
 
 #### Get all regions [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-all-regions)
 
@@ -294,13 +288,8 @@ FootballApi::regions()->search($name);
 
 ### Cities
 
-Include options: 
-  - **[`region`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
-  - `country` @todo @wip
-  - `coaches` @todo @wip
-  - `players` @todo @wip
-  - `venues` @todo @wip
-  - `referees` @todo @wip
+Include options: **[`region`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)** 
+@todo @wip `country` `coaches` `players` `venues` `referees`
 
 #### Get all cities [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-all-cities)
 
