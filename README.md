@@ -210,7 +210,14 @@ FootballApi::continents()->byId(1);
 ### Countries
 
 Include options: 
-  - **[`continent`]()**
+  - **[`continent`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#continents)**
+  - **[`regions`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
+  - **[`leagues`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - `teams` @todo @wip
+  - `coaches` @todo @wip
+  - `venues` @todo @wip
+  - `players` @todo @wip
+  - `referees` @todo @wip
 
 #### Get all countries [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/countries/get-all-countries)
 
@@ -268,7 +275,8 @@ FootballApi::referees()->byCountry($id);
 ### Regions
 
 Include options: 
-  - **[`country`]()**
+  - **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+  - **[`cities`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#cities)**
 
 #### Get all regions [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/regions/get-all-regions)
 
@@ -291,8 +299,12 @@ FootballApi::regions()->search($name);
 ### Cities
 
 Include options: 
-  - **[`country`]()**
-  - **[`region`]()**
+  - **[`region`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#regions)**
+  - `country` @todo @wip
+  - `coaches` @todo @wip
+  - `players` @todo @wip
+  - `venues` @todo @wip
+  - `referees` @todo @wip
 
 #### Get all cities [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/cities/get-all-cities)
 
@@ -316,7 +328,9 @@ FootballApi::cities()->search($name);
 
 Include options: 
   - `sport`
-  - **[`country`]()**
+  - **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+  - **[`seasons`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
+  - **[`stages`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#stages)**
 
 #### Get all leagues [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/leagues/get-all-leagues)
 
@@ -366,8 +380,12 @@ FootballApi::transfers()->byLeague($id);
 
 Include options: 
   - `sport` 
-  - **[`league`]()**
-  - **[`tie_breaker_rule`]()**
+  - **[`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`stages`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#stages)**
+  - **[`fixtures`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
+  - `rounds` @todo @wip
+  - `teams` @todo @wip (error 500)
+  - `players` @todo @wip
 
 #### Get all seasons [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/seasons/get-all-seasons)
 
@@ -461,8 +479,13 @@ FootballApi::topScorers()->aggregatedBySeason($id);
 
 Include options: 
   - `sport` 
-  - **[`country`]()**
-  - **[`venue`]()** 
+  - **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+  - **[`venue`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#venues)** 
+  - **[`seasons`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
+  - **[`players`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#players)**
+  - **[`coaches`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#coaches)**
+  - **[`rivals`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+  - `stats` @todo @wip 404
 
 #### Get all teams [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/teams/get-all-teams)
 
@@ -576,10 +599,13 @@ FootballApi::teams($id)->rivals();
 
 Include options: 
 - `sport`
-- **[`player`]()**
-- **[`country`]()**
-- **[`nationality`]()**
-- **[`city`]()**
+- **[`player`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#players)**
+- `country` @todo @wip 404
+- **[`nationality`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+- `city` @todo @wip 404
+- **[`teams`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+- `stats` @todo @wip 404
+- `trophies` @todo @wip 404
 
 #### Get all coaches [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/coaches/get-all-coaches)
 
@@ -615,8 +641,9 @@ FootballApi::coaches()->lastUpdated();
 ### Venues
 
 Include options: 
-  - **[`country`]()**
-  - **[`city`]()**
+  - **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+  - **[`city`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#cities)**
+  - **[`fixtures`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
 
 #### Get all venues [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/venues/get-all-venues)
 
@@ -646,13 +673,24 @@ FootballApi::venues()->search($name);
 ### Players
 
 Include options: 
-  - `sport` 
-  - **[`country`]()**
-  - **[`nationality`]()** 
-  - **[`city`]()** 
-  - **[`position`]()** 
-  - **[`detailed_position`]()**
-  - **[`type`]()**
+  - `sport`
+  - **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+  - **[`nationality`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+  - **[`city`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#cities)**
+  - `position` 
+  - `detailedPosition` 
+  - **[`type`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#types)**
+  - **[`teams`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+  - **[`transfers`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#transfers)**
+  - **[`pendingTransfers`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#transfers)**
+  - `aliases` @todo @wip 404
+  - `statistics` @todo @wip 404
+  - `lineups` 
+  - `events` @todo @wip 404
+  - `relatedEvents` @todo @wip 404
+  - `coach` @todo @wip 404
+  - `metadata` @todo @wip 404
+  - `trophies` @todo @wip 404
 
 #### Get all players [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/players/get-all-players)
 
@@ -696,14 +734,14 @@ FootballApi::transfers()->byPlayer($id);
 
 Include options:
   - `sport`
-  - **[`player`]()**
-  - **[`type`]()**
-  - **[`from_league`]()**
-  - **[`from_team`]()**
-  - **[`to_league`]()**
-  - **[`to_team`]()**
-  - **[`position`]()**
-  - **[`detailed_position`]()**
+  - **[`player`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#players)**
+  - **[`type`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#types)**
+  - **[`fromLeague`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`fromTeam`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+  - **[`toLeague`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`toTeam`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+  - `position` 
+  - `detailedPosition` 
 
 #### Get all transfers [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/transfers/get-all-transfers)
 
@@ -747,11 +785,11 @@ FootballApi::leagues($id)->transfers();
 ### Squads
 
 Include options:
-  - **[`transfer`]()**
-  - **[`player`]()**
-  - **[`team`]()**
-  - **[`position`]()**
-  - **[`detailed_position`]()**
+  - **[`transfer`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#transfers)**
+  - **[`player`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#players)**
+  - **[`team`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+  - `position` 
+  - `detailedPosition` 
 
 #### Get current squad by team [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/team-squads/get-team-squads-by-team-id)
 
@@ -790,9 +828,11 @@ FootballApi::seasons($id)->aggregatedTopScorers();
 
 Include options:
   - `sport`
-  - **[`league`]()**
-  - **[`season`]()**
-  - **[`type`]()**
+  - **[`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`season`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
+  - **[`type`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#types)**
+  - **[`rounds`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#rounds)**
+  - **[`fixtures`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
 
 #### Get all stages [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/stages/get-all-stages)
 
@@ -817,9 +857,10 @@ FootballApi::seasons($id)->stages();
 
 Include options:
   - `sport`
-  - **[`league`]()**
-  - **[`season`]()**
-  - **[`stage`]()**
+  - **[`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`season`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
+  - **[`stage`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#stages)**
+  - **[`fixtures`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
 
 #### Get all rounds [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/rounds/get-all-rounds)
 
@@ -851,14 +892,24 @@ FootballApi::standings()->byRound($id);
 
 Include options:
   - `sport`
-  - **[`league`]()**
-  - **[`season`]()**
-  - **[`stage`]()**
-  - **[`group`]()**
-  - **[`aggregate`]()**
-  - **[`round`]()**
-  - **[`state`]()**
-  - **[`venue`]()**
+  - **[`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`season`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
+  - **[`stage`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#stages)**
+  - `group`
+  - `aggregate`
+  - **[`round`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#rounds)**
+  - **[`state`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#states)**
+  - **[`venue`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#venues)**
+  - **[`participants`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+  - `lineups`
+  - `events` 
+  - **[`referees`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#referees)**
+  - **[`coaches`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#coaches)**
+  - `commentaries` @todo @wip 404
+  - `statistics` 
+  - `periods` 
+  - `metadata`
+  - `tvStations`
 
 #### Get all fixtures [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/fixtures/get-all-fixtures)
 
@@ -942,9 +993,11 @@ FootballApi::predictions()->byFixture($id);
 
 Include options:
   - `sport`
-  - **[`country`]()**
-  - **[`nationality`]()**
-  - **[`city`]()**
+  - **[`country`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+  - **[`nationality`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#countries)**
+  - **[`city`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#cities)**
+  - **[`fixtures`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
+  - `statistics`
 
 #### Get all referees [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/referees/get-all-referees)
 
@@ -981,13 +1034,13 @@ FootballApi::referees()->lastUpdated();
 
 Include options:
   - `sport`
-  - **[`participant`]()**
-  - **[`league`]()**
-  - **[`season`]()**
-  - **[`stage`]()**
-  - **[`group`]()**
-  - **[`round`]()**
-  - **[`standing_rule`]()**
+  - **[`participant`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+  - **[`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`season`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
+  - **[`stage`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#stages)**
+  - `group`
+  - **[`round`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#rounds)**
+  - `rule`
 
 #### Get all standings [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/standings/get-all-standings)
 
@@ -1020,9 +1073,9 @@ FootballApi::seasons($id)->standingCorrections();
 
 Include options:
   - `sport`
-  - **[`league`]()**
-  - **[`season`]()**
-  - **[`type`]()**
+  - **[`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`season`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
+  - **[`type`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/entities/core#types)**
 
 #### Get schedules by season [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/schedules/get-schedules-by-season-id)
 
@@ -1039,9 +1092,10 @@ FootballApi::seasons($id)->teamSchedules($teamId);
 FootballApi::teams($id)->seasonSchedules($seasonId);
 ```
 
-### Tv Stations
+### TvStations
 
-
+- Include options:
+  - **[`fixture`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
 
 #### Get tv stations by fixture [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/tv-stations/get-tv-station-by-fixture-id)
 
@@ -1050,10 +1104,29 @@ FootballApi::tvStations()->byFixture($id);
 FootballApi::fixtures($id)->tvStations();
 ```
 
-### Live Scores
+### LiveScores
 
-@todo includes
-
+- Include options: 
+  - `sport`
+  - **[`league`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#leagues)**
+  - **[`season`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#season)**
+  - **[`stage`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#stages)**
+  - `group`
+  - `aggregate`
+  - **[`round`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/leagues-seasons-schedules-stages-and-rounds#rounds)**
+  - **[`state`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#states)**
+  - **[`venue`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/other#venues)**
+  - **[`participants`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#teams)**
+  - `lineups`
+  - `events` 
+  - **[`referees`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#referees)**
+  - **[`coaches`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#coaches)**
+  - `commentaries` @todo @wip 404
+  - `statistics` 
+  - `periods` 
+  - `metadata`
+  - `tvStations`
+  
 #### Get all the fixtures of today [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/livescores/get-all-livescores)
 
 ```php
@@ -1070,7 +1143,10 @@ FootballApi::livescores()->inplay();
 
 ### Commentaries
 
-@todo includes
+- Include options:
+  - **[`fixture`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
+  - **[`player`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#players)**
+  - **[`relatedPlayer`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/teams-players-squads-coaches-and-referees#players)**
 
 #### Get all commentaries [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/commentaries/get-all-commentaries)
 
@@ -1087,7 +1163,8 @@ FootballApi::fixtures($id)->commentaries();
 
 ### Highlights
 
-@todo includes
+- Include options:
+  - **[`fixture`](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/entities/fixture)**
 
 #### Get highlights by fixture [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/video-highlights/get-video-highlights-by-fixture-id)
 
@@ -1098,7 +1175,7 @@ FootballApi::fixtures($id)->highlights();
 
 ### Predictions
 
-@todo includes
+@todo @wip
 
 #### Get all* the probabilities [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/predictions/get-probabilities)
 
@@ -1117,7 +1194,7 @@ FootballApi::fixtures($id)->predictions();
 
 ### States
 
-@todo includes
+- Include option: none
 
 #### Get all states [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/getting-started/endpoints/states/get-all-states)
 
@@ -1133,7 +1210,7 @@ FootballApi::states()->byId($id);
 
 ### Types
 
-@todo includes
+- Include option: none
 
 #### Get all types [Docs](https://docs.sportmonks.com/football2/MTf0RssMhRVvcd3EfGAh/v/core/endpoints/types/get-all-types)
 
