@@ -1,0 +1,33 @@
+{
+    "name": "fpicosm/sportmonks-football-api",
+    "description": "git remote add origin https://github.com/fpicosm/sportmonks-football-api.git\ngit branch -M main\ngit push -u origin main",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sportmonks\\FootballApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Fernando Picos",
+            "email": "fpicosm@gmail.com",
+            "homepage": "https://github.com/fpicosm"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "illuminate/support": "^9.34",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "laravel/laravel": "^9.3",
+        "phpunit/phpunit": "^9.5"
+    }
+}
