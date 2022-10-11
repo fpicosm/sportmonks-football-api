@@ -18,6 +18,6 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
     protected function setUp () : void
     {
         parent::setUp();
-        Config::set('football-api.token', 'V3QLAZhnPSxcpMn57dsMpAkJAllbYf76xD4quzS9lzQymZzlip20lXh5m9nM');
+        Config::set('football-api.token', '');
     }
 }
