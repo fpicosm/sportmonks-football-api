@@ -1,7 +1,7 @@
 {
     "name": "fpicosm/sportmonks-football-api",
     "description": "A Laravel/Lumen wrapper for Sportmonks Football Api",
-    "version": "1.0",
+    "version": "1.0.1",
     "keywords": ["football", "sportmonks", "api", "sports"],
     "type": "project",
     "license": "MIT",
