@@ -1,6 +1,8 @@
 {
     "name": "fpicosm/sportmonks-football-api",
-    "description": "git remote add origin https://github.com/fpicosm/sportmonks-football-api.git\ngit branch -M main\ngit push -u origin main",
+    "description": "A Laravel/Lumen wrapper for Sportmonks Football Api",
+    "version": "1.0",
+    "keywords": ["football", "sportmonks", "api", "sports"],
     "type": "project",
     "license": "MIT",
     "autoload": {
