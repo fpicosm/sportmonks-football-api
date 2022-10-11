@@ -25,32 +25,6 @@ class Teams extends FootballApiClient
     /**
      * @return object the response object
      *
-     * @param  int    $countryId  the country id
-     * @param  array  $query      the query params
-     *
-     * @throws GuzzleException
-     */
-    public function byCountry (int $countryId, array $query = []) : object
-    {
-        return (new Countries($countryId))->teams($query);
-    }
-
-    /**
-     * @return object the response object
-     *
-     * @param  int    $seasonId  the season id
-     * @param  array  $query     the query params
-     *
-     * @throws GuzzleException
-     */
-    public function bySeason (int $seasonId, array $query = []) : object
-    {
-        return (new Seasons($seasonId))->teams($query);
-    }
-
-    /**
-     * @return object the response object
-     *
      * @param  int    $id     the team id
      * @param  array  $query  the query params
      *
@@ -59,6 +33,23 @@ class Teams extends FootballApiClient
     public function find (int $id, array $query = []) : object
     {
         return $this->call("teams/$id", $query);
+    }
+
+    /**
+     * @return object the response object
+     *
+     * @param  string  $startDate  starting date (YYYY-MM-DD)
+     * @param  string  $endDate    ending date (YYYY-MM-DD)
+     * @param  array   $query      the query params
+     *
+     * @throws GuzzleException
+     */
+    public function fixturesByDateRange (string $startDate,
+                                        string $endDate,
+                                        array  $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No ID set');
+        return $this->call("fixtures/between/$startDate/$endDate/$this->id", $query);
     }
 
     /**

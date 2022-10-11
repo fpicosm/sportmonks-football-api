@@ -28,20 +28,20 @@ class FootballApiClient
         $this->apiToken = $token;
     }
 
-    public function setInclude (string|array $include = []) : FootballApiClient
+    public function include (string|array $include = []) : FootballApiClient
     {
         if (is_array($include)) $include = join(';', $include);
         $this->include = $include;
         return $this;
     }
 
-    public function setPage (int $page) : FootballApiClient
+    public function page (int $page) : FootballApiClient
     {
         $this->page = $page;
         return $this;
     }
 
-    public function setPageSize (int $pageSize) : FootballApiClient
+    public function pageSize (int $pageSize) : FootballApiClient
     {
         $this->pageSize = $pageSize;
         return $this;

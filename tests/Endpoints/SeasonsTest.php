@@ -65,21 +65,6 @@ class SeasonsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_a_season_standings_for_a_round ()
-    {
-        $data = FootballApi::seasons(19799)->roundStandings(275883)->data;
-
-        $this->assertIsArray($data);
-        $this->assertCount(20, $data);
-        $this->assertIsObject($data[0]);
-        $this->assertObjectHasAttribute('position', $data[0]);
-        $this->assertObjectHasAttribute('overall', $data[0]);
-    }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
     public function it_returns_a_season_stages ()
     {
         $data = FootballApi::seasons(19799)->stages()->data;

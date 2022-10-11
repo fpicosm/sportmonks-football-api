@@ -39,11 +39,6 @@ class FootballApi
         return new Coaches();
     }
 
-    public static function commentaries () : Commentaries
-    {
-        return new Commentaries();
-    }
-
     public static function continents () : Continents
     {
         return new Continents();
@@ -57,16 +52,6 @@ class FootballApi
     public static function fixtures (?int $id = NULL) : Fixtures
     {
         return new Fixtures($id);
-    }
-
-    public static function headToHead () : HeadToHead
-    {
-        return new HeadToHead();
-    }
-
-    public static function highlights () : Highlights
-    {
-        return new Highlights();
     }
 
     public static function leagues () : Leagues
@@ -94,14 +79,9 @@ class FootballApi
         return new Players();
     }
 
-    public static function rivals () : Rivals
+    public static function rounds (?int $id = null) : Rounds
     {
-        return new Rivals();
-    }
-
-    public static function rounds () : Rounds
-    {
-        return new Rounds();
+        return new Rounds($id);
     }
 
     public static function seasons (?int $id = NULL) : Seasons
@@ -114,29 +94,9 @@ class FootballApi
         return new Stages();
     }
 
-    public static function standings () : Standings
-    {
-        return new Standings();
-    }
-
     public static function teams (?int $id = NULL) : Teams
     {
         return new Teams($id);
-    }
-
-    public static function teamSquads () : TeamSquads
-    {
-        return new TeamSquads();
-    }
-
-    public static function topscorers () : Topscorers
-    {
-        return new Topscorers();
-    }
-
-    public static function tvStations () : TvStations
-    {
-        return new TvStations();
     }
 
     public static function venues () : Venues

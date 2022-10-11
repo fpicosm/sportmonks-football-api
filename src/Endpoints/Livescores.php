@@ -26,7 +26,7 @@ class Livescores extends FootballApiClient
      *
      * @throws GuzzleException
      */
-    public function live (array $query = []) : object
+    public function playing (array $query = []) : object
     {
         return $this->call('livescores/now', $query);
     }

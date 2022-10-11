@@ -67,24 +67,6 @@ class Fixtures extends FootballApiClient
     /**
      * @return object the response object
      *
-     * @param  string  $startDate  starting date (YYYY-MM-DD)
-     * @param  string  $endDate    ending date (YYYY-MM-DD)
-     * @param  int     $teamId     the team id
-     * @param  array   $query      the query params
-     *
-     * @throws GuzzleException
-     */
-    public function byDateRangeForTeam (string $startDate,
-                                        string $endDate,
-                                        int    $teamId,
-                                        array  $query = []) : object
-    {
-        return $this->call("fixtures/between/$startDate/$endDate/$teamId", $query);
-    }
-
-    /**
-     * @return object the response object
-     *
      * @param  array  $query  the query params
      *
      * @throws GuzzleException

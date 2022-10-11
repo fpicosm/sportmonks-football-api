@@ -50,19 +50,4 @@ class LeaguesTest extends TestCase
         $league = collect($data)->firstWhere('id', 564);
         $this->assertIsObject($league);
     }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
-    public function it_returns_a_country_leagues ()
-    {
-        $data = FootballApi::leagues()->byCountry(32)->data;
-
-        $this->assertIsArray($data);
-        $this->assertNotEmpty($data);
-
-        $league = collect($data)->firstWhere('id', 564);
-        $this->assertEquals('La Liga', $league->name);
-    }
 }

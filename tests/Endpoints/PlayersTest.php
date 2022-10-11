@@ -35,20 +35,4 @@ class PlayersTest extends TestCase
         $player = collect($data)->firstWhere('player_id', 172104);
         $this->assertIsObject($player);
     }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
-    public function it_returns_a_country_players ()
-    {
-        $data = FootballApi::players()->byCountry(32)->data;
-
-        $this->assertIsArray($data);
-        $this->assertNotEmpty($data);
-
-        $player = collect($data)->firstWhere('player_id', 38);
-        $this->assertIsObject($player);
-        $this->assertEquals("Pepe Reina", $player->display_name);
-    }
 }

@@ -22,19 +22,6 @@ class Leagues extends FootballApiClient
     /**
      * @return object the response object
      *
-     * @param  int    $id     the country id
-     * @param  array  $query  the query params
-     *
-     * @throws GuzzleException
-     */
-    public function byCountry (int $id, array $query = []) : object
-    {
-        return (new Countries($id))->leagues($query);
-    }
-
-    /**
-     * @return object the response object
-     *
      * @param  int    $id     the league id
      * @param  array  $query  the query params
      *

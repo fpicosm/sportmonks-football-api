@@ -29,15 +29,4 @@ class NewsTest extends TestCase
 
         $this->assertIsArray($data);
     }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
-    public function it_returns_a_season_news ()
-    {
-        $data = FootballApi::news()->bySeason(19799)->data;
-
-        $this->assertIsArray($data);
-    }
 }

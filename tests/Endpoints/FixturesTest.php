@@ -64,21 +64,6 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_fixtures_by_date_range_for_a_team ()
-    {
-        $startDate = '2021-08-04';
-        $endDate = '2021-09-04';
-        $teamId = 9;
-        $data = FootballApi::fixtures()->byDateRangeForTeam($startDate, $endDate, $teamId)->data;
-
-        $this->assertIsArray($data);
-        $this->assertEquals(18138611, $data[0]->id);
-    }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
     public function it_returns_multiple_fixtures ()
     {
         $list = '16475287,16475288';

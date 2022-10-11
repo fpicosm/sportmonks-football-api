@@ -26,32 +26,14 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_a_country_teams ()
+    public function it_returns_fixtures_by_date_range_for_a_team ()
     {
-        $data = FootballApi::teams()->byCountry(32)->data;
+        $startDate = '2021-08-04';
+        $endDate = '2021-09-04';
+        $data = FootballApi::teams(9)->fixturesByDateRange($startDate, $endDate)->data;
 
         $this->assertIsArray($data);
-        $this->assertNotEmpty($data);
-
-        $team = collect($data)->firstWhere('id', 36);
-        $this->assertIsObject($team);
-        $this->assertEquals("Celta de Vigo", $team->name);
-    }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
-    public function it_returns_a_season_teams ()
-    {
-        $data = FootballApi::teams()->bySeason(19799)->data;
-
-        $this->assertIsArray($data);
-        $this->assertCount(20, $data);
-
-        $team = collect($data)->firstWhere('id', 36);
-        $this->assertIsObject($team);
-        $this->assertEquals("Celta de Vigo", $team->name);
+        $this->assertEquals(18138611, $data[0]->id);
     }
 
     /**

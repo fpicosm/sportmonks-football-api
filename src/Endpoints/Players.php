@@ -10,19 +10,6 @@ class Players extends FootballApiClient
     /**
      * @return object the response object
      *
-     * @param  int    $countryId  the country id
-     * @param  array  $query      the query params
-     *
-     * @throws GuzzleException
-     */
-    public function byCountry (int $countryId, array $query = []) : object
-    {
-        return (new Countries($countryId))->players($query);
-    }
-
-    /**
-     * @return object the response object
-     *
      * @param  int    $id     the player id
      * @param  array  $query  the query params
      *

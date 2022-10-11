@@ -76,21 +76,6 @@ class Seasons extends FootballApiClient
     /**
      * @return object the response object
      *
-     * @param  int    $roundId  the round id
-     * @param  array  $query    the query params
-     *
-     * @throws GuzzleException
-     */
-    public function roundStandings (int $roundId, array $query = []) : object
-    {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-
-        return $this->call("standings/season/$this->id/round/$roundId", $query);
-    }
-
-    /**
-     * @return object the response object
-     *
      * @param  int    $teamId  the team id
      * @param  array  $query   the query params
      *

@@ -32,7 +32,7 @@ class LivescoresTest extends TestCase
      */
     public function it_returns_playing_livescores ()
     {
-        $data = FootballApi::livescores()->live()->data;
+        $data = FootballApi::livescores()->playing()->data;
 
         $this->assertIsArray($data);
     }

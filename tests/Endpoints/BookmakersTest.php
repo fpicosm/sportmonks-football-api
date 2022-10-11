@@ -32,18 +32,4 @@ class BookmakersTest extends TestCase
         $this->assertNotEmpty($data);
         $this->assertEquals('10Bet', $data->name);
     }
-
-    /**
-     * @test
-     * @throws GuzzleException
-     */
-    public function it_returns_bookmakers_by_fixture ()
-    {
-        $data = FootballApi::bookmakers()->byFixture(16475287)->data;
-
-        $this->assertIsArray($data);
-        $this->assertNotEmpty($data);
-
-        $this->assertEquals('10Bet', $data[0]->name);
-    }
 }
