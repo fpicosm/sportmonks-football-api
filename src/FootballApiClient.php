@@ -59,6 +59,7 @@ class FootballApiClient
         $response = $this->client->get($endpoint, [
             'query' => [
                 'api_token' => $this->apiToken,
+                'tz' => config('football-api.timezone'),
                 ...$query,
             ],
         ]);
