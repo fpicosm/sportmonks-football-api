@@ -30,7 +30,7 @@ class FootballApiClient
 
     public function include (string|array $include = []) : FootballApiClient
     {
-        if (is_array($include)) $include = join(';', $include);
+        if (is_array($include)) $include = join(',', $include);
         $this->include = $include;
         return $this;
     }
