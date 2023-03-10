@@ -14,7 +14,7 @@ class Teams extends FootballClient
     /**
      * @param  int|NULL  $id  the team id
      */
-    public function __construct (int $id = NULL)
+    public function __construct (?int $id = NULL)
     {
         parent::__construct();
         $this->id = $id;

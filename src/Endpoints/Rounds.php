@@ -14,7 +14,7 @@ class Rounds extends FootballClient
     /**
      * @param  int|NULL  $id  the round id
      */
-    public function __construct (int $id = NULL)
+    public function __construct (?int $id = NULL)
     {
         parent::__construct();
         $this->id = $id;
