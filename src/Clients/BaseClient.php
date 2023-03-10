@@ -12,6 +12,7 @@ class BaseClient
     protected Client $client;
     protected ?string $apiToken = NULL;
     private ?string $include = NULL;
+    private ?string $select = NULL;
     private ?int $page = NULL;
     private ?int $pageSize = NULL;
 
@@ -19,6 +20,13 @@ class BaseClient
     {
         if (is_array($include)) $include = join(';', $include);
         $this->include = $include;
+        return $this;
+    }
+
+    public function select (string|array $fields = []) : self
+    {
+        if (is_array($fields)) $fields = join(',', $fields);
+        $this->select = $fields;
         return $this;
     }
 
@@ -40,6 +48,7 @@ class BaseClient
     protected function call (string $url, array $query = []) : ?object
     {
         if (!empty($this->include)) $query[ 'include' ] = $this->include;
+        if (!empty($this->select)) $query[ 'select' ] = $this->select;
         if (!empty($this->page)) $query[ 'page' ] = $this->page;
         if (!empty($this->pageSize)) $query[ 'pageSize' ] = $this->pageSize;
 
@@ -63,7 +72,7 @@ class BaseClient
             $response->url = $url;
             return $response;
         }
-        
+
         // @TODO handle error
         return NULL;
     }
