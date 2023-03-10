@@ -176,4 +176,16 @@ class Seasons extends FootballClient
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
         return $this->call("squads/seasons/$this->id/teams/$teamId", $query);
     }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/venues/get-venues-by-season-id Docs
+     */
+    public function venues (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season_id set');
+        return $this->call("venues/seasons/$this->id", $query);
+    }
 }
