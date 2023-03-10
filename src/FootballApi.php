@@ -24,6 +24,7 @@ use Sportmonks\FootballApi\Endpoints\Standings;
 use Sportmonks\FootballApi\Endpoints\States;
 use Sportmonks\FootballApi\Endpoints\Teams;
 use Sportmonks\FootballApi\Endpoints\Topscorers;
+use Sportmonks\FootballApi\Endpoints\Transfers;
 use Sportmonks\FootballApi\Endpoints\Types;
 
 class FootballApi
@@ -113,11 +114,12 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/players Docs
+     * @param  int|NULL  $id
      * @return Players
      */
-    public static function players () : Players
+    public static function players (int $id = NULL) : Players
     {
-        return new Players();
+        return new Players($id);
     }
 
     /**
@@ -231,6 +233,16 @@ class FootballApi
     public static function topscorers () : Topscorers
     {
         return new Topscorers();
+    }
+
+    /**
+     * https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers Docs
+     *
+     * @return Transfers
+     */
+    public static function transfers () : Transfers
+    {
+        return new Transfers();
     }
 
     /**

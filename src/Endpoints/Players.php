@@ -3,10 +3,23 @@
 namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\FootballClient;
 
 class Players extends FootballClient
 {
+    /** @var int|NULL the player id */
+    protected ?int $id;
+
+    /**
+     * @param  int|NULL  $id  the player id
+     */
+    public function __construct (int $id = NULL)
+    {
+        parent::__construct();
+        $this->id = $id;
+    }
+
     /**
      * @param  array  $query  the query params
      * @throws GuzzleException
@@ -63,5 +76,17 @@ class Players extends FootballClient
     public function latest (array $query = []) : object
     {
         return $this->call('players/latest', $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers/get-transfers-by-player-id Docs
+     */
+    public function transfers (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No player_id set');
+        return $this->call("transfers/players/$this->id", $query);
     }
 }
