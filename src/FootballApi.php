@@ -138,6 +138,15 @@ class FootballApi
     }
 
     /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/news Docs
+     * @return News
+     */
+    public static function news () : News
+    {
+        return new News();
+    }
+
+    /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/players Docs
      * @param  int|NULL  $id
      * @return Players
