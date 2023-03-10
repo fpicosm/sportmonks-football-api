@@ -38,10 +38,10 @@ class FixturesTest extends TestCase
         $first = 18528484;
         $second = 18531140;
 
-        $url = FootballApi::fixtures()->byMultipleIds("$first,$second")->url->getPath();
+        $url = FootballApi::fixtures()->byIds("$first,$second")->url->getPath();
         $this->assertEquals("/v3/football/fixtures/multi/$first,$second", $url);
 
-        $url = FootballApi::fixtures()->byMultipleIds([ $first, $second ])->url->getPath();
+        $url = FootballApi::fixtures()->byIds([ $first, $second ])->url->getPath();
         $this->assertEquals("/v3/football/fixtures/multi/$first,$second", $url);
     }
 

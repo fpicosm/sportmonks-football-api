@@ -50,7 +50,7 @@ class Fixtures extends FootballClient
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-multiple-ids Docs
      */
-    public function byMultipleIds (string|array $ids, array $query = []) : object
+    public function byIds (string|array $ids, array $query = []) : object
     {
         if (is_array($ids)) $ids = join(',', $ids);
         return $this->call("fixtures/multi/$ids", $query);
@@ -113,7 +113,7 @@ class Fixtures extends FootballClient
      * @param  array   $query     the query params
      * @throws GuzzleException
      * @return object the response object
-     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-head-to-head Docs
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-search-by-name Docs
      */
     public function search (string $teamName, array $query = []) : object
     {
