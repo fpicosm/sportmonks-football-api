@@ -12,6 +12,7 @@ use Sportmonks\FootballApi\Endpoints\Fixtures;
 use Sportmonks\FootballApi\Endpoints\Leagues;
 use Sportmonks\FootballApi\Endpoints\Livescores;
 use Sportmonks\FootballApi\Endpoints\Players;
+use Sportmonks\FootballApi\Endpoints\Predictions;
 use Sportmonks\FootballApi\Endpoints\Referees;
 use Sportmonks\FootballApi\Endpoints\Regions;
 use Sportmonks\FootballApi\Endpoints\Resources;
@@ -27,7 +28,9 @@ use Sportmonks\FootballApi\Endpoints\Topscorers;
 use Sportmonks\FootballApi\Endpoints\Transfers;
 use Sportmonks\FootballApi\Endpoints\TvStations;
 use Sportmonks\FootballApi\Endpoints\Types;
+use Sportmonks\FootballApi\Endpoints\Venues;
 
+// TODO ODDS
 class FootballApi
 {
     /**
@@ -122,6 +125,15 @@ class FootballApi
     public static function players (int $id = NULL) : Players
     {
         return new Players($id);
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/predictions Docs
+     * @return Predictions
+     */
+    public static function predictions () : Predictions
+    {
+        return new Predictions();
     }
 
     /**
@@ -264,5 +276,14 @@ class FootballApi
     public static function types () : Types
     {
         return new Types();
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/venues Docs
+     * @return Venues
+     */
+    public static function venues () : Venues
+    {
+        return new Venues();
     }
 }

@@ -130,4 +130,16 @@ class Leagues extends FootballClient
         if (!$this->id) throw new InvalidArgumentException('No league_id set');
         return $this->call("standings/live/leagues/$this->id", $query);
     }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/predictions/get-predictability-by-league-id Docs
+     */
+    public function predictions (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No league_id set');
+        return $this->call("predictions/predictability/leagues/$this->id", $query);
+    }
 }
