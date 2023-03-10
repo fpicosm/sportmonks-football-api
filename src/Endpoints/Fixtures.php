@@ -53,7 +53,7 @@ class Fixtures extends FootballClient
     public function byMultipleIds (string|array $ids, array $query = []) : object
     {
         if (is_array($ids)) $ids = join(',', $ids);
-        return $this->call("fixtures/$ids", $query);
+        return $this->call("fixtures/multi/$ids", $query);
     }
 
     /**
@@ -148,11 +148,12 @@ class Fixtures extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/tv-stations/get-tv-stations-by-fixture-id Docs
+     * @see  TvStations::byFixtureId
      */
     public function tvStations (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No fixture_id set');
-        return $this->call("tv-stations/fixtures/$this->id", $query);
+        return (new TvStations())->byFixtureId($this->id, $query);
     }
 
     /**
@@ -160,11 +161,12 @@ class Fixtures extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/predictions/get-probabilities-by-fixture-id Docs
+     * @see  Predictions::byFixtureId
      */
     public function predictions (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No fixture_id set');
-        return $this->call("predictions/probabilities/fixtures/$this->id", $query);
+        return (new Predictions())->byFixtureId($this->id, $query);
     }
 
     /**
@@ -172,10 +174,24 @@ class Fixtures extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/bookmakers/get-bookmaker-by-fixture-id Docs
+     * @see  Bookmakers::byFixtureId
      */
     public function bookmakers (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No fixture_id set');
-        return $this->call("bookmakers/fixtures/$this->id", $query);
+        return (new Bookmakers())->byFixtureId($this->id, $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/commentaries/get-commentaries-by-fixture-id Docs
+     * @see  Commentaries::byFixtureId
+     */
+    public function commentaries (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No fixture_id set');
+        return (new Commentaries())->byFixtureId($this->id, $query);
     }
 }

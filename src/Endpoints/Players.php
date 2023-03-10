@@ -83,10 +83,11 @@ class Players extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers/get-transfers-by-player-id Docs
+     * @see  Transfers::byPlayerId
      */
     public function transfers (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No player_id set');
-        return $this->call("transfers/players/$this->id", $query);
+        return (new Transfers())->byPlayerId($this->id, $query);
     }
 }

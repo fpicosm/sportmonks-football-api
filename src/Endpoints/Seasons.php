@@ -72,11 +72,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id Docs
+     * @see  Schedules::bySeasonId
      */
     public function schedules (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("schedules/seasons/$this->id", $query);
+        return (new Schedules())->bySeasonId($this->id, $query);
     }
 
     /**
@@ -85,11 +86,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id-and-team-id Docs
+     * @see  Schedules::bySeasonAndTeamId
      */
     public function schedulesByTeamId (int $teamId, array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("schedules/seasons/$this->id/teams/$teamId", $query);
+        return (new Schedules())->bySeasonAndTeamId($this->id, $teamId, $query);
     }
 
     /**
@@ -97,11 +99,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/stages/get-stages-by-season-id Docs
+     * @see  Stages::bySeasonId
      */
     public function stages (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("stages/seasons/$this->id", $query);
+        return (new Stages())->bySeasonId($this->id, $query);
     }
 
     /**
@@ -109,11 +112,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds/get-rounds-by-season-id Docs
+     * @see  Rounds::bySeasonId
      */
     public function rounds (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("rounds/seasons/$this->id", $query);
+        return (new Rounds())->bySeasonId($this->id, $query);
     }
 
     /**
@@ -121,11 +125,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standings-by-season-id Docs
+     * @see  Standings::bySeasonId
      */
     public function standings (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("standings/seasons/$this->id", $query);
+        return (new Standings())->bySeasonId($this->id, $query);
     }
 
     /**
@@ -133,11 +138,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standing-correction-by-season-id Docs
+     * @see  Standings::correctionBySeasonId
      */
     public function standingsCorrection (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("standings/corrections/seasons/$this->id", $query);
+        return (new Standings())->correctionBySeasonId($this->id, $query);
     }
 
     /**
@@ -145,11 +151,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/topscorers/get-topscorers-by-season-id Docs
+     * @see  Topscorers::bySeasonId
      */
     public function topscorers (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("topscorers/seasons/$this->id", $query);
+        return (new Topscorers())->bySeasonId($this->id, $query);
     }
 
     /**
@@ -157,11 +164,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/teams/get-teams-by-season-id Docs
+     * @see  Teams::bySeasonId
      */
     public function teams (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("teams/seasons/$this->id", $query);
+        return (new Teams())->bySeasonId($this->id, $query);
     }
 
     /**
@@ -170,11 +178,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads/get-team-squad-by-team-and-season-id Docs
+     * @see  Squads::byTeamAndSeasonId
      */
     public function squadsByTeamId (int $teamId, array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("squads/seasons/$this->id/teams/$teamId", $query);
+        return (new Squads())->byTeamAndSeasonId($teamId, $this->id, $query);
     }
 
     /**
@@ -182,11 +191,12 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/venues/get-venues-by-season-id Docs
+     * @see  Venues::bySeasonId
      */
     public function venues (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("venues/seasons/$this->id", $query);
+        return (new Venues())->bySeasonId($this->id, $query);
     }
 
     /**
@@ -194,10 +204,11 @@ class Seasons extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/news/get-pre-match-news-by-season-id Docs
+     * @see  News::bySeasonId
      */
     public function news (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
-        return $this->call("news/pre-match/seasons/$this->id", $query);
+        return (new News())->bySeasonId($this->id, $query);
     }
 }

@@ -65,4 +65,16 @@ class Transfers extends FootballClient
     {
         return $this->call("transfers/teams/$teamId", $query);
     }
+
+    /**
+     * @param  int    $playerId  the player id
+     * @param  array  $query     the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers/get-transfers-by-player-id Docs
+     */
+    public function byPlayerId (int $playerId, array $query = []) : object
+    {
+        return $this->call("transfers/players/$playerId", $query);
+    }
 }

@@ -72,10 +72,11 @@ class Rounds extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standings-by-round-id Docs
+     * @see  Standings::byRoundId
      */
     public function standings (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No round_id set');
-        return $this->call("standings/rounds/$this->id", $query);
+        return (new Standings())->byRoundId($this->id, $query);
     }
 }

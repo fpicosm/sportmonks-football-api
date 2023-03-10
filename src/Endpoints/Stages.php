@@ -72,10 +72,11 @@ class Stages extends FootballClient
      * @throws GuzzleException
      * @return object the response object
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/topscorers/get-topscorers-by-stage-id Docs
+     * @see  Topscorers::byStageId
      */
     public function topscorers (array $query = []) : object
     {
         if (!$this->id) throw new InvalidArgumentException('No stage_id set');
-        return $this->call("topscorers/stages/$this->id", $query);
+        return (new Topscorers())->byStageId($this->id, $query);
     }
 }

@@ -5,6 +5,7 @@ namespace Sportmonks\FootballApi;
 use Sportmonks\FootballApi\Endpoints\Bookmakers;
 use Sportmonks\FootballApi\Endpoints\Cities;
 use Sportmonks\FootballApi\Endpoints\Coaches;
+use Sportmonks\FootballApi\Endpoints\Commentaries;
 use Sportmonks\FootballApi\Endpoints\Continents;
 use Sportmonks\FootballApi\Endpoints\Countries;
 use Sportmonks\FootballApi\Endpoints\Enrichments;
@@ -13,11 +14,13 @@ use Sportmonks\FootballApi\Endpoints\Fixtures;
 use Sportmonks\FootballApi\Endpoints\Leagues;
 use Sportmonks\FootballApi\Endpoints\Livescores;
 use Sportmonks\FootballApi\Endpoints\Markets;
+use Sportmonks\FootballApi\Endpoints\News;
 use Sportmonks\FootballApi\Endpoints\Players;
 use Sportmonks\FootballApi\Endpoints\Predictions;
 use Sportmonks\FootballApi\Endpoints\Referees;
 use Sportmonks\FootballApi\Endpoints\Regions;
 use Sportmonks\FootballApi\Endpoints\Resources;
+use Sportmonks\FootballApi\Endpoints\Rivals;
 use Sportmonks\FootballApi\Endpoints\Rounds;
 use Sportmonks\FootballApi\Endpoints\Schedules;
 use Sportmonks\FootballApi\Endpoints\Seasons;
@@ -60,6 +63,15 @@ class FootballApi
     public static function coaches () : Coaches
     {
         return new Coaches();
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/v/core-api/endpoints/commentaries Docs
+     * @return Commentaries
+     */
+    public static function commentaries () : Commentaries
+    {
+        return new Commentaries();
     }
 
     /**
@@ -192,6 +204,14 @@ class FootballApi
         return new Resources();
     }
 
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rivals Docs
+     * @return Rivals
+     */
+    public static function rivals () : Rivals
+    {
+        return new Rivals();
+    }
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds Docs
