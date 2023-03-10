@@ -166,4 +166,29 @@ class Teams extends FootballClient
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
         return $this->call("seasons/teams/$this->id", $query);
     }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads/get-team-squad-by-team-id Docs
+     */
+    public function squads (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No team_id set');
+        return $this->call("squads/teams/$this->id", $query);
+    }
+
+    /**
+     * @param  int    $seasonId  the season id
+     * @param  array  $query     the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads/get-team-squad-by-team-and-season-id Docs
+     */
+    public function squadsBySeasonId (int $seasonId, array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No team_id set');
+        return $this->call("squads/seasons/$seasonId/teams/$this->id", $query);
+    }
 }

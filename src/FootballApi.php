@@ -15,6 +15,7 @@ use Sportmonks\FootballApi\Endpoints\Resources;
 use Sportmonks\FootballApi\Endpoints\Rounds;
 use Sportmonks\FootballApi\Endpoints\Schedules;
 use Sportmonks\FootballApi\Endpoints\Seasons;
+use Sportmonks\FootballApi\Endpoints\Squads;
 use Sportmonks\FootballApi\Endpoints\Stages;
 use Sportmonks\FootballApi\Endpoints\Standings;
 use Sportmonks\FootballApi\Endpoints\States;
@@ -144,6 +145,15 @@ class FootballApi
     public static function seasons (?int $id = NULL) : Seasons
     {
         return new Seasons($id);
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads Docs
+     * @return Squads
+     */
+    public static function squads () : Squads
+    {
+        return new Squads();
     }
 
     /**
