@@ -12,7 +12,6 @@ class Schedules extends FootballClient
      * @param  array  $query     the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id Docs
      */
     public function bySeasonId (int $seasonId, array $query = []) : object
@@ -25,7 +24,6 @@ class Schedules extends FootballClient
      * @param  array  $query   the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-team-id Docs
      */
     public function byTeamId (int $teamId, array $query = []) : object
@@ -39,7 +37,6 @@ class Schedules extends FootballClient
      * @param  array  $query     the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id-and-team-id Docs
      */
     public function bySeasonAndTeamId (int $seasonId, int $teamId, array $query = []) : object

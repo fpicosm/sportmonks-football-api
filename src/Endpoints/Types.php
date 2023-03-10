@@ -11,7 +11,6 @@ class Types extends CoreClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/types/get-all-types Docs
      */
     public function all (array $query = []) : object
@@ -24,7 +23,6 @@ class Types extends CoreClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/types/get-type-by-id Docs
      */
     public function byId (int $id, array $query = []) : object

@@ -11,7 +11,6 @@ class Fixtures extends FootballClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-all-fixtures Docs
      */
     public function all (array $query = []) : object
@@ -24,7 +23,6 @@ class Fixtures extends FootballClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixture-by-id Docs
      */
     public function byId (int $id, array $query = []) : object
@@ -37,7 +35,6 @@ class Fixtures extends FootballClient
      * @param  array         $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-multiple-ids Docs
      */
     public function byMultipleIds (string|array $ids, array $query = []) : object
@@ -51,7 +48,6 @@ class Fixtures extends FootballClient
      * @param  array   $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-date Docs
      */
     public function byDate (string $date, array $query = []) : object
@@ -65,7 +61,6 @@ class Fixtures extends FootballClient
      * @param  array   $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-date-range Docs
      */
     public function byDateRange (string $from, string $to, array $query = []) : object
@@ -80,7 +75,6 @@ class Fixtures extends FootballClient
      * @param  array   $query   the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-date-range-for-team Docs
      */
     public function byDateRangeForTeam (string $from, string $to, int $teamId, array $query = []) : object
@@ -94,7 +88,6 @@ class Fixtures extends FootballClient
      * @param  array  $query         the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-head-to-head Docs
      */
     public function headToHead (int $firstTeamId, int $secondTeamId, array $query = []) : object
@@ -107,7 +100,6 @@ class Fixtures extends FootballClient
      * @param  array   $query     the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-fixtures-by-head-to-head Docs
      */
     public function search (string $teamName, array $query = []) : object
@@ -120,7 +112,6 @@ class Fixtures extends FootballClient
      * @param  array  $query     the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-upcoming-fixtures-by-market-id Docs
      */
     public function upcomingByMarketId (int $marketId, array $query = []) : object
@@ -132,7 +123,6 @@ class Fixtures extends FootballClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures/get-latest-updated-fixtures Docs
      */
     public function latest (array $query = []) : object

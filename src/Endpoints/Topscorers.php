@@ -12,7 +12,6 @@ class Topscorers extends FootballClient
      * @param  array  $query     the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/topscorers/get-topscorers-by-season-id Docs
      */
     public function bySeasonId (int $seasonId, array $query = []) : object
@@ -25,7 +24,6 @@ class Topscorers extends FootballClient
      * @param  array  $query    the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/topscorers/get-topscorers-by-stage-id Docs
      */
     public function byStageId (int $stageId, array $query = []) : object

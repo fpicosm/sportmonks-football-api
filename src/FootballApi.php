@@ -16,7 +16,10 @@ use Sportmonks\FootballApi\Endpoints\Rounds;
 use Sportmonks\FootballApi\Endpoints\Schedules;
 use Sportmonks\FootballApi\Endpoints\Seasons;
 use Sportmonks\FootballApi\Endpoints\Stages;
+use Sportmonks\FootballApi\Endpoints\Standings;
 use Sportmonks\FootballApi\Endpoints\States;
+use Sportmonks\FootballApi\Endpoints\Teams;
+use Sportmonks\FootballApi\Endpoints\Topscorers;
 use Sportmonks\FootballApi\Endpoints\Types;
 
 class FootballApi
@@ -41,7 +44,7 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/v/core-api/endpoints/countries Docs
-     * @param  int|null  $id  the country id
+     * @param  int|NULL  $id  the country id
      * @return Countries
      */
     public static function countries (?int $id = NULL) : Countries
@@ -78,7 +81,7 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues Docs
-     * @param  int|null  $id  the league id
+     * @param  int|NULL  $id  the league id
      * @return Leagues
      */
     public static function leagues (?int $id = NULL) : Leagues
@@ -116,7 +119,7 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds Docs
-     * @param  int|null  $id  the round id
+     * @param  int|NULL  $id  the round id
      * @return Rounds
      */
     public static function rounds (?int $id = NULL) : Rounds
@@ -135,7 +138,7 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/seasons Docs
-     * @param  int|null  $id  the season id
+     * @param  int|NULL  $id  the season id
      * @return Seasons
      */
     public static function seasons (?int $id = NULL) : Seasons
@@ -145,12 +148,21 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/stages Docs
-     * @param  int|null  $id  the stage id
+     * @param  int|NULL  $id  the stage id
      * @return Stages
      */
     public static function stages (?int $id = NULL) : Stages
     {
         return new Stages($id);
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings Docs
+     * @return Standings
+     */
+    public static function standings () : Standings
+    {
+        return new Standings();
     }
 
     /**
@@ -160,6 +172,25 @@ class FootballApi
     public static function states () : States
     {
         return new States();
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/teams Docs
+     * @param  int|NULL  $id  the team id
+     * @return Teams
+     */
+    public static function teams (int $id = NULL) : Teams
+    {
+        return new Teams($id);
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/topscorers Docs
+     * @return Topscorers
+     */
+    public static function topscorers () : Topscorers
+    {
+        return new Topscorers();
     }
 
     /**

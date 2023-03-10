@@ -11,7 +11,6 @@ class Regions extends CoreClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/regions/get-all-regions Docs
      */
     public function all (array $query = []) : object
@@ -24,7 +23,6 @@ class Regions extends CoreClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/regions/get-region-by-id Docs
      */
     public function byId (int $id, array $query = []) : object
@@ -37,7 +35,6 @@ class Regions extends CoreClient
      * @param  array   $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/v/core-api/endpoints/regions/get-regions-by-search Docs
      */
     public function search (string $name, array $query = []) : object

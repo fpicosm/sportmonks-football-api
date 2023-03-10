@@ -24,7 +24,6 @@ class Leagues extends FootballClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-all-leagues Docs
      */
     public function all (array $query = []) : object
@@ -38,7 +37,6 @@ class Leagues extends FootballClient
      *
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-league-by-id Docs
      */
     public function byId (int $id, array $query = []) : object
@@ -51,7 +49,6 @@ class Leagues extends FootballClient
      *
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-by-live Docs
      */
     public function byLive (array $query = []) : object
@@ -65,7 +62,6 @@ class Leagues extends FootballClient
      *
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-by-fixture-date Docs
      */
     public function byFixtureDate (string $date, array $query = []) : object
@@ -79,7 +75,6 @@ class Leagues extends FootballClient
      *
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-by-country-id Docs
      */
     public function byCountryId (int $countryId, array $query = []) : object
@@ -93,7 +88,6 @@ class Leagues extends FootballClient
      *
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-search-by-name Docs
      */
     public function search (string $name, array $query = []) : object
@@ -104,10 +98,8 @@ class Leagues extends FootballClient
     /**
      * @param  int    $teamId  the team id
      * @param  array  $query   the query params
-     *
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-all-leagues-by-team-id Docs
      */
     public function allByTeamId (int $teamId, array $query = []) : object
@@ -118,22 +110,19 @@ class Leagues extends FootballClient
     /**
      * @param  int    $teamId  the team id
      * @param  array  $query   the query params
-     *
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-current-leagues-by-team-id Docs
      */
     public function currentByTeamId (int $teamId, array $query = []) : object
     {
-        return $this->call("leagues/teams/$teamId", $query);
+        return $this->call("leagues/teams/$teamId/current", $query);
     }
 
     /**
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-live-standings-by-league-id Docs
      */
     public function liveStandings (array $query = []) : object

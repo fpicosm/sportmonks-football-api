@@ -24,7 +24,6 @@ class Rounds extends FootballClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds/get-all-rounds Docs
      */
     public function all (array $query = []) : object
@@ -37,7 +36,6 @@ class Rounds extends FootballClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds/get-round-by-id Docs
      */
     public function byId (int $id, array $query = []) : object
@@ -50,7 +48,6 @@ class Rounds extends FootballClient
      * @param  array  $query     the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds/get-rounds-by-season-id Docs
      */
     public function bySeasonId (int $seasonId, array $query = []) : object
@@ -63,7 +60,6 @@ class Rounds extends FootballClient
      * @param  array   $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds/get-rounds-by-search-by-name Docs
      */
     public function search (string $name, array $query = []) : object
@@ -75,7 +71,6 @@ class Rounds extends FootballClient
      * @param  array  $query  the query params
      * @throws GuzzleException
      * @return object the response object
-     *
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standings-by-round-id Docs
      */
     public function standings (array $query = []) : object
