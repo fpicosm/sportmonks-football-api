@@ -3,31 +3,29 @@
 namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
-use InvalidArgumentException;
-use Sportmonks\FootballApi\FootballApiClient;
+use http\Exception\InvalidArgumentException;
+use Sportmonks\FootballApi\Clients\FootballClient;
 
-class Seasons extends FootballApiClient
+class Seasons extends FootballClient
 {
-    /**
-     * @var int|null the season id
-     */
+    /** @var int|NULL the season id */
     protected ?int $id;
 
     /**
-     * @param  int|null  $id  the season id
+     * @param  int|NULL  $id  the season id
      */
-    public function __construct (?int $id = NULL)
+    public function __construct (int $id = NULL)
     {
         parent::__construct();
         $this->id = $id;
     }
 
     /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
      * @return object the response object
      *
-     * @param  array  $query  the query params
-     *
-     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/seasons/get-all-seasons Docs
      */
     public function all (array $query = []) : object
     {
@@ -35,153 +33,94 @@ class Seasons extends FootballApiClient
     }
 
     /**
-     * @return object the response object
-     *
      * @param  int    $id     the season id
      * @param  array  $query  the query params
-     *
      * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/seasons/get-seasons-by-id Docs
      */
-    public function find (int $id, array $query = []) : object
+    public function byId (int $id, array $query = []) : object
     {
         return $this->call("seasons/$id", $query);
     }
 
     /**
-     * @return object the response object
-     *
-     * @param  array  $query  the query params
-     *
-     * @throws GuzzleException
-     */
-    public function news (array $query = []) : object
-    {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-        return $this->call("news/seasons/$this->id", $query);
-    }
-
-    /**
-     * @return object the response object
-     *
-     * @param  array  $query  the query params
-     *
-     * @throws GuzzleException
-     */
-    public function rounds (array $query = []) : object
-    {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-        return $this->call("rounds/season/$this->id", $query);
-    }
-
-    /**
-     * @return object the response object
-     *
      * @param  int    $teamId  the team id
      * @param  array  $query   the query params
-     *
      * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/seasons/get-seasons-by-team-id Docs
      */
-    public function squad (int $teamId, array $query = []) : object
+    public function byTeamId (int $teamId, array $query = []) : object
     {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-        return $this->call("squad/season/$this->id/team/$teamId", $query);
+        return $this->call("seasons/teams/$teamId", $query);
     }
 
     /**
+     * @param  string  $name   the year (YYYY)
+     * @param  array   $query  the query params
+     * @throws GuzzleException
      * @return object the response object
      *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/seasons/get-seasons-by-search-by-name Docs
+     */
+    public function search (string $name, array $query = []) : object
+    {
+        return $this->call("seasons/search/$name", $query);
+    }
+
+    /**
      * @param  array  $query  the query params
-     *
      * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id Docs
+     */
+    public function schedules (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season_id set');
+        return $this->call("schedules/seasons/$this->id", $query);
+    }
+
+    /**
+     * @param  int    $teamId
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id-and-team-id Docs
+     */
+    public function schedulesByTeamId (int $teamId, array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season_id set');
+        return $this->call("schedules/seasons/$this->id/teams/$teamId", $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/stages/get-stages-by-season-id Docs
      */
     public function stages (array $query = []) : object
     {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-        return $this->call("stages/season/$this->id", $query);
+        if (!$this->id) throw new InvalidArgumentException('No season_id set');
+        return $this->call("stages/seasons/$this->id", $query);
     }
 
     /**
-     * @return object the response object
-     *
-     * @param  bool   $live   returns live (or not) standings
      * @param  array  $query  the query params
-     *
      * @throws GuzzleException
-     */
-    public function standings (bool $live = false, array $query = []) : object
-    {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-
-        $endpoint = $live ? "standings/season/live/$this->id" : "standings/season/$this->id";
-        return $this->call($endpoint, $query);
-    }
-
-    /**
      * @return object the response object
      *
-     * @param  string  $date   limit date (YYYY-MM-DD)
-     * @param  array   $query  the query params
-     *
-     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds/get-rounds-by-season-id Docs
      */
-    public function standingsByDate (string $date, array $query = []) : object
+    public function rounds (array $query = []) : object
     {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-        return $this->call("standings/season/$this->id/date/$date", $query);
-    }
-
-    /**
-     * @return object the response object
-     *
-     * @param  array  $query  the query params
-     *
-     * @throws GuzzleException
-     */
-    public function standingsCorrection (array $query = []) : object
-    {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-        return $this->call("corrections/season/$this->id", $query);
-    }
-
-    /**
-     * @return object the response object
-     *
-     * @param  array  $query  the query params
-     *
-     * @throws GuzzleException
-     */
-    public function teams (array $query = []) : object
-    {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-        return $this->call("teams/season/$this->id", $query);
-    }
-
-    /**
-     * @return object the response object
-     *
-     * @param  bool   $aggregated  show (or not) aggregated
-     * @param  array  $query       the query params
-     *
-     * @throws GuzzleException
-     */
-    public function topscorers (bool $aggregated = false, array $query = []) : object
-    {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-
-        $endpoint = $aggregated ? "topscorers/season/$this->id/aggregated" : "topscorers/season/$this->id";
-        return $this->call($endpoint, $query);
-    }
-
-    /**
-     * @return object the response object
-     *
-     * @param  array  $query  the query params
-     *
-     * @throws GuzzleException
-     */
-    public function venues (array $query = []) : object
-    {
-        if (!$this->id) throw new InvalidArgumentException('No ID set');
-        return $this->call("venues/season/$this->id", $query);
+        if (!$this->id) throw new InvalidArgumentException('No season_id set');
+        return $this->call("rounds/seasons/$this->id", $query);
     }
 }

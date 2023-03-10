@@ -3,16 +3,16 @@
 namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballClient;
 
-class Leagues extends FootballApiClient
+class Leagues extends FootballClient
 {
     /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
      * @return object the response object
      *
-     * @param  array  $query  the query params
-     *
-     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-all-leagues Docs
      */
     public function all (array $query = []) : object
     {
@@ -20,28 +20,99 @@ class Leagues extends FootballApiClient
     }
 
     /**
-     * @return object the response object
-     *
      * @param  int    $id     the league id
      * @param  array  $query  the query params
      *
      * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-league-by-id Docs
      */
-    public function find (int $id, array $query = []) : object
+    public function byId (int $id, array $query = []) : object
     {
         return $this->call("leagues/$id", $query);
     }
 
     /**
+     * @param  array  $query  the query params
+     *
+     * @throws GuzzleException
      * @return object the response object
      *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-by-live Docs
+     */
+    public function byLive (array $query = []) : object
+    {
+        return $this->call('leagues/live', $query);
+    }
+
+    /**
+     * @param  string  $date   the fixture date (YYYY-MM-DD)
+     * @param  array   $query  the query params
+     *
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-by-fixture-date Docs
+     */
+    public function byFixtureDate (string $date, array $query = []) : object
+    {
+        return $this->call("leagues/fixtures/date/$date", $query);
+    }
+
+    /**
+     * @param  int    $countryId  the country id
+     * @param  array  $query      the query params
+     *
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-by-country-id Docs
+     */
+    public function byCountryId (int $countryId, array $query = []) : object
+    {
+        return $this->call("leagues/countries/$countryId", $query);
+    }
+
+    /**
      * @param  string  $name   the league name
      * @param  array   $query  the query params
      *
      * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-search-by-name Docs
      */
     public function search (string $name, array $query = []) : object
     {
         return $this->call("leagues/search/$name", $query);
+    }
+
+    /**
+     * @param  int    $teamId  the team id
+     * @param  array  $query   the query params
+     *
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-all-leagues-by-team-id Docs
+     */
+    public function allByTeamId (int $teamId, array $query = []) : object
+    {
+        return $this->call("leagues/teams/$teamId", $query);
+    }
+
+    /**
+     * @param  int    $teamId  the team id
+     * @param  array  $query   the query params
+     *
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-current-leagues-by-team-id Docs
+     */
+    public function currentByTeamId (int $teamId, array $query = []) : object
+    {
+        return $this->call("leagues/teams/$teamId", $query);
     }
 }

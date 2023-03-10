@@ -1,34 +1,43 @@
 {
-    "name": "fpicosm/sportmonks-football-api",
-    "description": "A Laravel/Lumen wrapper for Sportmonks Football Api",
-    "keywords": ["football", "sportmonks", "api", "sports"],
-    "type": "project",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Sportmonks\\FootballApi\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
-    },
-    "authors": [
-        {
-            "name": "Fernando Picos",
-            "email": "fpicosm@gmail.com",
-            "homepage": "https://github.com/fpicosm"
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "illuminate/support": "^9.34",
-        "guzzlehttp/guzzle": "^7.5"
-    },
-    "require-dev": {
-        "laravel/laravel": "^9.3",
-        "phpunit/phpunit": "^9.5"
+  "name": "fpicosm/sportmonks-football-api",
+  "description": "A Laravel/Lumen wrapper for Sportmonks Football Api",
+  "keywords": [
+    "football",
+    "sportmonks",
+    "api",
+    "sports"
+  ],
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Sportmonks\\FootballApi\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Fernando Picos",
+      "email": "fpicosm@gmail.com",
+      "homepage": "https://github.com/fpicosm"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "8.2.*",
+    "illuminate/support": "^10.3",
+    "guzzlehttp/guzzle": "^7.5"
+  },
+  "require-dev": {
+    "laravel/laravel": "^10.0",
+    "phpunit/phpunit": "^10.0"
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit"
+  }
 }

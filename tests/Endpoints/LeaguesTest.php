@@ -19,8 +19,8 @@ class LeaguesTest extends TestCase
         $this->assertIsArray($data);
         $this->assertNotEmpty($data);
 
-        $league = collect($data)->firstWhere('id', 2);
-        $this->assertEquals('Champions League', $league->name);
+        $league = collect($data)->firstWhere('id', 8);
+        $this->assertEquals('Premier League', $league->name);
     }
 
     /**
@@ -29,7 +29,7 @@ class LeaguesTest extends TestCase
      */
     public function it_returns_a_league ()
     {
-        $data = FootballApi::leagues()->find(564)->data;
+        $data = FootballApi::leagues()->byId(564)->data;
 
         $this->assertIsObject($data);
         $this->assertNotEmpty($data);

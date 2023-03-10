@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Config;
-use Sportmonks\FootballApi\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballApiClient;
 
 class SetupTest extends TestCase
 {

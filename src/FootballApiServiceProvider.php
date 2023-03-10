@@ -23,5 +23,4 @@ class FootballApiServiceProvider extends ServiceProvider
             return new FootballApi();
         });
     }
-
 }
