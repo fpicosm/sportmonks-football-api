@@ -25,6 +25,7 @@ use Sportmonks\FootballApi\Endpoints\States;
 use Sportmonks\FootballApi\Endpoints\Teams;
 use Sportmonks\FootballApi\Endpoints\Topscorers;
 use Sportmonks\FootballApi\Endpoints\Transfers;
+use Sportmonks\FootballApi\Endpoints\TvStations;
 use Sportmonks\FootballApi\Endpoints\Types;
 
 class FootballApi
@@ -86,11 +87,12 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures Docs
+     * @param  int|NULL  $id
      * @return Fixtures
      */
-    public static function fixtures () : Fixtures
+    public static function fixtures (int $id = NULL) : Fixtures
     {
-        return new Fixtures();
+        return new Fixtures($id);
     }
 
     /**
@@ -243,6 +245,16 @@ class FootballApi
     public static function transfers () : Transfers
     {
         return new Transfers();
+    }
+
+    /**
+     * https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/tv-stations Docs
+     *
+     * @return TvStations
+     */
+    public static function tvStations () : TvStations
+    {
+        return new TvStations();
     }
 
     /**

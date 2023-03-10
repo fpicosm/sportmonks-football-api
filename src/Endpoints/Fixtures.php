@@ -3,10 +3,23 @@
 namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\FootballClient;
 
 class Fixtures extends FootballClient
 {
+    /** @var int|NULL the fixture id */
+    protected ?int $id;
+
+    /**
+     * @param  int|NULL  $id  the fixture id
+     */
+    public function __construct (int $id = NULL)
+    {
+        parent::__construct();
+        $this->id = $id;
+    }
+
     /**
      * @param  array  $query  the query params
      * @throws GuzzleException
@@ -128,5 +141,17 @@ class Fixtures extends FootballClient
     public function latest (array $query = []) : object
     {
         return $this->call('fixtures/latest', $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/tv-stations/get-tv-stations-by-fixture-id Docs
+     */
+    public function tvStations (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No fixture_id set');
+        return $this->call("tv-stations/fixtures/$this->id", $query);
     }
 }
