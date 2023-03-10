@@ -3,9 +3,9 @@
 namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
-use Sportmonks\FootballApi\Clients\FootballClient;
+use Sportmonks\FootballApi\Clients\OddsClient;
 
-class Markets extends FootballClient
+class Markets extends OddsClient
 {
     /**
      * @param  array  $query  the query params

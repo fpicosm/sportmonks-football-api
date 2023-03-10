@@ -2,6 +2,7 @@
 
 namespace Sportmonks\FootballApi;
 
+use Sportmonks\FootballApi\Endpoints\Bookmakers;
 use Sportmonks\FootballApi\Endpoints\Cities;
 use Sportmonks\FootballApi\Endpoints\Coaches;
 use Sportmonks\FootballApi\Endpoints\Continents;
@@ -34,6 +35,15 @@ use Sportmonks\FootballApi\Endpoints\Venues;
 // TODO ODDS
 class FootballApi
 {
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/bookmakers Docs
+     * @return Bookmakers
+     */
+    public static function bookmakers () : Bookmakers
+    {
+        return new Bookmakers();
+    }
+
     /**
      * @link https://docs.sportmonks.com/football/v/core-api/endpoints/cities Docs
      * @return Cities

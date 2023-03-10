@@ -166,4 +166,16 @@ class Fixtures extends FootballClient
         if (!$this->id) throw new InvalidArgumentException('No fixture_id set');
         return $this->call("predictions/probabilities/fixtures/$this->id", $query);
     }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/bookmakers/get-bookmaker-by-fixture-id Docs
+     */
+    public function bookmakers (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No fixture_id set');
+        return $this->call("bookmakers/fixtures/$this->id", $query);
+    }
 }
