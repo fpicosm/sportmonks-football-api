@@ -11,6 +11,7 @@ use Sportmonks\FootballApi\Endpoints\Filters;
 use Sportmonks\FootballApi\Endpoints\Fixtures;
 use Sportmonks\FootballApi\Endpoints\Leagues;
 use Sportmonks\FootballApi\Endpoints\Livescores;
+use Sportmonks\FootballApi\Endpoints\Markets;
 use Sportmonks\FootballApi\Endpoints\Players;
 use Sportmonks\FootballApi\Endpoints\Predictions;
 use Sportmonks\FootballApi\Endpoints\Referees;
@@ -115,6 +116,15 @@ class FootballApi
     public static function livescores () : Livescores
     {
         return new Livescores();
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/markets Docs
+     * @return Markets
+     */
+    public static function markets () : Markets
+    {
+        return new Markets();
     }
 
     /**
