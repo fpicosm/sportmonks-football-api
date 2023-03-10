@@ -3,7 +3,7 @@
 namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
-use http\Exception\InvalidArgumentException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\FootballClient;
 
 class Seasons extends FootballClient
@@ -122,5 +122,44 @@ class Seasons extends FootballClient
     {
         if (!$this->id) throw new InvalidArgumentException('No season_id set');
         return $this->call("rounds/seasons/$this->id", $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standings-by-season-id Docs
+     */
+    public function standings (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season_id set');
+        return $this->call("standings/seasons/$this->id", $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standing-correction-by-season-id Docs
+     */
+    public function standingsCorrection (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season_id set');
+        return $this->call("standings/corrections/seasons/$this->id", $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/topscorers/get-topscorers-by-season-id Docs
+     */
+    public function topscorers (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No season_id set');
+        return $this->call("topscorers/seasons/$this->id", $query);
     }
 }

@@ -16,14 +16,17 @@ class FootballApi
 {
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues Docs
+     * @param  int|null  $id  the league id
+     * @return Leagues
      */
-    public static function leagues () : Leagues
+    public static function leagues (?int $id = NULL) : Leagues
     {
-        return new Leagues();
+        return new Leagues($id);
     }
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/livescores Docs
+     * @return Livescores
      */
     public static function livescores () : Livescores
     {
@@ -32,6 +35,7 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/fixtures Docs
+     * @return Fixtures
      */
     public static function fixtures () : Fixtures
     {
@@ -40,6 +44,7 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/states Docs
+     * @return States
      */
     public static function states () : States
     {
@@ -48,6 +53,7 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/types Docs
+     * @return Types
      */
     public static function types () : Types
     {
@@ -66,6 +72,7 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules Docs
+     * @return Schedules
      */
     public static function schedules () : Schedules
     {
@@ -74,17 +81,21 @@ class FootballApi
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/stages Docs
+     * @param  int|null  $id  the stage id
+     * @return Stages
      */
-    public static function stages () : Stages
+    public static function stages (?int $id = NULL) : Stages
     {
-        return new Stages();
+        return new Stages($id);
     }
 
     /**
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds Docs
+     * @param  int|null  $id  the round id
+     * @return Rounds
      */
-    public static function rounds () : Rounds
+    public static function rounds (?int $id = NULL) : Rounds
     {
-        return new Rounds();
+        return new Rounds($id);
     }
 }

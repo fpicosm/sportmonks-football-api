@@ -3,10 +3,23 @@
 namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\FootballClient;
 
 class Rounds extends FootballClient
 {
+    /** @var int|NULL the round id */
+    protected ?int $id;
+
+    /**
+     * @param  int|NULL  $id  the round id
+     */
+    public function __construct (int $id = NULL)
+    {
+        parent::__construct();
+        $this->id = $id;
+    }
+
     /**
      * @param  array  $query  the query params
      * @throws GuzzleException
@@ -56,5 +69,18 @@ class Rounds extends FootballClient
     public function search (string $name, array $query = []) : object
     {
         return $this->call("rounds/search/$name", $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standings-by-round-id Docs
+     */
+    public function standings (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No round_id set');
+        return $this->call("standings/rounds/$this->id", $query);
     }
 }

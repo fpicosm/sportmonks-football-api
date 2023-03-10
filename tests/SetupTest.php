@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Config;
-use Sportmonks\FootballApi\Clients\FootballApiClient;
+use Sportmonks\FootballApi\Clients\FootballClient;
 
 class SetupTest extends TestCase
 {
@@ -13,6 +13,6 @@ class SetupTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         Config::set('football-api.token', '');
-        new FootballApiClient();
+        new FootballClient();
     }
 }

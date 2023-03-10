@@ -3,10 +3,23 @@
 namespace Sportmonks\FootballApi\Endpoints;
 
 use GuzzleHttp\Exception\GuzzleException;
+use InvalidArgumentException;
 use Sportmonks\FootballApi\Clients\FootballClient;
 
 class Leagues extends FootballClient
 {
+    /** @var int|NULL the league id */
+    protected ?int $id;
+
+    /**
+     * @param  int|NULL  $id  the league id
+     */
+    public function __construct (int $id = NULL)
+    {
+        parent::__construct();
+        $this->id = $id;
+    }
+
     /**
      * @param  array  $query  the query params
      * @throws GuzzleException
@@ -114,5 +127,18 @@ class Leagues extends FootballClient
     public function currentByTeamId (int $teamId, array $query = []) : object
     {
         return $this->call("leagues/teams/$teamId", $query);
+    }
+
+    /**
+     * @param  array  $query  the query params
+     * @throws GuzzleException
+     * @return object the response object
+     *
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-live-standings-by-league-id Docs
+     */
+    public function liveStandings (array $query = []) : object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No league_id set');
+        return $this->call("standings/live/leagues/$this->id", $query);
     }
 }
