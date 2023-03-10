@@ -3,6 +3,7 @@
 namespace Sportmonks\FootballApi;
 
 use Sportmonks\FootballApi\Endpoints\Cities;
+use Sportmonks\FootballApi\Endpoints\Coaches;
 use Sportmonks\FootballApi\Endpoints\Continents;
 use Sportmonks\FootballApi\Endpoints\Countries;
 use Sportmonks\FootballApi\Endpoints\Enrichments;
@@ -10,6 +11,8 @@ use Sportmonks\FootballApi\Endpoints\Filters;
 use Sportmonks\FootballApi\Endpoints\Fixtures;
 use Sportmonks\FootballApi\Endpoints\Leagues;
 use Sportmonks\FootballApi\Endpoints\Livescores;
+use Sportmonks\FootballApi\Endpoints\Players;
+use Sportmonks\FootballApi\Endpoints\Referees;
 use Sportmonks\FootballApi\Endpoints\Regions;
 use Sportmonks\FootballApi\Endpoints\Resources;
 use Sportmonks\FootballApi\Endpoints\Rounds;
@@ -32,6 +35,15 @@ class FootballApi
     public static function cities () : Cities
     {
         return new Cities();
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/coaches Docs
+     * @return Coaches
+     */
+    public static function coaches () : Coaches
+    {
+        return new Coaches();
     }
 
     /**
@@ -97,6 +109,24 @@ class FootballApi
     public static function livescores () : Livescores
     {
         return new Livescores();
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/players Docs
+     * @return Players
+     */
+    public static function players () : Players
+    {
+        return new Players();
+    }
+
+    /**
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/referees Docs
+     * @return Referees
+     */
+    public static function referees () : Referees
+    {
+        return new Referees();
     }
 
     /**
