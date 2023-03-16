@@ -59,6 +59,6 @@ class StandingsTest extends TestCase
     {
         $leagueId = 271;
         $url = FootballApi::standings()->liveByLeagueId($leagueId)->url->getPath();
-        $this->assertEquals("$/v3/football/standings/live/leagues/$leagueId", $url);
+        $this->assertEquals("/v3/football/standings/live/leagues/$leagueId", $url);
     }
 }
