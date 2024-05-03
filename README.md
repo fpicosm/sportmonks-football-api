@@ -99,12 +99,6 @@ To include relations, you can pass an array, or a semicolon separated string.
 Examples:
 
 ```php
-FootballApi::countries()->include('continent;leagues')->all();
-```
-
-You can pass an array, or a semicolon separated string:
-
-```php
 FootballApi::countries()->include('leagues;continent')->all();
 FootballApi::countries()->include(['leagues', 'continent'])->all();
 ```
