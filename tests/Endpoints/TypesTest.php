@@ -14,8 +14,9 @@ class TypesTest extends TestCase
      */
     public function it_returns_all_types()
     {
-        $url = FootballApi::types()->all()->url->getPath();
-        $this->assertEquals('/v3/core/types', $url);
+        $response = FootballApi::types()->all();
+        $this->assertEquals('/v3/core/types', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,7 +26,25 @@ class TypesTest extends TestCase
     public function it_returns_one_type()
     {
         $id = 1;
-        $url = FootballApi::types()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/core/types/$id", $url);
+
+        $response = FootballApi::types()->find($id);
+        $this->assertEquals("/v3/core/types/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
+    }
+
+    /**
+     * @test
+     * @throws GuzzleException
+     */
+    public function it_returns_types_by_entities()
+    {
+        $response = FootballApi::types()->byEntities();
+        $this->assertEquals("/v3/core/types/entities", $response->url->getPath());
+        $this->assertIsObject($response->data);
+        collect($response->data)->every(function ($value, $key) {
+            $this->assertIsString($key);
+            $this->assertIsObject($value);
+            $this->assertIsArray($value->types);
+        });
     }
 }

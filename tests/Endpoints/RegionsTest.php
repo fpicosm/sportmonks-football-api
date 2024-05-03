@@ -12,10 +12,11 @@ class RegionsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_cities()
+    public function it_returns_all_regions()
     {
-        $url = FootballApi::regions()->all()->url->getPath();
-        $this->assertEquals('/v3/core/regions', $url);
+        $response = FootballApi::regions()->all();
+        $this->assertEquals('/v3/core/regions', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,9 +25,11 @@ class RegionsTest extends TestCase
      */
     public function it_returns_one_region()
     {
-        $id = 367;
-        $url = FootballApi::regions()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/core/regions/$id", $url);
+        $id = 1;
+
+        $response = FootballApi::regions()->find($id);
+        $this->assertEquals("/v3/core/regions/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -35,8 +38,10 @@ class RegionsTest extends TestCase
      */
     public function it_returns_regions_search()
     {
-        $name = 'Br';
-        $url = FootballApi::regions()->search($name)->url->getPath();
-        $this->assertEquals("/v3/core/regions/search/$name", $url);
+        $name = 'Madrid';
+
+        $response = FootballApi::regions()->search($name);
+        $this->assertEquals("/v3/core/regions/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

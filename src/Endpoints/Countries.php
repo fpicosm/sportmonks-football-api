@@ -38,7 +38,7 @@ class Countries extends CoreClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/v/core-api/endpoints/countries/get-country-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("countries/$id", $query);
     }
@@ -61,12 +61,12 @@ class Countries extends CoreClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-by-country-id Docs
-     * @see  Leagues::byCountryId
+     * @see  Leagues::byCountry
      */
     public function leagues(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No country_id set');
-        return (new Leagues())->byCountryId($this->id, $query);
+        return (new Leagues())->byCountry($this->id, $query);
     }
 
     /**
@@ -74,12 +74,12 @@ class Countries extends CoreClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/teams/get-teams-by-country-id Docs
-     * @see  Teams::byCountryId
+     * @see  Teams::byCountry
      */
     public function teams(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No country_id set');
-        return (new Teams())->byCountryId($this->id, $query);
+        return (new Teams())->byCountry($this->id, $query);
     }
 
     /**
@@ -87,12 +87,12 @@ class Countries extends CoreClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/players/get-players-by-country-id Docs
-     * @see  Players::byCountryId
+     * @see  Players::byCountry
      */
     public function players(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No country_id set');
-        return (new Players())->byCountryId($this->id, $query);
+        return (new Players())->byCountry($this->id, $query);
     }
 
     /**
@@ -100,12 +100,12 @@ class Countries extends CoreClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/coaches/get-coaches-by-country-id Docs
-     * @see  Coaches::byCountryId
+     * @see  Coaches::byCountry
      */
     public function coaches(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No country_id set');
-        return (new Coaches())->byCountryId($this->id, $query);
+        return (new Coaches())->byCountry($this->id, $query);
     }
 
     /**
@@ -113,11 +113,11 @@ class Countries extends CoreClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/referees/get-referees-by-country-id Docs
-     * @see  Referees::byCountryId
+     * @see  Referees::byCountry
      */
     public function referees(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No country_id set');
-        return (new Referees())->byCountryId($this->id, $query);
+        return (new Referees())->byCountry($this->id, $query);
     }
 }

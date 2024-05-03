@@ -14,8 +14,9 @@ class RefereesTest extends TestCase
      */
     public function it_returns_all_referees()
     {
-        $url = FootballApi::referees()->all()->url->getPath();
-        $this->assertEquals('/v3/football/referees', $url);
+        $response = FootballApi::referees()->all();
+        $this->assertEquals('/v3/football/referees', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,9 +25,11 @@ class RefereesTest extends TestCase
      */
     public function it_returns_one_referee()
     {
-        $id = 11698;
-        $url = FootballApi::referees()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/football/referees/$id", $url);
+        $id = 28;
+
+        $response = FootballApi::referees()->find($id);
+        $this->assertEquals("/v3/football/referees/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -35,29 +38,36 @@ class RefereesTest extends TestCase
      */
     public function it_returns_referees_by_country_id()
     {
-        $countryId = 320;
-        $url = FootballApi::referees()->byCountryId($countryId)->url->getPath();
-        $this->assertEquals("/v3/football/referees/countries/$countryId", $url);
+        $countryId = 38;
+
+        $response = FootballApi::referees()->byCountry($countryId);
+        $this->assertEquals("/v3/football/referees/countries/$countryId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_referees_search()
+    public function it_returns_referees_search()
     {
-        $name = 'Munch';
-        $url = FootballApi::referees()->search($name)->url->getPath();
-        $this->assertEquals("/v3/football/referees/search/$name", $url);
+        $name = 'Kuipers';
+
+        $response = FootballApi::referees()->search($name);
+        $this->assertEquals("/v3/football/referees/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_last_updated_referees()
+    public function it_returns_referees_by_season_id()
     {
-        $url = FootballApi::referees()->latest()->url->getPath();
-        $this->assertEquals('/v3/football/referees/latest', $url);
+        $seasonId = 21646;
+
+        $response = FootballApi::referees()->bySeason($seasonId);
+        $this->assertEquals("/v3/football/referees/seasons/$seasonId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

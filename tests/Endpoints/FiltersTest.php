@@ -14,7 +14,13 @@ class FiltersTest extends TestCase
      */
     public function it_returns_my_filters()
     {
-        $url = FootballApi::filters()->all()->url->getPath();
-        $this->assertEquals('/v3/my/filters/entity', $url);
+        $response = FootballApi::filters()->all();
+        $this->assertEquals('/v3/my/filters/entity', $response->url->getPath());
+        $this->assertIsObject($response->data);
+
+        collect($response->data)->every(function ($value, $key) {
+            $this->assertIsString($key);
+            $this->assertIsArray($value);
+        });
     }
 }

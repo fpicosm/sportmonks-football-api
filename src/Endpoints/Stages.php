@@ -38,7 +38,7 @@ class Stages extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/stages/get-stage-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("stages/$id", $query);
     }
@@ -50,7 +50,7 @@ class Stages extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/stages/get-stages-by-season-id Docs
      */
-    public function bySeasonId(int $seasonId, array $query = []): object
+    public function bySeason(int $seasonId, array $query = []): object
     {
         return $this->call("stages/seasons/$seasonId", $query);
     }
@@ -72,11 +72,24 @@ class Stages extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/topscorers/get-topscorers-by-stage-id Docs
-     * @see  Topscorers::byStageId
+     * @see  Topscorers::byStage
      */
     public function topscorers(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No stage_id set');
-        return (new Topscorers())->byStageId($this->id, $query);
+        return (new Topscorers())->byStage($this->id, $query);
+    }
+
+    /**
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/statistics/get-stage-statistics-by-id
+     * @see Statistics::byStage()
+     */
+    public function statistics(array $query = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No stage_id set');
+        return (new Statistics())->byStage($this->id, $query);
     }
 }

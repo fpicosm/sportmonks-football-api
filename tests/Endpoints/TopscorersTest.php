@@ -14,9 +14,11 @@ class TopscorersTest extends TestCase
      */
     public function it_returns_topscorers_by_season_id()
     {
-        $seasonId = 19686;
-        $url = FootballApi::topscorers()->bySeasonId($seasonId)->url->getPath();
-        $this->assertEquals("/v3/football/topscorers/seasons/$seasonId", $url);
+        $seasonId = 2;
+
+        $response = FootballApi::topscorers()->bySeason($seasonId);
+        $this->assertEquals("/v3/football/topscorers/seasons/$seasonId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,8 +27,10 @@ class TopscorersTest extends TestCase
      */
     public function it_returns_topscorers_by_stage_id()
     {
-        $stageId = 19686;
-        $url = FootballApi::topscorers()->byStageId($stageId)->url->getPath();
-        $this->assertEquals("/v3/football/topscorers/stages/$stageId", $url);
+        $stageId = 2;
+
+        $response = FootballApi::topscorers()->byStage($stageId);
+        $this->assertEquals("/v3/football/topscorers/stages/$stageId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

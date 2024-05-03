@@ -25,8 +25,18 @@ class Types extends CoreClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/types/get-type-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("types/$id", $query);
+    }
+
+    /**
+     * @return object the response object
+     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/v/core-api/endpoints/types/get-type-by-entity Docs
+     */
+    public function byEntities(): object
+    {
+        return $this->call('types/entities');
     }
 }

@@ -38,7 +38,7 @@ class Teams extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/teams/get-team-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("teams/$id", $query);
     }
@@ -50,7 +50,7 @@ class Teams extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/teams/get-teams-by-country-id Docs
      */
-    public function byCountryId(int $countryId, array $query = []): object
+    public function byCountry(int $countryId, array $query = []): object
     {
         return $this->call("teams/countries/$countryId", $query);
     }
@@ -62,7 +62,7 @@ class Teams extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/teams/get-teams-by-season-id Docs
      */
-    public function bySeasonId(int $seasonId, array $query = []): object
+    public function bySeason(int $seasonId, array $query = []): object
     {
         return $this->call("teams/seasons/$seasonId", $query);
     }
@@ -113,12 +113,12 @@ class Teams extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-all-leagues-by-team-id Docs
-     * @see  Leagues::allByTeamId
+     * @see  Leagues::allByTeam
      */
     public function allLeagues(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Leagues())->allByTeamId($this->id, $query);
+        return (new Leagues())->allByTeam($this->id, $query);
     }
 
     /**
@@ -126,12 +126,12 @@ class Teams extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-current-leagues-by-team-id Docs
-     * @see  Leagues::currentByTeamId
+     * @see  Leagues::currentByTeam
      */
     public function currentLeagues(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Leagues())->currentByTeamId($this->id, $query);
+        return (new Leagues())->currentByTeam($this->id, $query);
     }
 
     /**
@@ -139,12 +139,12 @@ class Teams extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-team-id Docs
-     * @see  Schedules::byTeamId
+     * @see  Schedules::byTeam
      */
     public function schedules(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Schedules())->byTeamId($this->id, $query);
+        return (new Schedules())->byTeam($this->id, $query);
     }
 
     /**
@@ -152,39 +152,48 @@ class Teams extends FootballClient
      * @param array $query the query params
      * @return object the response object
      * @throws GuzzleException
-     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id-and-team-id Docs
-     * @see  Schedules::bySeasonAndTeamId()
+     * @see Schedules::bySeasonAndTeam()
      */
-    public function schedulesBySeasonId(int $seasonId, array $query = []): object
+    public function schedulesBySeason(int $seasonId, array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Schedules())->bySeasonAndTeamId($seasonId, $this->id, $query);
+        return (new Schedules())->bySeasonAndTeam($seasonId, $this->id, $query);
     }
 
     /**
      * @param array $query the query params
      * @return object the response object
      * @throws GuzzleException
-     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/seasons/get-seasons-by-team-id Docs
-     * @see  Seasons::byTeamId
+     * @see Seasons::byTeam
      */
     public function seasons(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Seasons())->byTeamId($this->id, $query);
+        return (new Seasons())->byTeam($this->id, $query);
     }
 
     /**
      * @param array $query the query params
      * @return object the response object
      * @throws GuzzleException
-     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads/get-team-squad-by-team-id Docs
-     * @see  Squads::byTeamId
+     * @see Squads::byTeam
      */
     public function squads(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Squads())->byTeamId($this->id, $query);
+        return (new Squads())->byTeam($this->id, $query);
+    }
+
+    /**
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @see Squads::extendedByTeam
+     */
+    public function extendedSquads(array $query = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No team_id set');
+        return (new Squads())->extendedByTeam($this->id, $query);
     }
 
     /**
@@ -192,13 +201,12 @@ class Teams extends FootballClient
      * @param array $query the query params
      * @return object the response object
      * @throws GuzzleException
-     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads/get-team-squad-by-team-and-season-id Docs
-     * @see  Squads::byTeamAndSeasonId
+     * @see Squads::byTeamAndSeason
      */
-    public function squadsBySeasonId(int $seasonId, array $query = []): object
+    public function squadsBySeason(int $seasonId, array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Squads())->byTeamAndSeasonId($this->id, $seasonId, $query);
+        return (new Squads())->byTeamAndSeason($this->id, $seasonId, $query);
     }
 
     /**
@@ -206,12 +214,12 @@ class Teams extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers/get-transfers-by-team-id Docs
-     * @see  Transfers::byTeamId
+     * @see  Transfers::byTeam
      */
     public function transfers(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Transfers())->byTeamId($this->id, $query);
+        return (new Transfers())->byTeam($this->id, $query);
     }
 
     /**
@@ -219,11 +227,22 @@ class Teams extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rivals/get-rivals-by-team-id Docs
-     * @see  Rivals::byTeamId
+     * @see  Rivals::byTeam
      */
     public function rivals(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No team_id set');
-        return (new Rivals())->byTeamId($this->id, $query);
+        return (new Rivals())->byTeam($this->id, $query);
+    }
+
+    /**
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @see Statistics::teamsBySeason()
+     */
+    public function statisticsBySeason(int $seasonId, array $query = []): object
+    {
+        return (new Statistics())->teamsBySeason($seasonId, $query);
     }
 }

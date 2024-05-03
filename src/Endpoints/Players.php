@@ -38,7 +38,7 @@ class Players extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/players/get-player-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("players/$id", $query);
     }
@@ -50,7 +50,7 @@ class Players extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/players/get-players-by-country-id Docs
      */
-    public function byCountryId(int $countryId, array $query = []): object
+    public function byCountry(int $countryId, array $query = []): object
     {
         return $this->call("players/countries/$countryId", $query);
     }
@@ -73,7 +73,7 @@ class Players extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/players/get-last-updated-players Docs
      */
-    public function latest(array $query = []): object
+    public function lastUpdated(array $query = []): object
     {
         return $this->call('players/latest', $query);
     }
@@ -83,11 +83,22 @@ class Players extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers/get-transfers-by-player-id Docs
-     * @see  Transfers::byPlayerId
+     * @see  Transfers::byPlayer
      */
     public function transfers(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No player_id set');
-        return (new Transfers())->byPlayerId($this->id, $query);
+        return (new Transfers())->byPlayer($this->id, $query);
+    }
+
+    /**
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @see Statistics::playersBySeason()
+     */
+    public function statisticsBySeason(int $seasonId, array $query = []): object
+    {
+        return (new Statistics())->playersBySeason($seasonId, $query);
     }
 }

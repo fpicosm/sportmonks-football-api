@@ -25,7 +25,7 @@ class News extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/news/get-pre-match-news-by-season-id Docs
      */
-    public function bySeasonId(int $seasonId, array $query = []): object
+    public function bySeason(int $seasonId, array $query = []): object
     {
         return $this->call("news/pre-match/seasons/$seasonId", $query);
     }

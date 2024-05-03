@@ -25,7 +25,7 @@ class Commentaries extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/commentaries/get-commentaries-by-fixture-id Docs
      */
-    public function byFixtureId(int $fixtureId, array $query = []): object
+    public function byFixture(int $fixtureId, array $query = []): object
     {
         return $this->call("commentaries/fixtures/$fixtureId", $query);
     }

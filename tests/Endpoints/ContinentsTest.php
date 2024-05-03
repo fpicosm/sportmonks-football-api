@@ -14,8 +14,9 @@ class ContinentsTest extends TestCase
      */
     public function it_returns_all_continents()
     {
-        $url = FootballApi::continents()->all()->url->getPath();
-        $this->assertEquals('/v3/core/continents', $url);
+        $response = FootballApi::continents()->all();
+        $this->assertEquals('/v3/core/continents', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,7 +26,9 @@ class ContinentsTest extends TestCase
     public function it_returns_one_continent()
     {
         $id = 1;
-        $url = FootballApi::continents()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/core/continents/$id", $url);
+
+        $response = FootballApi::continents()->find($id);
+        $this->assertEquals("/v3/core/continents/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 }

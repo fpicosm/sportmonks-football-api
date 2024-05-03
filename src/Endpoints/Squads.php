@@ -14,7 +14,7 @@ class Squads extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads/get-team-squad-by-team-id Docs
      */
-    public function byTeamId(int $teamId, array $query = []): object
+    public function byTeam(int $teamId, array $query = []): object
     {
         return $this->call("squads/teams/$teamId", $query);
     }
@@ -27,8 +27,20 @@ class Squads extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads/get-team-squad-by-team-and-season-id Docs
      */
-    public function byTeamAndSeasonId(int $teamId, int $seasonId, array $query = []): object
+    public function byTeamAndSeason(int $teamId, int $seasonId, array $query = []): object
     {
         return $this->call("squads/seasons/$seasonId/teams/$teamId", $query);
+    }
+
+    /**
+     * @param int $teamId the id of the team
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/team-squads/get-extended-team-squad-by-team-id Docs
+     */
+    public function extendedByTeam(int $teamId, array $query = []): object
+    {
+        return $this->call("squads/teams/$teamId/extended", $query);
     }
 }

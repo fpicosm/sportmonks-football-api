@@ -14,8 +14,9 @@ class CitiesTest extends TestCase
      */
     public function it_returns_all_cities()
     {
-        $url = FootballApi::cities()->all()->url->getPath();
-        $this->assertEquals('/v3/core/cities', $url);
+        $response = FootballApi::cities()->all();
+        $this->assertEquals('/v3/core/cities', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,8 +26,10 @@ class CitiesTest extends TestCase
     public function it_returns_one_city()
     {
         $id = 1;
-        $url = FootballApi::cities()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/core/cities/$id", $url);
+
+        $response = FootballApi::cities()->find($id);
+        $this->assertEquals("/v3/core/cities/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -35,8 +38,10 @@ class CitiesTest extends TestCase
      */
     public function it_returns_cities_search()
     {
-        $name = 'Lon';
-        $url = FootballApi::cities()->search($name)->url->getPath();
-        $this->assertEquals("/v3/core/cities/search/$name", $url);
+        $name = 'London';
+
+        $response = FootballApi::cities()->search($name);
+        $this->assertEquals("/v3/core/cities/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

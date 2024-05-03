@@ -39,7 +39,7 @@ class Leagues extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-league-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("leagues/$id", $query);
     }
@@ -66,7 +66,7 @@ class Leagues extends FootballClient
      */
     public function byFixtureDate(string $date, array $query = []): object
     {
-        return $this->call("leagues/fixtures/date/$date", $query);
+        return $this->call("leagues/date/$date", $query);
     }
 
     /**
@@ -77,7 +77,7 @@ class Leagues extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-leagues-by-country-id Docs
      */
-    public function byCountryId(int $countryId, array $query = []): object
+    public function byCountry(int $countryId, array $query = []): object
     {
         return $this->call("leagues/countries/$countryId", $query);
     }
@@ -102,7 +102,7 @@ class Leagues extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-all-leagues-by-team-id Docs
      */
-    public function allByTeamId(int $teamId, array $query = []): object
+    public function allByTeam(int $teamId, array $query = []): object
     {
         return $this->call("leagues/teams/$teamId", $query);
     }
@@ -114,7 +114,7 @@ class Leagues extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/leagues/get-current-leagues-by-team-id Docs
      */
-    public function currentByTeamId(int $teamId, array $query = []): object
+    public function currentByTeam(int $teamId, array $query = []): object
     {
         return $this->call("leagues/teams/$teamId/current", $query);
     }
@@ -124,12 +124,12 @@ class Leagues extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-live-standings-by-league-id Docs
-     * @see  Standings::liveByLeagueId
+     * @see  Standings::liveByLeague
      */
     public function liveStandings(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No league_id set');
-        return (new Standings())->liveByLeagueId($this->id, $query);
+        return (new Standings())->liveByLeague($this->id, $query);
     }
 
     /**
@@ -137,11 +137,11 @@ class Leagues extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/predictions/get-predictability-by-league-id Docs
-     * @see  Predictions::byLeagueId
+     * @see  Predictions::byLeague
      */
     public function predictions(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No league_id set');
-        return (new Predictions())->byLeagueId($this->id, $query);
+        return (new Predictions())->byLeague($this->id, $query);
     }
 }

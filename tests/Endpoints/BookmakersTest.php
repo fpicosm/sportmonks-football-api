@@ -14,8 +14,9 @@ class BookmakersTest extends TestCase
      */
     public function it_returns_all_bookmakers()
     {
-        $url = FootballApi::bookmakers()->all()->url->getPath();
-        $this->assertEquals('/v3/odds/bookmakers', $url);
+        $response = FootballApi::bookmakers()->all();
+        $this->assertEquals('/v3/odds/bookmakers', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,8 +26,10 @@ class BookmakersTest extends TestCase
     public function it_returns_one_bookmaker()
     {
         $id = 1;
-        $url = FootballApi::bookmakers()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/odds/bookmakers/$id", $url);
+
+        $response = FootballApi::bookmakers()->find($id);
+        $this->assertEquals("/v3/odds/bookmakers/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -35,9 +38,11 @@ class BookmakersTest extends TestCase
      */
     public function it_returns_bookmakers_search()
     {
-        $name = '10Bet';
-        $url = FootballApi::bookmakers()->search($name)->url->getPath();
-        $this->assertEquals("/v3/odds/bookmakers/search/$name", $url);
+        $name = 'Bet';
+
+        $response = FootballApi::bookmakers()->search($name);
+        $this->assertEquals("/v3/odds/bookmakers/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -47,7 +52,9 @@ class BookmakersTest extends TestCase
     public function it_returns_bookmakers_by_fixture()
     {
         $fixtureId = 18528479;
-        $url = FootballApi::bookmakers()->byFixtureId($fixtureId)->url->getPath();
-        $this->assertEquals("/v3/odds/bookmakers/fixtures/$fixtureId", $url);
+
+        $response = FootballApi::bookmakers()->byFixture($fixtureId);
+        $this->assertEquals("/v3/odds/bookmakers/fixtures/$fixtureId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

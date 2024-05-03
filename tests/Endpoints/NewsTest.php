@@ -14,8 +14,9 @@ class NewsTest extends TestCase
      */
     public function it_returns_all_news(): void
     {
-        $url = FootballApi::news()->all()->url->getPath();
-        $this->assertEquals('/v3/football/news/pre-match', $url);
+        $response = FootballApi::news()->all();
+        $this->assertEquals('/v3/football/news/pre-match', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,9 +25,11 @@ class NewsTest extends TestCase
      */
     public function it_returns_news_by_season_id(): void
     {
-        $seasonId = 19734;
-        $url = FootballApi::news()->bySeasonId($seasonId)->url->getPath();
-        $this->assertEquals("/v3/football/news/pre-match/seasons/$seasonId", $url);
+        $seasonId = 21646;
+
+        $response = FootballApi::news()->bySeason($seasonId);
+        $this->assertEquals("/v3/football/news/pre-match/seasons/$seasonId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -35,7 +38,8 @@ class NewsTest extends TestCase
      */
     public function it_returns_news_upcoming(): void
     {
-        $url = FootballApi::news()->upcoming()->url->getPath();
-        $this->assertEquals('/v3/football/news/pre-match/upcoming', $url);
+        $response = FootballApi::news()->upcoming();
+        $this->assertEquals('/v3/football/news/pre-match/upcoming', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

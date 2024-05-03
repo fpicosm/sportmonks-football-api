@@ -14,7 +14,7 @@ class Schedules extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id Docs
      */
-    public function bySeasonId(int $seasonId, array $query = []): object
+    public function bySeason(int $seasonId, array $query = []): object
     {
         return $this->call("schedules/seasons/$seasonId", $query);
     }
@@ -26,7 +26,7 @@ class Schedules extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-team-id Docs
      */
-    public function byTeamId(int $teamId, array $query = []): object
+    public function byTeam(int $teamId, array $query = []): object
     {
         return $this->call("schedules/teams/$teamId", $query);
     }
@@ -39,7 +39,7 @@ class Schedules extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/schedules/get-schedules-by-season-id-and-team-id Docs
      */
-    public function bySeasonAndTeamId(int $seasonId, int $teamId, array $query = []): object
+    public function bySeasonAndTeam(int $seasonId, int $teamId, array $query = []): object
     {
         return $this->call("schedules/seasons/$seasonId/teams/$teamId", $query);
     }

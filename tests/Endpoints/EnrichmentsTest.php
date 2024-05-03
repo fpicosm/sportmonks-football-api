@@ -14,7 +14,8 @@ class EnrichmentsTest extends TestCase
      */
     public function it_returns_my_enrichments()
     {
-        $url = FootballApi::enrichments()->all()->url->getPath();
-        $this->assertEquals('/v3/my/enrichments', $url);
+        $response = FootballApi::enrichments()->all();
+        $this->assertEquals('/v3/my/enrichments', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

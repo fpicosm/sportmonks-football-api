@@ -35,7 +35,7 @@ class Livescores extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/livescores/get-latest-updated-livescores Docs
      */
-    public function latest(array $query = []): object
+    public function lastUpdated(array $query = []): object
     {
         return $this->call('livescores/latest', $query);
     }

@@ -25,7 +25,7 @@ class Transfers extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers/get-transfer-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("transfers/$id", $query);
     }
@@ -61,7 +61,7 @@ class Transfers extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers/get-transfers-by-team-id Docs
      */
-    public function byTeamId(int $teamId, array $query = []): object
+    public function byTeam(int $teamId, array $query = []): object
     {
         return $this->call("transfers/teams/$teamId", $query);
     }
@@ -73,7 +73,7 @@ class Transfers extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/transfers/get-transfers-by-player-id Docs
      */
-    public function byPlayerId(int $playerId, array $query = []): object
+    public function byPlayer(int $playerId, array $query = []): object
     {
         return $this->call("transfers/players/$playerId", $query);
     }

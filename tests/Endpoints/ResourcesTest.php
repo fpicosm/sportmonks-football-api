@@ -14,7 +14,8 @@ class ResourcesTest extends TestCase
      */
     public function it_returns_my_resources()
     {
-        $url = FootballApi::resources()->all()->url->getPath();
-        $this->assertEquals('/v3/my/resources', $url);
+        $response = FootballApi::resources()->all();
+        $this->assertEquals('/v3/my/resources', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

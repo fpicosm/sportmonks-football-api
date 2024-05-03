@@ -14,8 +14,9 @@ class CoachesTest extends TestCase
      */
     public function it_returns_all_coaches()
     {
-        $url = FootballApi::coaches()->all()->url->getPath();
-        $this->assertEquals('/v3/football/coaches', $url);
+        $response = FootballApi::coaches()->all();
+        $this->assertEquals('/v3/football/coaches', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,8 +26,10 @@ class CoachesTest extends TestCase
     public function it_returns_one_coach()
     {
         $id = 24;
-        $url = FootballApi::coaches()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/football/coaches/$id", $url);
+
+        $response = FootballApi::coaches()->find($id);
+        $this->assertEquals("/v3/football/coaches/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -36,8 +39,10 @@ class CoachesTest extends TestCase
     public function it_returns_coaches_search()
     {
         $name = 'Klopp';
-        $url = FootballApi::coaches()->search($name)->url->getPath();
-        $this->assertEquals("/v3/football/coaches/search/$name", $url);
+
+        $response = FootballApi::coaches()->search($name);
+        $this->assertEquals("/v3/football/coaches/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -47,7 +52,9 @@ class CoachesTest extends TestCase
     public function it_returns_coaches_by_country_id()
     {
         $countryId = 462;
-        $url = FootballApi::coaches()->byCountryId($countryId)->url->getPath();
-        $this->assertEquals("/v3/football/coaches/countries/$countryId", $url);
+
+        $response = FootballApi::coaches()->byCountry($countryId);
+        $this->assertEquals("/v3/football/coaches/countries/$countryId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

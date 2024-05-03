@@ -14,8 +14,9 @@ class RoundsTest extends TestCase
      */
     public function it_returns_all_rounds()
     {
-        $url = FootballApi::rounds()->all()->url->getPath();
-        $this->assertEquals('/v3/football/rounds', $url);
+        $response = FootballApi::rounds()->all();
+        $this->assertEquals('/v3/football/rounds', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,9 +25,11 @@ class RoundsTest extends TestCase
      */
     public function it_returns_one_round()
     {
-        $id = 23317;
-        $url = FootballApi::rounds()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/football/rounds/$id", $url);
+        $id = 43;
+
+        $response = FootballApi::rounds()->find($id);
+        $this->assertEquals("/v3/football/rounds/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -35,20 +38,24 @@ class RoundsTest extends TestCase
      */
     public function it_returns_all_rounds_by_season_id()
     {
-        $seasonId = 19686;
-        $url = FootballApi::rounds()->bySeasonId($seasonId)->url->getPath();
-        $this->assertEquals("/v3/football/rounds/seasons/$seasonId", $url);
+        $seasonId = 21646;
+
+        $response = FootballApi::rounds()->bySeason($seasonId);
+        $this->assertEquals("/v3/football/rounds/seasons/$seasonId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_rounds_search()
+    public function it_returns_rounds_search()
     {
-        $name = 2;
-        $url = FootballApi::rounds()->search($name)->url->getPath();
-        $this->assertEquals("/v3/football/rounds/search/$name", $url);
+        $name = 1;
+
+        $response = FootballApi::rounds()->search($name);
+        $this->assertEquals("/v3/football/rounds/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -57,8 +64,10 @@ class RoundsTest extends TestCase
      */
     public function it_returns_standings_by_round_id()
     {
-        $roundId = 23318;
-        $url = FootballApi::rounds($roundId)->standings()->url->getPath();
-        $this->assertEquals("/v3/football/standings/rounds/$roundId", $url);
+        $roundId = 43;
+
+        $response = FootballApi::rounds($roundId)->standings();
+        $this->assertEquals("/v3/football/standings/rounds/$roundId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

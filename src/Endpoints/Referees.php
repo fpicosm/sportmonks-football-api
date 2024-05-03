@@ -19,27 +19,39 @@ class Referees extends FootballClient
     }
 
     /**
-     * @param int $id the referee id
+     * @param int $id the id of the referee
      * @param array $query the query params
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/referees/get-referee-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("referees/$id", $query);
     }
 
     /**
-     * @param int $countryId the country id
+     * @param int $countryId the id of the country
      * @param array $query the query params
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/referees/get-referees-by-country-id Docs
      */
-    public function byCountryId(int $countryId, array $query = []): object
+    public function byCountry(int $countryId, array $query = []): object
     {
         return $this->call("referees/countries/$countryId", $query);
+    }
+
+    /**
+     * @param int $seasonId the id of the season
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/referees/get-referees-by-season-id Docs
+     */
+    public function bySeason(int $seasonId, array $query = []): object
+    {
+        return $this->call("referees/seasons/$seasonId", $query);
     }
 
     /**
@@ -58,10 +70,10 @@ class Referees extends FootballClient
      * @param array $query the query params
      * @return object the response object
      * @throws GuzzleException
-     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/referees/get-last-updated-referees Docs
+     * @see Statistics::refereesBySeason()
      */
-    public function latest(array $query = []): object
+    public function statisticsBySeason(int $seasonId, array $query = []): object
     {
-        return $this->call('referees/latest', $query);
+        return (new Statistics())->refereesBySeason($seasonId, $query);
     }
 }

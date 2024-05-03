@@ -25,8 +25,8 @@ class Rivals extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rivals/get-rivals-by-team-id Docs
      */
-    public function byTeamId(int $teamId, array $query = []): object
+    public function byTeam(int $teamId, array $query = []): object
     {
-        return $this->call("teams/rivals/$teamId", $query);
+        return $this->call("rivals/teams/$teamId", $query);
     }
 }

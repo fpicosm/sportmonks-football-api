@@ -25,7 +25,7 @@ class Coaches extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/coaches/get-coach-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("coaches/$id", $query);
     }
@@ -37,7 +37,7 @@ class Coaches extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/coaches/get-coaches-by-country-id Docs
      */
-    public function byCountryId(int $countryId, array $query = []): object
+    public function byCountry(int $countryId, array $query = []): object
     {
         return $this->call("coaches/countries/$countryId", $query);
     }
@@ -60,8 +60,19 @@ class Coaches extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/coaches/get-last-updated-coaches Docs
      */
-    public function latest(array $query = []): object
+    public function lastUpdated(array $query = []): object
     {
         return $this->call('coaches/latest', $query);
+    }
+
+    /**
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @see Statistics::coachesBySeason()
+     */
+    public function statisticsBySeason(int $seasonId, array $query = []): object
+    {
+        return (new Statistics())->coachesBySeason($seasonId, $query);
     }
 }

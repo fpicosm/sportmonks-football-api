@@ -14,8 +14,9 @@ class RivalsTest extends TestCase
      */
     public function it_returns_all_rivals()
     {
-        $url = FootballApi::rivals()->all()->url->getPath();
-        $this->assertEquals('/v3/football/rivals', $url);
+        $response = FootballApi::rivals()->all();
+        $this->assertEquals('/v3/football/rivals', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,8 +25,10 @@ class RivalsTest extends TestCase
      */
     public function it_returns_rivals_by_team_id()
     {
-        $teamId = 53;
-        $url = FootballApi::rivals()->byTeamId($teamId)->url->getPath();
-        $this->assertEquals("/v3/football/rivals/teams/$teamId", $url);
+        $teamId = 1;
+
+        $response = FootballApi::rivals()->byTeam($teamId);
+        $this->assertEquals("/v3/football/rivals/teams/$teamId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

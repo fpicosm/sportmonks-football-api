@@ -14,9 +14,11 @@ class SquadsTest extends TestCase
      */
     public function it_returns_squads_by_team_id()
     {
-        $teamId = 282;
-        $url = FootballApi::squads()->byTeamId($teamId)->url->getPath();
-        $this->assertEquals("/v3/football/squads/teams/$teamId", $url);
+        $teamId = 1;
+
+        $response = FootballApi::squads()->byTeam($teamId);
+        $this->assertEquals("/v3/football/squads/teams/$teamId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,9 +27,11 @@ class SquadsTest extends TestCase
      */
     public function it_returns_squads_by_season_and_team_id()
     {
-        $seasonId = 19686;
-        $teamId = 282;
-        $url = FootballApi::squads()->byTeamAndSeasonId($teamId, $seasonId)->url->getPath();
-        $this->assertEquals("/v3/football/squads/seasons/$seasonId/teams/$teamId", $url);
+        $seasonId = 21646;
+        $teamId = 1;
+
+        $response = FootballApi::squads()->byTeamAndSeason($teamId, $seasonId);
+        $this->assertEquals("/v3/football/squads/seasons/$seasonId/teams/$teamId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

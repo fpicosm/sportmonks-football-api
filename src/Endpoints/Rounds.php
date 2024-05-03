@@ -38,7 +38,7 @@ class Rounds extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds/get-round-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("rounds/$id", $query);
     }
@@ -50,7 +50,7 @@ class Rounds extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/rounds/get-rounds-by-season-id Docs
      */
-    public function bySeasonId(int $seasonId, array $query = []): object
+    public function bySeason(int $seasonId, array $query = []): object
     {
         return $this->call("rounds/seasons/$seasonId", $query);
     }
@@ -72,11 +72,24 @@ class Rounds extends FootballClient
      * @return object the response object
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standings-by-round-id Docs
-     * @see  Standings::byRoundId
+     * @see  Standings::byRound
      */
     public function standings(array $query = []): object
     {
         if (!$this->id) throw new InvalidArgumentException('No round_id set');
-        return (new Standings())->byRoundId($this->id, $query);
+        return (new Standings())->byRound($this->id, $query);
+    }
+
+    /**
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/statistics/get-round-statistics-by-id
+     * @see  Statistics::byRound
+     */
+    public function statistics(array $query = []): object
+    {
+        if (!$this->id) throw new InvalidArgumentException('No round_id set');
+        return (new Statistics())->byRound($this->id, $query);
     }
 }

@@ -14,8 +14,9 @@ class StagesTest extends TestCase
      */
     public function it_returns_all_stages()
     {
-        $url = FootballApi::stages()->all()->url->getPath();
-        $this->assertEquals('/v3/football/stages', $url);
+        $response = FootballApi::stages()->all();
+        $this->assertEquals('/v3/football/stages', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,9 +25,11 @@ class StagesTest extends TestCase
      */
     public function it_returns_one_stage()
     {
-        $id = 1100;
-        $url = FootballApi::stages()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/football/stages/$id", $url);
+        $id = 2;
+
+        $response = FootballApi::stages()->find($id);
+        $this->assertEquals("/v3/football/stages/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -35,20 +38,24 @@ class StagesTest extends TestCase
      */
     public function it_returns_all_stages_by_season_id()
     {
-        $seasonId = 19686;
-        $url = FootballApi::stages()->bySeasonId($seasonId)->url->getPath();
-        $this->assertEquals("/v3/football/stages/seasons/$seasonId", $url);
+        $seasonId = 21646;
+
+        $response = FootballApi::stages()->bySeason($seasonId);
+        $this->assertEquals("/v3/football/stages/seasons/$seasonId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_stages_search()
+    public function it_returns_stages_search()
     {
-        $name = 'Championship';
-        $url = FootballApi::stages()->search($name)->url->getPath();
-        $this->assertEquals("/v3/football/stages/search/$name", $url);
+        $name = 'Regular';
+
+        $response = FootballApi::stages()->search($name);
+        $this->assertEquals("/v3/football/stages/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -58,7 +65,9 @@ class StagesTest extends TestCase
     public function it_returns_topscorers_by_stage_id()
     {
         $stageId = 1100;
-        $url = FootballApi::stages($stageId)->topscorers()->url->getPath();
-        $this->assertEquals("/v3/football/topscorers/stages/$stageId", $url);
+
+        $response = FootballApi::stages($stageId)->topscorers();
+        $this->assertEquals("/v3/football/topscorers/stages/$stageId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

@@ -25,7 +25,7 @@ class Continents extends CoreClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/v/core-api/endpoints/continents/get-continent-by-id Docs
      */
-    public function byId(int $id, array $query = []): object
+    public function find(int $id, array $query = []): object
     {
         return $this->call("continents/$id", $query);
     }

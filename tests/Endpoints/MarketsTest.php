@@ -14,8 +14,9 @@ class MarketsTest extends TestCase
      */
     public function it_returns_all_markets(): void
     {
-        $url = FootballApi::markets()->all()->url->getPath();
-        $this->assertEquals('/v3/odds/markets', $url);
+        $response = FootballApi::markets()->all();
+        $this->assertEquals('/v3/odds/markets', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,8 +26,10 @@ class MarketsTest extends TestCase
     public function it_returns_one_markets(): void
     {
         $id = 1;
-        $url = FootballApi::markets()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/odds/markets/$id", $url);
+
+        $response = FootballApi::markets()->find($id);
+        $this->assertEquals("/v3/odds/markets/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -35,8 +38,10 @@ class MarketsTest extends TestCase
      */
     public function it_returns_search_markets(): void
     {
-        $name = '10Bet';
-        $url = FootballApi::markets()->search($name)->url->getPath();
-        $this->assertEquals("/v3/odds/markets/search/$name", $url);
+        $name = 'Bet';
+
+        $response = FootballApi::markets()->search($name);
+        $this->assertEquals("/v3/odds/markets/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

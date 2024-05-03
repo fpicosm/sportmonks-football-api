@@ -14,8 +14,9 @@ class VenuesTest extends TestCase
      */
     public function it_returns_all_venues()
     {
-        $url = FootballApi::venues()->all()->url->getPath();
-        $this->assertEquals('/v3/football/venues', $url);
+        $response = FootballApi::venues()->all();
+        $this->assertEquals('/v3/football/venues', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,9 +25,11 @@ class VenuesTest extends TestCase
      */
     public function it_returns_one_venue()
     {
-        $id = 219;
-        $url = FootballApi::venues()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/football/venues/$id", $url);
+        $id = 1;
+
+        $response = FootballApi::venues()->find($id);
+        $this->assertEquals("/v3/football/venues/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -36,18 +39,22 @@ class VenuesTest extends TestCase
     public function it_returns_venues_by_season_id()
     {
         $seasonId = 19686;
-        $url = FootballApi::venues()->bySeasonId($seasonId)->url->getPath();
-        $this->assertEquals("/v3/football/venues/seasons/$seasonId", $url);
+
+        $response = FootballApi::venues()->bySeason($seasonId);
+        $this->assertEquals("/v3/football/venues/seasons/$seasonId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_venues_search()
+    public function it_returns_venues_search()
     {
-        $name = 'Hors';
-        $url = FootballApi::venues()->search($name)->url->getPath();
-        $this->assertEquals("/v3/football/venues/search/$name", $url);
+        $name = 'Meadowbank';
+
+        $response = FootballApi::venues()->search($name);
+        $this->assertEquals("/v3/football/venues/search/$name", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

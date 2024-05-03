@@ -14,9 +14,11 @@ class SchedulesTest extends TestCase
      */
     public function it_returns_all_schedules_by_season_id()
     {
-        $seasonId = 19686;
-        $url = FootballApi::schedules()->bySeasonId($seasonId)->url->getPath();
-        $this->assertEquals("/v3/football/schedules/seasons/$seasonId", $url);
+        $seasonId = 21646;
+
+        $response = FootballApi::schedules()->bySeason($seasonId);
+        $this->assertEquals("/v3/football/schedules/seasons/$seasonId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,9 +27,11 @@ class SchedulesTest extends TestCase
      */
     public function it_returns_all_schedules_by_team_id()
     {
-        $teamId = 282;
-        $url = FootballApi::schedules()->byTeamId($teamId)->url->getPath();
-        $this->assertEquals("/v3/football/schedules/teams/$teamId", $url);
+        $teamId = 1;
+
+        $response = FootballApi::schedules()->byTeam($teamId);
+        $this->assertEquals("/v3/football/schedules/teams/$teamId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -36,9 +40,11 @@ class SchedulesTest extends TestCase
      */
     public function it_returns_all_schedules_by_season_and_team_id()
     {
-        $seasonId = 19686;
-        $teamId = 282;
-        $url = FootballApi::schedules()->bySeasonAndTeamId($seasonId, $teamId)->url->getPath();
-        $this->assertEquals("/v3/football/schedules/seasons/$seasonId/teams/$teamId", $url);
+        $seasonId = 21646;
+        $teamId = 1;
+
+        $response = FootballApi::schedules()->bySeasonAndTeam($seasonId, $teamId);
+        $this->assertEquals("/v3/football/schedules/seasons/$seasonId/teams/$teamId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

@@ -14,8 +14,9 @@ class StatesTest extends TestCase
      */
     public function it_returns_all_states()
     {
-        $url = FootballApi::states()->all()->url->getPath();
-        $this->assertEquals('/v3/football/states', $url);
+        $response = FootballApi::states()->all();
+        $this->assertEquals('/v3/football/states', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -25,7 +26,9 @@ class StatesTest extends TestCase
     public function it_returns_one_state()
     {
         $id = 1;
-        $url = FootballApi::states()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/football/states/$id", $url);
+
+        $response = FootballApi::states()->find($id);
+        $this->assertEquals("/v3/football/states/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 }

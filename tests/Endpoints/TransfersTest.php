@@ -14,8 +14,9 @@ class TransfersTest extends TestCase
      */
     public function it_returns_all_transfers()
     {
-        $url = FootballApi::transfers()->all()->url->getPath();
-        $this->assertEquals('/v3/football/transfers', $url);
+        $response = FootballApi::transfers()->all();
+        $this->assertEquals('/v3/football/transfers', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,9 +25,11 @@ class TransfersTest extends TestCase
      */
     public function it_returns_one_transfer()
     {
-        $id = 1;
-        $url = FootballApi::transfers()->byId($id)->url->getPath();
-        $this->assertEquals("/v3/football/transfers/$id", $url);
+        $id = 228363;
+
+        $response = FootballApi::transfers()->find($id);
+        $this->assertEquals("/v3/football/transfers/$id", $response->url->getPath());
+        $this->assertIsObject($response->data);
     }
 
     /**
@@ -35,8 +38,9 @@ class TransfersTest extends TestCase
      */
     public function it_returns_the_latest_transfers()
     {
-        $url = FootballApi::transfers()->latest()->url->getPath();
-        $this->assertEquals('/v3/football/transfers/latest', $url);
+        $response = FootballApi::transfers()->latest();
+        $this->assertEquals('/v3/football/transfers/latest', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -46,8 +50,10 @@ class TransfersTest extends TestCase
     public function it_returns_transfers_by_team_id()
     {
         $teamId = 3736;
-        $url = FootballApi::transfers()->byTeamId($teamId)->url->getPath();
-        $this->assertEquals("/v3/football/transfers/teams/$teamId", $url);
+
+        $response = FootballApi::transfers()->byTeam($teamId);
+        $this->assertEquals("/v3/football/transfers/teams/$teamId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -58,8 +64,10 @@ class TransfersTest extends TestCase
     {
         $from = '2021-12-27';
         $to = '2021-12-30';
-        $url = FootballApi::transfers()->byDateRange($from, $to)->url->getPath();
-        $this->assertEquals("/v3/football/transfers/between/$from/$to", $url);
+
+        $response = FootballApi::transfers()->byDateRange($from, $to);
+        $this->assertEquals("/v3/football/transfers/between/$from/$to", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -68,8 +76,10 @@ class TransfersTest extends TestCase
      */
     public function it_returns_transfers_by_player_id()
     {
-        $playerId = 35659846;
-        $url = FootballApi::transfers()->byPlayerId($playerId)->url->getPath();
-        $this->assertEquals("/v3/football/transfers/players/$playerId", $url);
+        $playerId = 205981;
+
+        $response = FootballApi::transfers()->byPlayer($playerId);
+        $this->assertEquals("/v3/football/transfers/players/$playerId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

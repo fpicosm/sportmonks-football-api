@@ -14,8 +14,9 @@ class CommentariesTest extends TestCase
      */
     public function it_returns_all_commentaries()
     {
-        $url = FootballApi::commentaries()->all()->url->getPath();
-        $this->assertEquals('/v3/football/commentaries', $url);
+        $response = FootballApi::commentaries()->all();
+        $this->assertEquals('/v3/football/commentaries', $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 
     /**
@@ -24,8 +25,10 @@ class CommentariesTest extends TestCase
      */
     public function it_returns_commentaries_by_fixture_id()
     {
-        $fixtureId = 16808591;
-        $url = FootballApi::commentaries()->byFixtureId($fixtureId)->url->getPath();
-        $this->assertEquals("/v3/football/commentaries/fixtures/$fixtureId", $url);
+        $fixtureId = 463;
+
+        $response = FootballApi::commentaries()->byFixture($fixtureId);
+        $this->assertEquals("/v3/football/commentaries/fixtures/$fixtureId", $response->url->getPath());
+        $this->assertIsArray($response->data);
     }
 }

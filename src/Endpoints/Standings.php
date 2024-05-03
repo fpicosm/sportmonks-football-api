@@ -25,7 +25,7 @@ class Standings extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standings-by-season-id Docs
      */
-    public function bySeasonId(int $seasonId, array $query = []): object
+    public function bySeason(int $seasonId, array $query = []): object
     {
         return $this->call("standings/seasons/$seasonId", $query);
     }
@@ -37,7 +37,7 @@ class Standings extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standings-by-round-id Docs
      */
-    public function byRoundId(int $roundId, array $query = []): object
+    public function byRound(int $roundId, array $query = []): object
     {
         return $this->call("standings/rounds/$roundId", $query);
     }
@@ -49,7 +49,7 @@ class Standings extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-standing-correction-by-season-id Docs
      */
-    public function correctionBySeasonId(int $seasonId, array $query = []): object
+    public function correctionBySeason(int $seasonId, array $query = []): object
     {
         return $this->call("standings/corrections/seasons/$seasonId", $query);
     }
@@ -61,7 +61,7 @@ class Standings extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/standings/get-live-standings-by-league-id Docs
      */
-    public function liveByLeagueId(int $leagueId, array $query = []): object
+    public function liveByLeague(int $leagueId, array $query = []): object
     {
         return $this->call("standings/live/leagues/$leagueId", $query);
     }

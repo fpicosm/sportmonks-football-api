@@ -82,6 +82,7 @@ class BaseClient
         if ($code === StatusCode::HTTP_OK) {
             $response = json_decode($response->getBody()->getContents());
             $response->url = $url;
+            $response->statusCode = $code;
             return $response;
         }
 

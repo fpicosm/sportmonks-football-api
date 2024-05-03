@@ -25,7 +25,7 @@ class Predictions extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/predictions/get-predictability-by-league-id Docs
      */
-    public function byLeagueId(int $leagueId, array $query = []): object
+    public function byLeague(int $leagueId, array $query = []): object
     {
         return $this->call("predictions/predictability/leagues/$leagueId", $query);
     }
@@ -37,7 +37,7 @@ class Predictions extends FootballClient
      * @throws GuzzleException
      * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/predictions/get-probabilities-by-fixture-id Docs
      */
-    public function byFixtureId(int $fixtureId, array $query = []): object
+    public function byFixture(int $fixtureId, array $query = []): object
     {
         return $this->call("predictions/probabilities/fixtures/$fixtureId", $query);
     }
@@ -51,5 +51,17 @@ class Predictions extends FootballClient
     public function valueBets(array $query = []): object
     {
         return $this->call('predictions/value-bets', $query);
+    }
+
+    /**
+     * @param int $fixtureId the id of the fixture
+     * @param array $query the query params
+     * @return object the response object
+     * @throws GuzzleException
+     * @link https://docs.sportmonks.com/football/endpoints-and-entities/endpoints/predictions/get-value-bets-by-fixture-id Docs
+     */
+    public function valueBetsByFixture(int $fixtureId, array $query = []): object
+    {
+        return $this->call("predictions/value-bets/fixtures/$fixtureId", $query);
     }
 }
