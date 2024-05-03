@@ -6,13 +6,13 @@ use GuzzleHttp\Exception\GuzzleException;
 use Sportmonks\FootballApi\FootballApi;
 use TestCase;
 
-class Squads extends TestCase
+class SquadsTest extends TestCase
 {
     /**
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_squads_by_team_id ()
+    public function it_returns_squads_by_team_id()
     {
         $teamId = 282;
         $url = FootballApi::squads()->byTeamId($teamId)->url->getPath();
@@ -23,7 +23,7 @@ class Squads extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_squads_by_season_and_team_id ()
+    public function it_returns_squads_by_season_and_team_id()
     {
         $seasonId = 19686;
         $teamId = 282;

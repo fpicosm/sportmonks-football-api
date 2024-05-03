@@ -12,7 +12,7 @@ class FiltersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_my_filters ()
+    public function it_returns_my_filters()
     {
         $url = FootballApi::filters()->all()->url->getPath();
         $this->assertEquals('/v3/my/filters/entity', $url);

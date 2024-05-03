@@ -12,7 +12,7 @@ class RefereesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_referees ()
+    public function it_returns_all_referees()
     {
         $url = FootballApi::referees()->all()->url->getPath();
         $this->assertEquals('/v3/football/referees', $url);
@@ -22,7 +22,7 @@ class RefereesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_referee ()
+    public function it_returns_one_referee()
     {
         $id = 11698;
         $url = FootballApi::referees()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class RefereesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_referees_by_country_id ()
+    public function it_returns_referees_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::referees()->byCountryId($countryId)->url->getPath();
@@ -44,7 +44,7 @@ class RefereesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_referees_search ()
+    public function it_returns_one_referees_search()
     {
         $name = 'Munch';
         $url = FootballApi::referees()->search($name)->url->getPath();
@@ -55,7 +55,7 @@ class RefereesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_last_updated_referees ()
+    public function it_returns_last_updated_referees()
     {
         $url = FootballApi::referees()->latest()->url->getPath();
         $this->assertEquals('/v3/football/referees/latest', $url);

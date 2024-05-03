@@ -12,7 +12,7 @@ class TvStationsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_tv_stations ()
+    public function it_returns_all_tv_stations()
     {
         $url = FootballApi::tvStations()->all()->url->getPath();
         $this->assertEquals('/v3/football/tv-stations', $url);
@@ -22,7 +22,7 @@ class TvStationsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_tv_station ()
+    public function it_returns_one_tv_station()
     {
         $id = 33;
         $url = FootballApi::tvStations()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class TvStationsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_tv_stations_by_fixture_id ()
+    public function it_returns_tv_stations_by_fixture_id()
     {
         $fixtureId = 16808591;
         $url = FootballApi::tvStations()->byFixtureId($fixtureId)->url->getPath();

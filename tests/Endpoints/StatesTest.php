@@ -12,7 +12,7 @@ class StatesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_states ()
+    public function it_returns_all_states()
     {
         $url = FootballApi::states()->all()->url->getPath();
         $this->assertEquals('/v3/football/states', $url);
@@ -22,7 +22,7 @@ class StatesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_state ()
+    public function it_returns_one_state()
     {
         $id = 1;
         $url = FootballApi::states()->byId($id)->url->getPath();

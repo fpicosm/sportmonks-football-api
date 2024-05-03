@@ -12,7 +12,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_teams ()
+    public function it_returns_all_teams()
     {
         $url = FootballApi::teams()->all()->url->getPath();
         $this->assertEquals('/v3/football/teams', $url);
@@ -22,7 +22,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_team ()
+    public function it_returns_one_team()
     {
         $id = 180;
         $url = FootballApi::teams()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_teams_by_country_id ()
+    public function it_returns_teams_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::teams()->byCountryId($countryId)->url->getPath();
@@ -44,7 +44,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_teams_search ()
+    public function it_returns_one_teams_search()
     {
         $name = 'Hors';
         $url = FootballApi::teams()->search($name)->url->getPath();
@@ -55,7 +55,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_teams_by_season_id ()
+    public function it_returns_all_teams_by_season_id()
     {
         $seasonId = 19686;
         $url = FootballApi::teams()->bySeasonId($seasonId)->url->getPath();
@@ -66,7 +66,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_fixtures_by_date_range_for_a_team ()
+    public function it_returns_all_fixtures_by_date_range_for_a_team()
     {
         $from = '2022-07-17';
         $to = '2022-07-25';
@@ -80,7 +80,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_head_to_head_for_two_teams ()
+    public function it_returns_head_to_head_for_two_teams()
     {
         $firstTeam = 2650;
         $secondTeam = 86;
@@ -93,7 +93,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_leagues_for_a_team ()
+    public function it_returns_all_leagues_for_a_team()
     {
         $teamId = 282;
         $url = FootballApi::teams($teamId)->allLeagues()->url->getPath();
@@ -104,7 +104,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_current_leagues_for_a_team ()
+    public function it_returns_current_leagues_for_a_team()
     {
         $teamId = 282;
         $url = FootballApi::teams($teamId)->currentLeagues()->url->getPath();
@@ -115,7 +115,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_schedules_for_a_team ()
+    public function it_returns_schedules_for_a_team()
     {
         $teamId = 282;
         $url = FootballApi::teams($teamId)->schedules()->url->getPath();
@@ -126,7 +126,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_schedules_by_season_id_for_a_team ()
+    public function it_returns_schedules_by_season_id_for_a_team()
     {
         $seasonId = 19686;
         $teamId = 282;
@@ -138,7 +138,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_seasons_for_a_team ()
+    public function it_returns_all_seasons_for_a_team()
     {
         $teamId = 282;
         $url = FootballApi::teams($teamId)->seasons()->url->getPath();
@@ -149,7 +149,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_current_domestic_squads_for_a_team ()
+    public function it_returns_current_domestic_squads_for_a_team()
     {
         $teamId = 282;
         $url = FootballApi::teams($teamId)->squads()->url->getPath();
@@ -160,7 +160,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_squads_by_season_id_for_a_team ()
+    public function it_returns_squads_by_season_id_for_a_team()
     {
         $seasonId = 19686;
         $teamId = 282;
@@ -172,7 +172,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_transfers_for_a_team ()
+    public function it_returns_all_transfers_for_a_team()
     {
         $teamId = 282;
         $url = FootballApi::teams($teamId)->transfers()->url->getPath();
@@ -183,7 +183,7 @@ class TeamsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_rivals_for_a_team ()
+    public function it_returns_all_rivals_for_a_team()
     {
         $teamId = 282;
         $url = FootballApi::teams($teamId)->rivals()->url->getPath();

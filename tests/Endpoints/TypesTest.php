@@ -12,7 +12,7 @@ class TypesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_types ()
+    public function it_returns_all_types()
     {
         $url = FootballApi::types()->all()->url->getPath();
         $this->assertEquals('/v3/core/types', $url);
@@ -22,7 +22,7 @@ class TypesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_type ()
+    public function it_returns_one_type()
     {
         $id = 1;
         $url = FootballApi::types()->byId($id)->url->getPath();

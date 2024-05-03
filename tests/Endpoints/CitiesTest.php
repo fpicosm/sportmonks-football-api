@@ -12,7 +12,7 @@ class CitiesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_cities ()
+    public function it_returns_all_cities()
     {
         $url = FootballApi::cities()->all()->url->getPath();
         $this->assertEquals('/v3/core/cities', $url);
@@ -22,7 +22,7 @@ class CitiesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_city ()
+    public function it_returns_one_city()
     {
         $id = 1;
         $url = FootballApi::cities()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class CitiesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_cities_search ()
+    public function it_returns_cities_search()
     {
         $name = 'Lon';
         $url = FootballApi::cities()->search($name)->url->getPath();

@@ -12,7 +12,7 @@ class CoachesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_coaches ()
+    public function it_returns_all_coaches()
     {
         $url = FootballApi::coaches()->all()->url->getPath();
         $this->assertEquals('/v3/football/coaches', $url);
@@ -22,7 +22,7 @@ class CoachesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_coach ()
+    public function it_returns_one_coach()
     {
         $id = 24;
         $url = FootballApi::coaches()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class CoachesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_coaches_search ()
+    public function it_returns_coaches_search()
     {
         $name = 'Klopp';
         $url = FootballApi::coaches()->search($name)->url->getPath();
@@ -44,7 +44,7 @@ class CoachesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_coaches_by_country_id ()
+    public function it_returns_coaches_by_country_id()
     {
         $countryId = 462;
         $url = FootballApi::coaches()->byCountryId($countryId)->url->getPath();

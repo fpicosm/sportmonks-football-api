@@ -12,7 +12,7 @@ class RivalsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_rivals ()
+    public function it_returns_all_rivals()
     {
         $url = FootballApi::rivals()->all()->url->getPath();
         $this->assertEquals('/v3/football/rivals', $url);
@@ -22,7 +22,7 @@ class RivalsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_rivals_by_team_id ()
+    public function it_returns_rivals_by_team_id()
     {
         $teamId = 53;
         $url = FootballApi::rivals()->byTeamId($teamId)->url->getPath();

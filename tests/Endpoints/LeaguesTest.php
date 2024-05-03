@@ -12,7 +12,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_leagues ()
+    public function it_returns_all_leagues()
     {
         $url = FootballApi::leagues()->all()->url->getPath();
         $this->assertEquals('/v3/football/leagues', $url);
@@ -22,7 +22,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_league ()
+    public function it_returns_one_league()
     {
         $id = 564;
         $url = FootballApi::leagues()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_live_leagues ()
+    public function it_returns_live_leagues()
     {
         $url = FootballApi::leagues()->live()->url->getPath();
         $this->assertEquals('/v3/football/leagues/live', $url);
@@ -43,7 +43,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_leagues_by_fixture_date ()
+    public function it_returns_leagues_by_fixture_date()
     {
         $date = '2022-01-01';
         $url = FootballApi::leagues()->byFixtureDate($date)->url->getPath();
@@ -54,7 +54,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_leagues_by_country_id ()
+    public function it_returns_leagues_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::leagues()->byCountryId($countryId)->url->getPath();
@@ -65,7 +65,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_leagues_search ()
+    public function it_returns_one_leagues_search()
     {
         $name = 'La Liga';
         $url = FootballApi::leagues()->search($name)->url->getPath();
@@ -76,7 +76,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_leagues_by_team_id ()
+    public function it_returns_all_leagues_by_team_id()
     {
         $teamId = 180;
         $url = FootballApi::leagues()->allByTeamId($teamId)->url->getPath();
@@ -87,7 +87,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_current_leagues_by_team_id ()
+    public function it_returns_current_leagues_by_team_id()
     {
         $teamId = 180;
         $url = FootballApi::leagues()->currentByTeamId($teamId)->url->getPath();
@@ -98,7 +98,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_league_standings ()
+    public function it_returns_league_standings()
     {
         $leagueId = 271;
         $url = FootballApi::leagues($leagueId)->liveStandings()->url->getPath();
@@ -109,7 +109,7 @@ class LeaguesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_league_predictions ()
+    public function it_returns_league_predictions()
     {
         $leagueId = 271;
         $url = FootballApi::leagues($leagueId)->predictions()->url->getPath();

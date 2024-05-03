@@ -12,7 +12,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_fixtures ()
+    public function it_returns_all_fixtures()
     {
         $url = FootballApi::fixtures()->all()->url->getPath();
         $this->assertEquals('/v3/football/fixtures', $url);
@@ -22,7 +22,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_fixture ()
+    public function it_returns_one_fixture()
     {
         $id = 18528480;
         $url = FootballApi::fixtures()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_multiple_fixtures ()
+    public function it_returns_multiple_fixtures()
     {
         $first = 18528484;
         $second = 18531140;
@@ -41,7 +41,7 @@ class FixturesTest extends TestCase
         $url = FootballApi::fixtures()->byIds("$first,$second")->url->getPath();
         $this->assertEquals("/v3/football/fixtures/multi/$first,$second", $url);
 
-        $url = FootballApi::fixtures()->byIds([ $first, $second ])->url->getPath();
+        $url = FootballApi::fixtures()->byIds([$first, $second])->url->getPath();
         $this->assertEquals("/v3/football/fixtures/multi/$first,$second", $url);
     }
 
@@ -49,7 +49,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_fixtures_by_date ()
+    public function it_returns_fixtures_by_date()
     {
         $date = '2022-01-01';
         $url = FootballApi::fixtures()->byDate($date)->url->getPath();
@@ -60,7 +60,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_fixtures_by_date_range ()
+    public function it_returns_fixtures_by_date_range()
     {
         $from = '2022-07-17';
         $to = '2022-07-25';
@@ -72,7 +72,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_fixtures_by_date_range_for_team ()
+    public function it_returns_fixtures_by_date_range_for_team()
     {
         $from = '2022-07-17';
         $to = '2022-07-25';
@@ -86,7 +86,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_head_to_head ()
+    public function it_returns_head_to_head()
     {
         $teamId = 2650;
         $opponentId = 86;
@@ -98,7 +98,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_search_fixtures_by_team_name ()
+    public function it_returns_search_fixtures_by_team_name()
     {
         $name = 'havn';
         $url = FootballApi::fixtures()->search('havn')->url->getPath();
@@ -109,7 +109,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_tv_stations_by_fixture_id ()
+    public function it_returns_tv_stations_by_fixture_id()
     {
         $fixtureId = 16808591;
         $url = FootballApi::fixtures($fixtureId)->tvStations()->url->getPath();
@@ -120,7 +120,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_predictions_by_fixture_id ()
+    public function it_returns_predictions_by_fixture_id()
     {
         $fixtureId = 16808591;
         $url = FootballApi::fixtures($fixtureId)->predictions()->url->getPath();
@@ -131,7 +131,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_bookmakers_by_fixture_id ()
+    public function it_returns_bookmakers_by_fixture_id()
     {
         $fixtureId = 16808591;
         $url = FootballApi::fixtures($fixtureId)->bookmakers()->url->getPath();
@@ -142,7 +142,7 @@ class FixturesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_commentaries_by_fixture_id ()
+    public function it_returns_commentaries_by_fixture_id()
     {
         $fixtureId = 16808591;
         $url = FootballApi::fixtures($fixtureId)->commentaries()->url->getPath();

@@ -12,7 +12,7 @@ class RegionsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_cities ()
+    public function it_returns_all_cities()
     {
         $url = FootballApi::regions()->all()->url->getPath();
         $this->assertEquals('/v3/core/regions', $url);
@@ -22,7 +22,7 @@ class RegionsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_region ()
+    public function it_returns_one_region()
     {
         $id = 367;
         $url = FootballApi::regions()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class RegionsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_regions_search ()
+    public function it_returns_regions_search()
     {
         $name = 'Br';
         $url = FootballApi::regions()->search($name)->url->getPath();

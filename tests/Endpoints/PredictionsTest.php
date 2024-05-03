@@ -12,7 +12,7 @@ class PredictionsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_probabilities ()
+    public function it_returns_all_probabilities()
     {
         $url = FootballApi::predictions()->probabilities()->url->getPath();
         $this->assertEquals('/v3/football/predictions/probabilities', $url);
@@ -22,7 +22,7 @@ class PredictionsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_predictions_by_league_id ()
+    public function it_returns_predictions_by_league_id()
     {
         $leagueId = 8;
         $url = FootballApi::predictions()->byLeagueId($leagueId)->url->getPath();
@@ -33,7 +33,7 @@ class PredictionsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_predictions_by_fixture_id ()
+    public function it_returns_predictions_by_fixture_id()
     {
         $fixtureId = 16774022;
         $url = FootballApi::predictions()->byFixtureId($fixtureId)->url->getPath();
@@ -44,7 +44,7 @@ class PredictionsTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_predictions_all_value_bets ()
+    public function it_returns_predictions_all_value_bets()
     {
         $url = FootballApi::predictions()->valueBets()->url->getPath();
         $this->assertEquals('/v3/football/predictions/value-bets', $url);

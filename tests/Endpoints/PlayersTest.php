@@ -12,7 +12,7 @@ class PlayersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_players ()
+    public function it_returns_all_players()
     {
         $url = FootballApi::players()->all()->url->getPath();
         $this->assertEquals('/v3/football/players', $url);
@@ -22,7 +22,7 @@ class PlayersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_player ()
+    public function it_returns_one_player()
     {
         $id = 14;
         $url = FootballApi::players()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class PlayersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_players_by_country_id ()
+    public function it_returns_players_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::players()->byCountryId($countryId)->url->getPath();
@@ -44,7 +44,7 @@ class PlayersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_players_search ()
+    public function it_returns_one_players_search()
     {
         $name = 'Agg';
         $url = FootballApi::players()->search($name)->url->getPath();
@@ -55,7 +55,7 @@ class PlayersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_last_updated_players ()
+    public function it_returns_last_updated_players()
     {
         $url = FootballApi::players()->latest()->url->getPath();
         $this->assertEquals('/v3/football/players/latest', $url);
@@ -65,7 +65,7 @@ class PlayersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_transfers_by_player_id ()
+    public function it_returns_transfers_by_player_id()
     {
         $playerId = 35659846;
         $url = FootballApi::players($playerId)->transfers()->url->getPath();

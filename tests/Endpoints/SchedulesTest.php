@@ -12,7 +12,7 @@ class SchedulesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_schedules_by_season_id ()
+    public function it_returns_all_schedules_by_season_id()
     {
         $seasonId = 19686;
         $url = FootballApi::schedules()->bySeasonId($seasonId)->url->getPath();
@@ -23,7 +23,7 @@ class SchedulesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_schedules_by_team_id ()
+    public function it_returns_all_schedules_by_team_id()
     {
         $teamId = 282;
         $url = FootballApi::schedules()->byTeamId($teamId)->url->getPath();
@@ -34,7 +34,7 @@ class SchedulesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_schedules_by_season_and_team_id ()
+    public function it_returns_all_schedules_by_season_and_team_id()
     {
         $seasonId = 19686;
         $teamId = 282;

@@ -12,7 +12,7 @@ class CountriesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_countries ()
+    public function it_returns_all_countries()
     {
         $url = FootballApi::countries()->all()->url->getPath();
         $this->assertEquals('/v3/core/countries', $url);
@@ -22,7 +22,7 @@ class CountriesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_country ()
+    public function it_returns_one_country()
     {
         $id = 2;
         $url = FootballApi::countries()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class CountriesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_countries_search ()
+    public function it_returns_countries_search()
     {
         $name = 'Pol';
         $url = FootballApi::countries()->search($name)->url->getPath();
@@ -44,7 +44,7 @@ class CountriesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_leagues_by_country_id ()
+    public function it_returns_leagues_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::countries($countryId)->leagues()->url->getPath();
@@ -55,7 +55,7 @@ class CountriesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_teams_by_country_id ()
+    public function it_returns_teams_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::countries($countryId)->teams()->url->getPath();
@@ -66,7 +66,7 @@ class CountriesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_players_by_country_id ()
+    public function it_returns_players_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::countries($countryId)->players()->url->getPath();
@@ -77,7 +77,7 @@ class CountriesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_coaches_by_country_id ()
+    public function it_returns_coaches_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::countries($countryId)->coaches()->url->getPath();
@@ -88,7 +88,7 @@ class CountriesTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_referees_by_country_id ()
+    public function it_returns_referees_by_country_id()
     {
         $countryId = 320;
         $url = FootballApi::countries($countryId)->referees()->url->getPath();

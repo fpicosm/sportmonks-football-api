@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class FootballApiServiceProvider extends ServiceProvider
 {
-    public function boot () : void
+    public function boot(): void
     {
         $configPath = __DIR__ . '/config';
 
@@ -17,7 +17,7 @@ class FootballApiServiceProvider extends ServiceProvider
         ], 'config');
     }
 
-    public function register () : void
+    public function register(): void
     {
         $this->app->singleton('football-api', function () {
             return new FootballApi();

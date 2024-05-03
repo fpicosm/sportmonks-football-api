@@ -6,7 +6,7 @@ use Sportmonks\FootballApi\FootballApiServiceProvider;
 
 class TestCase extends \Illuminate\Foundation\Testing\TestCase
 {
-    public function createApplication () : Application
+    public function createApplication(): Application
     {
         $app = require __DIR__ . '/../vendor/laravel/laravel/bootstrap/app.php';
         $app->register(FootballApiServiceProvider::class);
@@ -15,7 +15,7 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase
         return $app;
     }
 
-    protected function setUp () : void
+    protected function setUp(): void
     {
         parent::setUp();
         Config::set('football-api.token', '');

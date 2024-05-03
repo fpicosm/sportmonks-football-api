@@ -12,7 +12,7 @@ class BookmakersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_all_bookmakers ()
+    public function it_returns_all_bookmakers()
     {
         $url = FootballApi::bookmakers()->all()->url->getPath();
         $this->assertEquals('/v3/odds/bookmakers', $url);
@@ -22,7 +22,7 @@ class BookmakersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_one_bookmaker ()
+    public function it_returns_one_bookmaker()
     {
         $id = 1;
         $url = FootballApi::bookmakers()->byId($id)->url->getPath();
@@ -33,7 +33,7 @@ class BookmakersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_bookmakers_search ()
+    public function it_returns_bookmakers_search()
     {
         $name = '10Bet';
         $url = FootballApi::bookmakers()->search($name)->url->getPath();
@@ -44,7 +44,7 @@ class BookmakersTest extends TestCase
      * @test
      * @throws GuzzleException
      */
-    public function it_returns_bookmakers_by_fixture ()
+    public function it_returns_bookmakers_by_fixture()
     {
         $fixtureId = 18528479;
         $url = FootballApi::bookmakers()->byFixtureId($fixtureId)->url->getPath();
