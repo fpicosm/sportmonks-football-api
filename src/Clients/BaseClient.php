@@ -69,7 +69,7 @@ class BaseClient
                 'Authorization' => $this->apiToken,
             ],
             'query' => [
-                'tz' => config('football-api.timezone'),
+                'timezone' => config('football-api.timezone'),
                 ...$query,
             ],
             'on_stats' => function (TransferStats $stats) use (&$url) {
